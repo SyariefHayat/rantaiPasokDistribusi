@@ -6,7 +6,6 @@ import FooterSection from '@/components/modules/landing/FooterSection'
 import HeroSection from '@/components/modules/landing/HeroSection'
 import MarketplaceSection from '@/components/modules/landing/MarketplaceSection'
 import Navigation from '@/components/modules/landing/Navigation'
-import StatsSection from '@/components/modules/landing/StatSection'
 import React from 'react'
 
 const Landing = () => {
@@ -15,7 +14,6 @@ const Landing = () => {
             <Navigation />
             <HeroSection />
             <AboutUs />
-            <StatsSection />
             <FeatureSection />
             {/* <MarketplaceSection /> */}
             {/* <CTASection /> */}
