@@ -28,10 +28,6 @@ const AboutUs = () => {
                 </div>
                 <div className='w-[40%] self-end'>
                     <p className=" leading-snug lg:leading-[1.3] mb-5">Kami percaya teknologi adalah kunci masa depan pertanian. Misi kami adalah mempercepat akses pasar, pendanaan, dan solusi pintar untuk petani jagung dan pelaku agribisnis, guna meningkatkan hasil, efisiensi, dan pertumbuhan berkelanjutan.</p>
-                    <p className="flex items-center gap-3 text-gray-400 ">
-                        Lihat Lebih Detail
-                        <ArrowRight size={18}/>
-                    </p>
                 </div>
             </div>
         </section>
