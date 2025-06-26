@@ -15,9 +15,9 @@ const Landing = () => {
             <Navigation />
             <HeroSection />
             <AboutUs />
-            <FeatureSection />
-            <MarketplaceSection />
-            <BussinessSection />
+            {/* <FeatureSection /> */}
+            {/* <MarketplaceSection /> */}
+            {/* <BussinessSection /> */}
             {/* <CTASection /> */}
             {/* <FooterSection /> */}
         </DefaultLayout>
