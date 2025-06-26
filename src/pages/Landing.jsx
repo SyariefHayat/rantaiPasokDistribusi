@@ -1,4 +1,5 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout'
+import AboutUs from '@/components/modules/landing/AboutUs'
 import CTASection from '@/components/modules/landing/CTASection'
 import FeatureSection from '@/components/modules/landing/FeatureSection'
 import FooterSection from '@/components/modules/landing/FooterSection'
@@ -12,12 +13,13 @@ const Landing = () => {
     return (
         <DefaultLayout>
             <Navigation />
-            <HeroSection/>
-            <StatsSection />
-            <FeatureSection />
-            <MarketplaceSection />
-            <CTASection />
-            <FooterSection />
+            <HeroSection />
+            <AboutUs />
+            {/* <StatsSection /> */}
+            {/* <FeatureSection /> */}
+            {/* <MarketplaceSection /> */}
+            {/* <CTASection /> */}
+            {/* <FooterSection /> */}
         </DefaultLayout>
     )
 }
