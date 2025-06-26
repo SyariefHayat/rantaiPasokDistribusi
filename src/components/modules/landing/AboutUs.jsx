@@ -23,7 +23,7 @@ const AboutUs = () => {
             </dl>
 
             <div className="w-full h-full flex flex-col justify-between gap-3">
-                <div className="w-[80%] my-auto">
+                <div className="w-[60%] my-auto">
                     <p className="text-2xl leading-snug lg:leading-[1.3]">Di Rantai Pasok Distribusi, kami berkomitmen untuk mentransformasi dunia pertanian melalui pemanfaatan teknologi canggih dan wawasan berbasis data. Kami hadir untuk membantu petani dan pelaku agribisnis mengambil keputusan yang lebih cerdas, mengoptimalkan sumber daya, dan menerapkan praktik berkelanjutan demi kesuksesan jangka panjang.</p>
                 </div>
                 <div className='w-[40%] self-end'>
