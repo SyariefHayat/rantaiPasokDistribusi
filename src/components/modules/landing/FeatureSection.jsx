@@ -63,7 +63,7 @@ const FeatureSection = () => {
                         <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-0 bg-white">
                             <CardContent className="p-8">
                                 <div className="flex items-center space-x-4 mb-4">
-                                    <div className="w-12 h-12 bg-gray-300 rounded-lg flex items-center justify-center text-white">
+                                    <div className="w-12 h-12 bg-gray-400 rounded-lg flex items-center justify-center text-white">
                                         {feature.icon}
                                     </div>
                                     <h3 className="text-xl font-semibold text-gray-900">{feature.title}</h3>
