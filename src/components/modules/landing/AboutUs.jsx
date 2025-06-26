@@ -1,16 +1,15 @@
 import React from 'react'
-import { ArrowRight } from 'lucide-react'
 
 const AboutUs = () => {
     const stats = [
-        { id: 1, name: 'Transactions every 24 hours', value: '44 million' },
-        { id: 2, name: 'Assets under holding', value: '$119 trillion' },
-        { id: 3, name: 'New users annually', value: '46,000' },
-        { id: 4, name: 'New users annually', value: '46,000' },
+        { id: 1, name: 'Petani Jagung Terdaftar', value: '5,000+' },
+        { id: 2, name: 'Ton Jagung Terdistribusi', value: '25,000+' },
+        { id: 3, name: 'Kabupaten Terjangkau', value: '150+' },
+        { id: 4, name: 'Tingkat Kepuasan Petani', value: '98%' },
     ]
 
     return (
-        <section className="w-full h-screen flex flex-col gap-5 p-6 lg:p-8">
+        <section className="w-full h-screen flex flex-col mt-10 p-6 lg:p-8">
             <dl className="w-full flex justify-between">
                 {stats.map((stat) => (
                     <div key={stat.id} className="flex flex-col items-center">
