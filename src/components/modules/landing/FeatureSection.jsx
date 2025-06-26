@@ -11,7 +11,7 @@ import { LIST_FEATURES } from '@/constants/listFeatures';
 const FeatureSection = () => {
     return (
         <section className="w-full min-h-screen flex flex-col px-4 sm:px-6 lg:px-8 bg-gray-50 py-12">
-            <div className="max-w-2xl mb-10">
+            <div className="mx-auto text-center max-w-2xl mb-10">
                 <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
                     Solusi Lengkap untuk Bisnis Jagung Anda
                 </h2>
