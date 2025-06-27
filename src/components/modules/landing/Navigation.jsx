@@ -12,14 +12,12 @@ const Navigation = () => {
     const menuRef = useRef(null);
     const isAnimatingRef = useRef(false);
 
-    // Handle menu toggle with proper animation
     const toggleMenu = () => {
-        if (isAnimatingRef.current) return; // Prevent multiple animations
+        if (isAnimatingRef.current) return;
         
         isAnimatingRef.current = true;
         
         if (!isMenuOpen) {
-            // Opening menu
             setIsMenuOpen(true);
             gsap.fromTo(menuRef.current,
                 { 
@@ -38,7 +36,6 @@ const Navigation = () => {
                 }
             );
         } else {
-            // Closing menu
             gsap.to(menuRef.current,
                 { 
                     y: "-100%", 
@@ -54,14 +51,12 @@ const Navigation = () => {
         }
     };
 
-    // Handle menu item click
     const handleMenuItemClick = () => {
         if (isMenuOpen) {
             toggleMenu();
         }
     };
 
-    // Close menu when clicking outside (optional)
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (isMenuOpen && menuRef.current && !menuRef.current.contains(event.target)) {
@@ -78,7 +73,6 @@ const Navigation = () => {
         };
     }, [isMenuOpen]);
 
-    // Prevent body scroll when menu is open
     useEffect(() => {
         if (isMenuOpen) {
             document.body.style.overflow = 'hidden';
@@ -101,7 +95,6 @@ const Navigation = () => {
                     </h1>
                 </a>
 
-                {/* Desktop Navigation */}
                 <ul className="hidden lg:flex gap-6 xl:gap-10">
                     <EachUtils
                         of={LIST_NAVBAR}
@@ -116,7 +109,6 @@ const Navigation = () => {
                     />
                 </ul>
 
-                {/* Desktop Contact Button */}
                 <Button
                     variant="outline"
                     className="hidden lg:flex bg-transparent border-1 border-white rounded-full cursor-pointer"
@@ -127,7 +119,6 @@ const Navigation = () => {
                     </Link>
                 </Button>
 
-                {/* Mobile Menu Toggle */}
                 <button
                     onClick={toggleMenu}
                     className={`lg:hidden p-2 rounded-full hover:bg-white/10 transition-colors duration-200 z-50 ${
@@ -139,14 +130,12 @@ const Navigation = () => {
                 </button>
             </nav>
 
-            {/* Mobile Menu Overlay */}
             <div
                 ref={menuRef}
                 className={`fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-sm z-40 lg:hidden ${!isMenuOpen ? 'hidden' : ''}`}
                 style={{ transform: "translateY(-100%)", opacity: 0 }}
             >
                 <div className="flex flex-col h-full pt-20 px-6 overflow-y-auto">
-                    {/* Mobile Navigation Links */}
                     <ul className="flex-1 space-y-6">
                         <EachUtils
                             of={LIST_NAVBAR}
@@ -164,7 +153,6 @@ const Navigation = () => {
                         />
                     </ul>
 
-                    {/* Mobile Contact Button */}
                     <div className="pb-8">
                         <Button
                             variant="outline"

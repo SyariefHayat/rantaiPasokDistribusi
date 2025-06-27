@@ -1,85 +1,89 @@
-import { Button } from '@/components/ui/button'
-import { ArrowLeft, ArrowRight, Wheat } from 'lucide-react'
-import React from 'react'
+import React from 'react';
 
-const BusinessSection = () => {
+import {
+    Card,
+    CardContent,
+} from "@/components/ui/card"
+
+import EachUtils from '@/utils/EachUtils';
+import { LIST_FEATURES } from '@/constants/listFeatures';
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+
+const BussinessSection = () => {
     return (
-        <section className="w-full min-h-screen p-4 sm:p-6 lg:p-8 bg-gray-50">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10 h-full">
-                {/* Image Section */}
-                <div className="w-full lg:w-1/2 h-64 lg:h-[624px]">
-                    <img 
-                        src="./19.jpg" 
-                        alt="Business Innovation" 
-                        className="w-full h-full object-cover object-center rounded-xl shadow-lg" 
-                    />
+        <section className="w-full min-h-screen flex flex-col gap-10 px-4 sm:px-6 lg:px-8 bg-gray-50 py-12">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-8">
+                <div className="flex-1">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight leading-snug lg:leading-[1.3] text-gray-900">
+                        Solusi Lengkap untuk Bisnis Jagung Anda
+                    </h2>
                 </div>
-
-                {/* Content Section */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-between gap-8 lg:gap-12 h-full">
-                    {/* Navigation Buttons */}
-                    <div className="flex gap-3">
-                        <Button variant="outline" size="icon" className="rounded-full hover:bg-gray-100 transition-colors">
-                            <ArrowLeft className="w-4 h-4" />
-                        </Button>
-                        <Button variant="outline" size="icon" className="rounded-full hover:bg-gray-100 transition-colors">
-                            <ArrowRight className="w-4 h-4" />
-                        </Button>
-                    </div>
-
-                    {/* Main Content */}
-                    <div className="space-y-4">
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight lg:leading-[1.3] text-gray-900">
-                            Growing Innovation
-                        </h2>
-                        <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt vel beatae dicta hic, rerum eveniet recusandae blanditiis ut atque dolore?
-                        </p>
-                    </div>
-
-                    {/* Statistics Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div className="flex flex-col items-start space-y-3">
-                            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100">
-                                <Wheat className="w-6 h-6 text-gray-700" />
-                            </div>
-                            <p className="text-2xl font-bold text-gray-900">50%</p>
-                            <p className="text-sm text-gray-600 leading-relaxed">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                        
-                        <div className="flex flex-col items-start space-y-3">
-                            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100">
-                                <Wheat className="w-6 h-6 text-gray-700" />
-                            </div>
-                            <p className="text-2xl font-bold text-gray-900">50%</p>
-                            <p className="text-sm text-gray-600 leading-relaxed">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                        
-                        <div className="flex flex-col items-start space-y-3">
-                            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100">
-                                <Wheat className="w-6 h-6 text-gray-700" />
-                            </div>
-                            <p className="text-2xl font-bold text-gray-900">50%</p>
-                            <p className="text-sm text-gray-600 leading-relaxed">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Image Gallery */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div className="w-full h-32 bg-gradient-to-br from-gray-400 to-gray-600 rounded-lg shadow-md"></div>
-                        <div className="w-full h-32 bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg shadow-md"></div>
-                        <div className="w-full h-32 bg-gradient-to-br from-gray-400 to-gray-600 rounded-lg shadow-md"></div>
-                    </div>
+                <div className="flex-1 lg:max-w-lg">
+                    <p className="text-sm leading-relaxed lg:leading-[1.5] text-gray-600">
+                        Dari penanaman hingga distribusi, kami menyediakan ekosistem digital yang mendukung kesuksesan petani jagung
+                    </p>
                 </div>
             </div>
-        </section>
-    )
-}
 
-export default BusinessSection
+            <div className="block lg:hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <EachUtils 
+                        of={LIST_FEATURES}
+                        render={(item, index) => (
+                            <Card 
+                                key={index} 
+                                className="relative h-[300px] md:h-[350px] overflow-hidden group cursor-pointer"
+                            >
+                                <img 
+                                    src={`${item.image}`} 
+                                    alt={item.title}
+                                    loading="lazy"
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-0"></div>
+                                <CardContent className="p-6 h-full flex flex-col justify-end text-white relative z-10">
+                                    <h3 className="text-xl md:text-2xl font-semibold mb-3 drop-shadow-lg">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-sm md:text-base leading-relaxed drop-shadow-md opacity-90">
+                                        {item.description}
+                                    </p>
+                                </CardContent>
+                                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 hidden md:block"></div>
+                            </Card>
+                        )}
+                    />
+                </div>
+            </div>
+
+            <ScrollArea className="w-full h-full hidden lg:block">
+                <div className="flex gap-6 pb-4 min-w-max">
+                    <EachUtils 
+                        of={LIST_FEATURES}
+                        render={(item, index) => (
+                            <Card 
+                                key={index} 
+                                className="relative min-w-[300px] max-w-[350px] h-[450px] flex-shrink-0 bg-cover bg-center text-white overflow-hidden group"
+                            >
+                                <img 
+                                    src={`${item.image}`} 
+                                    alt={item.title}
+                                    loading="lazy"
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-0"></div>
+                                <CardContent className="relative p-5 h-full flex flex-col justify-end z-10">
+                                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                                    <p>{item.description}</p>
+                                </CardContent>
+                            </Card>
+                        )}
+                    />
+                </div>
+                <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+        </section>
+    );
+};
+
+export default BussinessSection;

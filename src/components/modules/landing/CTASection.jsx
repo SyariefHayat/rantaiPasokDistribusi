@@ -1,16 +1,11 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Users, Phone } from 'lucide-react';
 
 const CTASection = () => {
-    const handleGetStarted = () => {
-        // Handle navigation or action here
-        console.log('Navigate to get started');
-    };
-
     return (
-        <section className="w-full h-fit flex flex-col justify-center px-4 sm:px-6 lg:px-8 bg-gray-50 py-24 relative overflow-hidden">
-            {/* Background Image with Overlay */}
+        <section className="w-full h-fit flex flex-col justify-center px-4 sm:px-6 lg:px-8 bg-gray-50 py-12 sm:py-16 lg:py-24 relative overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <img 
                     src="/13.jpg" 
@@ -20,15 +15,14 @@ const CTASection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
             </div>
 
-            <div className="relative z-10 w-full text-white flex gap-5">
-                <div className="w-1/2">
-                    <h2 className="text-4xl mb-10 font-bold leading-tight">
+            <div className="relative z-10 w-full text-white flex flex-col lg:flex-row gap-5 lg:gap-5">
+                <div className="w-full lg:w-1/2">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-6 sm:mb-8 lg:mb-10 font-bold leading-tight">
                         Siap Bergabung dengan Komunitas Petani Jagung Sukses?
                     </h2>
                     <Button 
                         variant="outline" 
-                        className="bg-white text-black rounded-full cursor-pointer group hover:bg-transparent hover:text-white hover:border-white transition-all duration-300"
-                        onClick={handleGetStarted}
+                        className="bg-white text-black rounded-full cursor-pointer group hover:bg-transparent hover:text-white hover:border-white transition-all duration-300 w-auto"
                     >
                         <div className="flex items-center justify-between gap-2">
                             <span className="font-medium">Mulai Sekarang</span>
@@ -38,8 +32,8 @@ const CTASection = () => {
                         </div>
                     </Button>
                 </div>
-                <div className="w-1/2 self-end">
-                    <p className="text-lg leading-relaxed opacity-90">
+                <div className="w-full lg:w-1/2 lg:self-end">
+                    <p className="text-base sm:text-lg leading-relaxed opacity-90">
                         Mulai journey kesuksesan bisnis jagung Anda hari ini. Bergabunglah dengan ribuan petani yang telah merasakan manfaat platform kami. Gratis tanpa biaya tersembunyi.
                     </p>
                 </div>
