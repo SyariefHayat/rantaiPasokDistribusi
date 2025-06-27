@@ -6,8 +6,8 @@ import {
 } from "@/components/ui/card"
 
 import EachUtils from '@/utils/EachUtils';
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { LIST_FEATURES } from '@/constants/listFeatures';
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 
 const FeatureSection = () => {
     return (
