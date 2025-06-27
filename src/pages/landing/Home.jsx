@@ -1,18 +1,18 @@
 import React from 'react'
 
 import DefaultLayout from '@/components/layouts/DefaultLayout'
+import NavBar from '@/pages/landing/NavBar'
 import AboutUs from '@/components/modules/landing/AboutUs'
 import CTASection from '@/components/modules/landing/CTASection'
 import FooterSection from '@/components/modules/landing/FooterSection'
-import HeroSection from '@/components/modules/landing/HeroSection'
+import HeroSection from '@/pages/landing/HeroSection'
 import MarketplaceSection from '@/components/modules/landing/MarketplaceSection'
-import Navigation from '@/components/modules/landing/Navigation'
 import BussinessSection from '@/components/modules/landing/BussinessSection'
 
-const Landing = () => {
+const Home = () => {
     return (
         <DefaultLayout>
-            <Navigation />
+            <NavBar />
             <HeroSection />
             <AboutUs />
             <BussinessSection />
@@ -23,4 +23,4 @@ const Landing = () => {
     )
 }
 
-export default Landing
+export default Home

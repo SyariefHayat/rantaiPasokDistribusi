@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom'
 
 import './index.css'
+import Home from './pages/landing/Home'
 import Login from './pages/Login'
-import Landing from './pages/Landing'
 import AdminDashboard from './pages/AdminDashboard'
 import FarmerDashboard from './pages/FarmerDashboard'
 import SupplierDashboard from './pages/SupplierDashboard'
@@ -17,7 +17,7 @@ import DistributorDashboard from './pages/DistributorDashboard'
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Landing />
+        element: <Home />
     },
     {
         path: "/login",
