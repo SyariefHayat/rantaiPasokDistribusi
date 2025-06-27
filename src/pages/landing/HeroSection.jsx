@@ -9,7 +9,7 @@ const HeroSection = () => {
         <section className="relative w-full min-h-screen bg-[url(/23.jpg)] bg-center bg-cover flex items-end p-4 sm:p-6 lg:p-8 text-white">
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="h-[65%] sm:h-[60%] lg:h-[60%] w-full flex flex-col justify-between max-w-7xl mx-auto relative z-10 pb-4 sm:pb-0">
-                <div className="w-full lg:w-4/5 xl:w-3/4">
+                <div className="w-full lg:w-4/5 xl:w-3/4 mb-5 sm:mb-0">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-snug lg:leading-[1.3]">Menghubungkan petani jagung dengan teknologi cerdas dan solusi pendanaan berkelanjutan untuk masa depan pertanian yang lebih sejahtera.</h2>
                 </div>
 
