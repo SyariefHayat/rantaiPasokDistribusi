@@ -20,12 +20,12 @@ export const LIST_FEATURES = [
         description: "Sistem pembayaran aman dengan escrow dan asuransi untuk melindungi setiap transaksi jagung Anda"
     },
     {
-        image: "/17.jpg",
+        image: "/22.jpg",
         title: "Komunitas Petani",
         description: "Bergabung dengan forum diskusi, sharing tips budidaya jagung, dan networking dengan sesama petani"
     },
     {
-        image: "/16.jpg",
+        image: "/24.jpg",
         title: "Teknologi Smart Farming",
         description: "Akses ke tools monitoring cuaca, prediksi panen, dan konsultasi ahli pertanian jagung"
     }
