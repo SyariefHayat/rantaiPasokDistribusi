@@ -1,25 +1,41 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
     return (
-        <section className="py-20 bg-gradient-to-r from-green-600 to-yellow-600">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 className="text-4xl font-bold text-white mb-6">
-                    Siap Bergabung dengan Komunitas Petani Jagung Sukses?
-                </h2>
-                <p className="text-xl text-green-100 mb-8">
-                    Mulai journey kesuksesan bisnis jagung Anda hari ini. Gratis tanpa biaya tersembunyi.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 text-lg px-8 py-6">
-                        Daftar Sebagai Petani
-                        <ArrowRight className="w-5 h-5 ml-2" />
+        <section className="w-full h-fit flex flex-col justify-center px-4 sm:px-6 lg:px-8 bg-gray-50 py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+            <div className="absolute inset-0 z-0">
+                <img 
+                    src="/13.jpg" 
+                    alt="Petani Jagung"
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
+            </div>
+
+            <div className="relative z-10 w-full text-white flex flex-col lg:flex-row gap-5 lg:gap-5">
+                <div className="w-full lg:w-1/2">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-6 sm:mb-8 lg:mb-10 font-bold leading-tight">
+                        Siap Bergabung dengan Komunitas Petani Jagung Sukses?
+                    </h2>
+                    <Button 
+                        variant="outline" 
+                        className="bg-white text-black rounded-full cursor-pointer group hover:bg-transparent hover:text-white hover:border-white transition-all duration-300 w-auto"
+                    >
+                        <div className="flex items-center justify-between gap-2">
+                            <span className="font-medium">Mulai Sekarang</span>
+                            <span className="p-1 bg-black rounded-full group-hover:bg-white transition-all duration-300">
+                                <ArrowRight size={16} className="text-white group-hover:text-black transition-colors duration-300" />
+                            </span>
+                        </div>
                     </Button>
-                    <Button size="lg" variant="outline" className="border-white text-green-600 hover:bg-white hover:text-green-600 text-lg px-8 py-6">
-                        Hubungi Tim Kami
-                    </Button>
+                </div>
+                <div className="w-full lg:w-1/2 lg:self-end">
+                    <p className="text-base sm:text-lg leading-relaxed opacity-90">
+                        Mulai journey kesuksesan bisnis jagung Anda hari ini. Bergabunglah dengan ribuan petani yang telah merasakan manfaat platform kami. Gratis tanpa biaya tersembunyi.
+                    </p>
                 </div>
             </div>
         </section>

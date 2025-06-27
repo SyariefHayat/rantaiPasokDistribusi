@@ -8,9 +8,6 @@ const FooterSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
                         <div className="flex items-center space-x-2 mb-4">
-                            <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-yellow-600 rounded-lg flex items-center justify-center">
-                                <Wheat className="w-5 h-5 text-white" />
-                            </div>
                             <span className="text-xl font-bold">Rantai Pasok Distribusi</span>
                         </div>
                         <p className="text-gray-400 mb-4">

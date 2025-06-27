@@ -10,9 +10,9 @@ import './index.css'
 import Login from './pages/Login'
 import Landing from './pages/Landing'
 import AdminDashboard from './pages/AdminDashboard'
+import FarmerDashboard from './pages/FarmerDashboard'
 import SupplierDashboard from './pages/SupplierDashboard'
 import DistributorDashboard from './pages/DistributorDashboard'
-import FarmerDashboard from './pages/FarmerDashboard'
 
 const router = createBrowserRouter([
     {

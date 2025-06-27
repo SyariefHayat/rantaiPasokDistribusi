@@ -1,55 +1,173 @@
-import React, { useState } from 'react';
+import { gsap } from "gsap";
+import { Link } from 'react-router-dom';
+import { ArrowRight, Menu, X } from 'lucide-react';
+import React, { useRef, useState, useEffect } from 'react';
+
+import EachUtils from '@/utils/EachUtils';
 import { Button } from '@/components/ui/button';
-import { Package, Menu, X, Wheat } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { LIST_NAVBAR } from '@/constants/listNavbar';
 
 const Navigation = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navigate = useNavigate();
+    const menuRef = useRef(null);
+    const isAnimatingRef = useRef(false);
+
+    const toggleMenu = () => {
+        if (isAnimatingRef.current) return;
+        
+        isAnimatingRef.current = true;
+        
+        if (!isMenuOpen) {
+            setIsMenuOpen(true);
+            gsap.fromTo(menuRef.current,
+                { 
+                    y: "-100%", 
+                    opacity: 0,
+                    display: "block"
+                },
+                { 
+                    y: "0%", 
+                    opacity: 1, 
+                    duration: 0.5, 
+                    ease: "power2.out",
+                    onComplete: () => {
+                        isAnimatingRef.current = false;
+                    }
+                }
+            );
+        } else {
+            gsap.to(menuRef.current,
+                { 
+                    y: "-100%", 
+                    opacity: 0, 
+                    duration: 0.5, 
+                    ease: "power2.in",
+                    onComplete: () => {
+                        setIsMenuOpen(false);
+                        isAnimatingRef.current = false;
+                    }
+                }
+            );
+        }
+    };
+
+    const handleMenuItemClick = () => {
+        if (isMenuOpen) {
+            toggleMenu();
+        }
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (isMenuOpen && menuRef.current && !menuRef.current.contains(event.target)) {
+                const toggleButton = event.target.closest('[aria-label="Toggle menu"]');
+                if (!toggleButton) {
+                    toggleMenu();
+                }
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMenuOpen]);
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen]);
 
     return (
-        <nav className="bg-white/95 backdrop-blur-sm border-b sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center py-4">
-                    <div className="flex items-center space-x-2">
-                        <div className="w-10 h-10 bg-gradient-to-r from-green-600 to-yellow-600 rounded-lg flex items-center justify-center">
-                            <Wheat className="w-6 h-6 text-white" />
-                        </div>
-                        <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-yellow-600 bg-clip-text text-transparent">
-                            Rantai Pasok Distribusi
-                        </span>
+        <header className="w-full p-6 lg:px-8 absolute z-10 text-white">
+            <nav className="flex items-center justify-between">
+                <a href="/" className="flex-shrink-0 mt-1">
+                    <h1 className="text-lg sm:text-xl lg:text-2xl whitespace-nowrap">
+                        <span className="hidden sm:inline">Rantai Pasok Distribusi</span>
+                        <span className="sm:hidden">RPD</span>
+                    </h1>
+                </a>
+
+                <ul className="hidden lg:flex gap-6 xl:gap-10">
+                    <EachUtils
+                        of={LIST_NAVBAR}
+                        render={(item, index) => (
+                            <li key={index}>
+                                <a href={item.url} className="relative cursor-pointer group inline-block overflow-hidden">
+                                    {item.title}
+                                    <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
+                                </a>
+                            </li>
+                        )}
+                    />
+                </ul>
+
+                <Button
+                    variant="outline"
+                    className="hidden lg:flex bg-transparent border-1 border-white rounded-full cursor-pointer"
+                >
+                    <Link to="/contact-us" className="flex items-center gap-2">
+                        <span className="whitespace-nowrap">Hubungi Kami</span>
+                        <ArrowRight size={16} />
+                    </Link>
+                </Button>
+
+                <button
+                    onClick={toggleMenu}
+                    className={`lg:hidden p-2 rounded-full hover:bg-white/10 transition-colors duration-200 z-50 ${
+                        isMenuOpen ? 'fixed top-6 right-6' : 'relative'
+                    }`}
+                    aria-label="Toggle menu"
+                >
+                    {isMenuOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
+                </button>
+            </nav>
+
+            <div
+                ref={menuRef}
+                className={`fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-sm z-40 lg:hidden ${!isMenuOpen ? 'hidden' : ''}`}
+                style={{ transform: "translateY(-100%)", opacity: 0 }}
+            >
+                <div className="flex flex-col h-full pt-20 px-6 overflow-y-auto">
+                    <ul className="flex-1 space-y-6">
+                        <EachUtils
+                            of={LIST_NAVBAR}
+                            render={(item, index) => (
+                                <li key={index}>
+                                    <a 
+                                        href={item.url} 
+                                        onClick={handleMenuItemClick}
+                                        className="block text-2xl text-white hover:text-gray-300 transition-colors duration-200 py-2"
+                                    >
+                                        {item.title}
+                                    </a>
+                                </li>
+                            )}
+                        />
+                    </ul>
+
+                    <div className="pb-8">
+                        <Button
+                            variant="outline"
+                            className="w-full bg-transparent border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition-all duration-300"
+                            onClick={handleMenuItemClick}
+                        >
+                            <Link to="/contact-us" className="flex items-center justify-center gap-2 w-full">
+                                <span>Hubungi Kami</span>
+                                <ArrowRight size={16} />
+                            </Link>
+                        </Button>
                     </div>
-                    
-                    <div className="hidden md:flex items-center space-x-8">
-                        <a href="#features" className="text-gray-600 hover:text-green-600 transition-colors">Layanan</a>
-                        <a href="#marketplace" className="text-gray-600 hover:text-green-600 transition-colors">Marketplace</a>
-                        <a href="#stats" className="text-gray-600 hover:text-green-600 transition-colors">Komunitas</a>
-                        <Button variant="outline" className="cursor-pointer" onClick={() => navigate("/login")}>Masuk</Button>
-                        <Button className="bg-green-600 hover:bg-green-700">Daftar Sekarang</Button>
-                    </div>
-                    
-                    <button 
-                        className="md:hidden"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                    </button>
                 </div>
-                
-                {/* Mobile Menu */}
-                {isMenuOpen && (
-                    <div className="md:hidden py-4 border-t">
-                        <div className="flex flex-col space-y-4">
-                            <a href="#features" className="text-gray-600 hover:text-green-600">Layanan</a>
-                            <a href="#marketplace" className="text-gray-600 hover:text-green-600">Marketplace</a>
-                            <a href="#stats" className="text-gray-600 hover:text-green-600">Komunitas</a>
-                            <Button variant="outline" onClick={() => navigate("/login")} className="w-full">Masuk</Button>
-                            <Button className="w-full bg-green-600 hover:bg-green-700">Daftar Sekarang</Button>
-                        </div>
-                    </div>
-                )}
             </div>
-        </nav>
+        </header>
     );
 };
 
