@@ -18,7 +18,7 @@ const Landing = () => {
             <FeatureSection />
             <MarketplaceSection />
             <BussinessSection />
-            {/* <CTASection /> */}
+            <CTASection />
             {/* <FooterSection /> */}
         </DefaultLayout>
     )
