@@ -8,7 +8,7 @@ import {
 
 import './index.css'
 import Home from './pages/landing/Home'
-import Login from './pages/Login'
+import Login from './pages/auth/Login'
 import AdminDashboard from './pages/AdminDashboard'
 import FarmerDashboard from './pages/FarmerDashboard'
 import SupplierDashboard from './pages/SupplierDashboard'

@@ -1,14 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { useMediaQuery } from 'react-responsive';
 
 import { Button } from '@/components/ui/button';
-import AnimatedContent from '@/components/modules/Animation/AnimatedContent';
 
 const HeroSection = () => {
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
-
     return (
         <section className="relative w-full min-h-screen bg-[url(/23.jpg)] bg-center bg-cover flex items-end p-4 sm:p-6 lg:p-8 text-white">
             <div className="absolute inset-0 bg-black/40"></div>
@@ -19,7 +15,7 @@ const HeroSection = () => {
 
                 <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 lg:mt-8">
                     <Button variant="outline" className="bg-white text-black rounded-full cursor-pointer group hover:bg-transparent hover:text-white">
-                        <Link to="/get-started" className="flex items-center justify-between gap-2">
+                        <Link to="/login" className="flex items-center justify-between gap-2">
                             <span>Mulai Sekarang</span>
                             <span className="p-1 bg-black rounded-full group-hover:bg-white transition-all">
                                 <ArrowRight size={16} className="text-white group-hover:text-black" />

@@ -6,7 +6,6 @@ import EachUtils from '@/utils/EachUtils';
 import { Button } from '@/components/ui/button';
 import { LIST_NAVBAR } from '@/constants/listNavbar';
 import AccountMobile from '@/components/modules/landing/NavMobile';
-import AnimatedContent from '@/components/modules/Animation/AnimatedContent';
 
 const NavBar = () => {
     return (

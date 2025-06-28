@@ -1,13 +1,6 @@
 import React from 'react'
-import { useMediaQuery } from 'react-responsive';
-
-import CountUp from '@/components/modules/Animation/CountUp'
-import SplitText from '@/components/modules/Animation/SplitText'
-import ScrollReveal from '@/components/modules/Animation/ScrollReveal'
 
 const AboutUs = () => {
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
-
     const stats = [
         { id: 1, name: 'Petani Jagung Terdaftar', value: "5000+", suffix: '+' },
         { id: 2, name: 'Ton Jagung Terdistribusi', value: "25000+", suffix: '+' },

@@ -4,10 +4,10 @@ import DefaultLayout from '@/components/layouts/DefaultLayout'
 import NavBar from '@/pages/landing/NavBar'
 import HeroSection from '@/pages/landing/HeroSection'
 import AboutUs from '@/pages/landing/AboutUs'
+import BussinessSection from '@/pages/landing/BussinessSection'
+import MarketplaceSection from '@/pages/landing/MarketplaceSection'
 import CTASection from '@/pages/landing/CTASection'
 import FooterSection from '@/pages/landing/FooterSection'
-import MarketplaceSection from '@/pages/landing/MarketplaceSection'
-import BussinessSection from '@/pages/landing/BussinessSection'
 
 const Home = () => {
     return (

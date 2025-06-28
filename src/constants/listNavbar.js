@@ -5,14 +5,14 @@ export const LIST_NAVBAR = [
     },
     {
         title: "Tentang Kami",
-        url: "/about-us"
+        url: "#about-us"
     },
     {
         title: "Bisnis",
-        url: "/bisnis"
+        url: "#bisnis"
     },
     {
         title: "Marketplace",
-        url: "/marketplace"
+        url: "#marketplace"
     }
 ]

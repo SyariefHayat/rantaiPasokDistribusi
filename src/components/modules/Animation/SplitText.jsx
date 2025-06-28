@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import { useRef, useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText as GSAPSplitText } from "gsap/SplitText";
 
