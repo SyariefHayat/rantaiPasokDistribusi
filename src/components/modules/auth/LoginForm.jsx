@@ -58,7 +58,7 @@ function LoginForm({ className, ...props }) {
                         </div>
                         <div className="mt-4 text-center text-sm">
                             Belum memiliki akun?{" "}
-                            <a href="#" className="underline underline-offset-4">
+                            <a href="/signup" className="underline underline-offset-4">
                                 Daftar
                             </a>
                         </div>

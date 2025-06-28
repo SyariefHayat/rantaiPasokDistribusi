@@ -13,6 +13,8 @@ import AdminDashboard from './pages/AdminDashboard'
 import FarmerDashboard from './pages/FarmerDashboard'
 import SupplierDashboard from './pages/SupplierDashboard'
 import DistributorDashboard from './pages/DistributorDashboard'
+import SignUp from './pages/auth/SignUp'
+import VerifyOtp from './pages/auth/VerifyOtp'
 
 const router = createBrowserRouter([
     {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <Login />
+    },
+    {
+        path: "/signup",
+        element: <SignUp />
+    },
+    {
+        path: "/verify-otp",
+        element: <VerifyOtp />
     },
     {
         path: "/admin",
