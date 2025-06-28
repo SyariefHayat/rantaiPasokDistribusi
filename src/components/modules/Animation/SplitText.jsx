@@ -30,9 +30,9 @@ const SplitText = ({
         if (absoluteLines) el.style.position = "relative";
 
         const splitter = new GSAPSplitText(el, {
-        type: splitType,
-        absolute: absoluteLines,
-        linesClass: "split-line",
+            type: splitType,
+            absolute: absoluteLines,
+            linesClass: "split-line",
         });
 
         let targets;
@@ -51,7 +51,7 @@ const SplitText = ({
         }
 
         targets.forEach((t) => {
-        t.style.willChange = "transform, opacity";
+            t.style.willChange = "transform, opacity";
         });
 
         const startPct = (1 - threshold) * 100;
@@ -61,38 +61,38 @@ const SplitText = ({
         const start = `top ${startPct}%${sign}`;
 
         const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: el,
-            start: "top 98%",
-            toggleActions: "play none none none",
-            once: true,
-        },
-        smoothChildTiming: true,
-        onComplete: () => {
-            animationCompletedRef.current = true;
-            gsap.set(targets, {
-            ...to,
-            clearProps: "willChange",
-            immediateRender: true,
-            });
-            onLetterAnimationComplete?.();
-        },
+            scrollTrigger: {
+                trigger: el,
+                start: "top 98%",
+                toggleActions: "play none none none",
+                once: true,
+            },
+            smoothChildTiming: true,
+            onComplete: () => {
+                animationCompletedRef.current = true;
+                gsap.set(targets, {
+                ...to,
+                clearProps: "willChange",
+                immediateRender: true,
+                });
+                onLetterAnimationComplete?.();
+            },
         });
 
         tl.set(targets, { ...from, immediateRender: false, force3D: true });
         tl.to(targets, {
-        ...to,
-        duration,
-        ease,
-        stagger: delay / 1000,
-        force3D: true,
+            ...to,
+            duration,
+            ease,
+            stagger: delay / 1000,
+            force3D: true,
         });
 
         return () => {
-        tl.kill();
-        ScrollTrigger.getAll().forEach((t) => t.kill());
-        gsap.killTweensOf(targets);
-        splitter.revert();
+            tl.kill();
+            ScrollTrigger.getAll().forEach((t) => t.kill());
+            gsap.killTweensOf(targets);
+            splitter.revert();
         };
     }, [
         text,

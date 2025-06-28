@@ -9,10 +9,10 @@ const AboutUs = () => {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
 
     const stats = [
-        { id: 1, name: 'Petani Jagung Terdaftar', value: 5000, suffix: '+' },
-        { id: 2, name: 'Ton Jagung Terdistribusi', value: 25000, suffix: '+' },
-        { id: 3, name: 'Kabupaten Terjangkau', value: 150, suffix: '+' },
-        { id: 4, name: 'Tingkat Kepuasan Petani', value: 98, suffix: '%' },
+        { id: 1, name: 'Petani Jagung Terdaftar', value: "5000+", suffix: '+' },
+        { id: 2, name: 'Ton Jagung Terdistribusi', value: "25000+", suffix: '+' },
+        { id: 3, name: 'Kabupaten Terjangkau', value: "150+", suffix: '+' },
+        { id: 4, name: 'Tingkat Kepuasan Petani', value: "98%", suffix: '%' },
     ]
 
     return (
@@ -21,47 +21,18 @@ const AboutUs = () => {
                 {stats.map((stat) => (
                     <div key={stat.id} className="flex flex-col items-center text-center">
                         <dt className="text-sm sm:text-base text-gray-600 mb-2">{stat.name}</dt>
-                        <CountUp
-                            from={0}
-                            to={stat.value}
-                            suffix={stat.suffix}
-                            separator=","
-                            direction="up"
-                            duration={1}
-                            className="order-first text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-gray-900 mb-2"
-                        />
+                        <dd className="order-first text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-gray-900 mb-2">{stat.value}</dd>
                     </div>
                 ))}
             </dl>
 
             <div className="w-full h-full flex flex-col justify-center gap-8 lg:gap-0">
                 <div className="w-full max-w-4xl mx-auto lg:mx-0">
-                    <ScrollReveal
-                        baseOpacity={0}
-                        enableBlur={false}
-                        baseRotation={0}
-                        blurStrength={4}
-                        textClassName = "text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-light leading-relaxed lg:leading-[1.4] text-gray-900"
-                    >
-                        Di Rantai Pasok Distribusi, kami berkomitmen untuk mentransformasi dunia pertanian melalui pemanfaatan teknologi canggih dan wawasan berbasis data. Kami hadir untuk membantu petani dan pelaku agribisnis mengambil keputusan yang lebih cerdas, mengoptimalkan sumber daya, dan menerapkan praktik berkelanjutan demi kesuksesan jangka panjang.
-                    </ScrollReveal>
+                    <h2 className="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-light leading-relaxed lg:leading-[1.4] text-gray-900">Di Rantai Pasok Distribusi, kami berkomitmen untuk mentransformasi dunia pertanian melalui pemanfaatan teknologi canggih dan wawasan berbasis data. Kami hadir untuk membantu petani dan pelaku agribisnis mengambil keputusan yang lebih cerdas, mengoptimalkan sumber daya, dan menerapkan praktik berkelanjutan demi kesuksesan jangka panjang.</h2>
                 </div>
                 
                 <div className='w-full max-w-2xl lg:max-w-lg ml-auto'>
-                    <SplitText
-                        text="Kami percaya teknologi adalah kunci masa depan pertanian. Misi kami adalah mempercepat akses pasar, pendanaan, dan solusi pintar untuk petani jagung dan pelaku agribisnis, guna meningkatkan hasil, efisiensi, dan pertumbuhan berkelanjutan."
-                        className="text-sm leading-relaxed lg:leading-[1.5] text-gray-700"
-                        delay={isDesktop ? 150 : 100}
-                        duration={1}
-                        ease="power3.out"
-                        splitType={isDesktop ? "lines" : "words"}
-                        from={{ opacity: 0, y: 40 }}
-                        to={{ opacity: 1, y: 0 }}
-                        threshold={0.1}
-                        rootMargin="-100px"
-                        textAlign={"left"}
-
-                    />
+                    <p className="text-sm leading-relaxed lg:leading-[1.5] text-gray-700">Kami percaya teknologi adalah kunci masa depan pertanian. Misi kami adalah mempercepat akses pasar, pendanaan, dan solusi pintar untuk petani jagung dan pelaku agribisnis, guna meningkatkan hasil, efisiensi, dan pertumbuhan berkelanjutan.</p>
                 </div>
             </div>
         </section>
