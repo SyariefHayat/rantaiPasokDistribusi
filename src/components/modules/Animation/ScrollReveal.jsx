@@ -60,7 +60,7 @@ const ScrollReveal = ({
     }, [scrollContainerRef, blurStrength, blurAnimationEnd]);
 
     return (
-        <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
+        <h2 ref={containerRef} className={`${containerClassName}`}>
             <p className={`${textClassName}`}>
                 {splitText}
             </p>

@@ -63,7 +63,7 @@ const SplitText = ({
         const tl = gsap.timeline({
         scrollTrigger: {
             trigger: el,
-            start: "top 90%",
+            start: "top 98%",
             toggleActions: "play none none none",
             once: true,
         },
