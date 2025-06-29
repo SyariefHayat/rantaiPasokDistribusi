@@ -51,7 +51,7 @@ const SignUp = () => {
         try {
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500));
-            navigate("/verify-otp");
+            navigate("/signup/verify-otp");
         } catch (err) {
             setError('Terjadi kesalahan. Silakan coba lagi.');
         } finally {
@@ -63,12 +63,17 @@ const SignUp = () => {
 
     return (
         <DefaultLayout>
-            <section className="bg-gray-100 w-full min-h-screen">
+            <div className="bg-gray-100 w-full min-h-screen">
                 <Navbar />
-                <div className="min-h-screen flex items-center justify-center px-4 pt-20 my-5">
+                <div className="min-h-screen flex items-center justify-center px-4 pt-20 pb-5 mt-5">
                     <div className="w-full max-w-lg">
                         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
                             <div className="text-center mb-8">
+                                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
                                 <h1 className="text-2xl font-bold text-gray-900 mb-2">
                                     Mulai Keanggotaan Anda
                                 </h1>
@@ -162,7 +167,7 @@ const SignUp = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </DefaultLayout>
     )
 }

@@ -9,11 +9,15 @@ import {
     InputOTPSeparator,
     InputOTPSlot,
 } from "@/components/ui/input-otp"
+import { useNavigate } from 'react-router-dom'
 
 const VerifyOtp = () => {
     const [otp, setOtp] = useState("")
     const [timeLeft, setTimeLeft] = useState(60) // 5 minutes
     const [canResend, setCanResend] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (timeLeft > 0) {
@@ -30,11 +34,21 @@ const VerifyOtp = () => {
         return `${mins}:${secs.toString().padStart(2, '0')}`
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        if (otp.length === 6) {
-            // Handle OTP verification logic here
-            console.log("OTP:", otp)
+        setIsLoading(true)
+        
+        try {
+            if (otp.length === 6) {
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                // Handle OTP verification logic here
+                navigate("/signup/profile-setup")
+            }
+        } catch (error) {
+            console.error("Error verifying OTP:", error)
+            // Handle error (e.g., show notification)
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -48,7 +62,7 @@ const VerifyOtp = () => {
     return (
         <DefaultLayout>
             <Navbar />
-            <div className="min-h-screen flex items-center justify-center px-4 pt-20 my-5">
+            <div className="min-h-screen flex items-center justify-center px-4 pt-20 pb-5 mt-5 bg-gray-100">
                 <div className="w-full max-w-md">
                     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
                         <div className="text-center mb-8">
@@ -131,10 +145,22 @@ const VerifyOtp = () => {
 
                             <button
                                 type="submit"
-                                disabled={otp.length !== 6}
-                                className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:shadow-none"
+                                disabled={otp.length !== 6 || isLoading}
+                                className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center cursor-pointer"
                             >
-                                {otp.length === 6 ? 'Verifikasi Kode' : `Masukkan ${6 - otp.length} digit lagi`}
+                                {isLoading ? (
+                                        <>
+                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
+                                            Memproses...
+                                        </>
+                                    ) : (
+                                        <>
+                                            {otp.length === 6 ? 'Verifikasi Kode' : `Masukkan ${6 - otp.length} digit lagi`}
+                                        </>
+                                    )}
                             </button>
                         </form>
 

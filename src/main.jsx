@@ -15,6 +15,7 @@ import SupplierDashboard from './pages/SupplierDashboard'
 import DistributorDashboard from './pages/DistributorDashboard'
 import SignUp from './pages/auth/SignUp'
 import VerifyOtp from './pages/auth/VerifyOtp'
+import ProfileSetup from './pages/auth/ProfileSetup'
 
 const router = createBrowserRouter([
     {
@@ -30,8 +31,12 @@ const router = createBrowserRouter([
         element: <SignUp />
     },
     {
-        path: "/verify-otp",
+        path: "/signup/verify-otp",
         element: <VerifyOtp />
+    },
+    {
+        path: "/signup/profile-setup",
+        element: <ProfileSetup />
     },
     {
         path: "/admin",
