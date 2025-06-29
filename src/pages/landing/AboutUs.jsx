@@ -2,8 +2,8 @@ import React from 'react'
 
 const AboutUs = () => {
     const stats = [
-        { id: 1, name: 'Petani Jagung Terdaftar', value: "5000+", suffix: '+' },
-        { id: 2, name: 'Ton Jagung Terdistribusi', value: "25000+", suffix: '+' },
+        { id: 1, name: 'Petani Jagung Terdaftar', value: "5,000+", suffix: '+' },
+        { id: 2, name: 'Ton Jagung Terdistribusi', value: "25,000+", suffix: '+' },
         { id: 3, name: 'Kabupaten Terjangkau', value: "150+", suffix: '+' },
         { id: 4, name: 'Tingkat Kepuasan Petani', value: "98%", suffix: '%' },
     ]
