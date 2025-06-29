@@ -16,6 +16,7 @@ import DistributorDashboard from './pages/DistributorDashboard'
 import SignUp from './pages/auth/SignUp'
 import VerifyOtp from './pages/auth/VerifyOtp'
 import ProfileSetup from './pages/auth/ProfileSetup'
+import Mall from './pages/landing/Mall'
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
     {
         path: "/signup/profile-setup",
         element: <ProfileSetup />
+    },
+    {
+        path: "/mall",
+        element: <Mall />
     },
     {
         path: "/admin",

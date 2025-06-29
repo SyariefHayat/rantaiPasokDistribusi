@@ -76,7 +76,7 @@ const ProfileSetup = () => {
             // Handle profile setup logic here
             console.log('Profile data:', formData)
             // Navigate to next step or dashboard
-            navigate("/dashboard")
+            navigate("/mall")
         } catch (error) {
             console.error("Error setting up profile:", error)
             // Handle error (e.g., show notification)
