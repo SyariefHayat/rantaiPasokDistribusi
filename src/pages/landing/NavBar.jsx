@@ -35,7 +35,7 @@ const NavBar = () => {
                     variant="outline"
                     className="hidden lg:flex bg-transparent border-1 border-white rounded-full cursor-pointer"
                 >
-                    <Link to="/contact-us" className="flex items-center gap-2">
+                    <Link to="/" className="flex items-center gap-2">
                         <span className="whitespace-nowrap">Hubungi Kami</span>
                         <ArrowRight size={16} />
                     </Link>
