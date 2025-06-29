@@ -10,15 +10,16 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover"
+
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 import Navbar from '@/components/modules/auth/Navbar'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 
@@ -76,7 +77,7 @@ const ProfileSetup = () => {
             // Handle profile setup logic here
             console.log('Profile data:', formData)
             // Navigate to next step or dashboard
-            navigate("/mall")
+            navigate("/signup/success")
         } catch (error) {
             console.error("Error setting up profile:", error)
             // Handle error (e.g., show notification)

@@ -1,5 +1,12 @@
-import { Facebook, Instagram, Mail, Package, Phone, Twitter, Wheat } from 'lucide-react'
 import React from 'react'
+
+import { 
+    Facebook, 
+    Instagram, 
+    Mail, 
+    Phone, 
+    Twitter, 
+} from 'lucide-react'
 
 const FooterSection = () => {
     return (

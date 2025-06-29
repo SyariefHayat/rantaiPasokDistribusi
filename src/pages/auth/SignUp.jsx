@@ -1,8 +1,9 @@
-import DefaultLayout from '@/components/layouts/DefaultLayout'
-import Navbar from '@/components/modules/auth/Navbar'
-import { Input } from '@/components/ui/input'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import { Input } from '@/components/ui/input'
+import Navbar from '@/components/modules/auth/Navbar'
+import DefaultLayout from '@/components/layouts/DefaultLayout'
 
 const SignUp = () => {
     const navigate = useNavigate();

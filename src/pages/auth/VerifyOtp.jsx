@@ -1,7 +1,5 @@
+import { useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-
-import Navbar from '@/components/modules/auth/Navbar'
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 
 import {
     InputOTP,
@@ -9,7 +7,9 @@ import {
     InputOTPSeparator,
     InputOTPSlot,
 } from "@/components/ui/input-otp"
-import { useNavigate } from 'react-router-dom'
+
+import Navbar from '@/components/modules/auth/Navbar'
+import DefaultLayout from '@/components/layouts/DefaultLayout'
 
 const VerifyOtp = () => {
     const [otp, setOtp] = useState("")

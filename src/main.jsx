@@ -17,6 +17,8 @@ import SignUp from './pages/auth/SignUp'
 import VerifyOtp from './pages/auth/VerifyOtp'
 import ProfileSetup from './pages/auth/ProfileSetup'
 import Mall from './pages/landing/Mall'
+import Success from './pages/auth/Success'
+import Profile from './pages/landing/Profile'
 
 const router = createBrowserRouter([
     {
@@ -40,8 +42,16 @@ const router = createBrowserRouter([
         element: <ProfileSetup />
     },
     {
+        path: "/signup/success",
+        element: <Success />
+    },
+    {
         path: "/mall",
         element: <Mall />
+    },
+    {
+        path: "/profile",
+        element: <Profile />
     },
     {
         path: "/admin",
