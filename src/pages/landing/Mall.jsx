@@ -1,17 +1,18 @@
 import React from 'react'
-import Navbar from '@/components/modules/mall/Navbar'
-import DefaultLayout from '@/components/layouts/DefaultLayout'
-import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
+import Navbar from '@/components/modules/mall/Navbar'
+import MallLayout from '@/components/layouts/MallLayout'
+import CarouselComp from '@/components/modules/mall/CarouselComp'
 
 const Mall = () => {
     return (
-        <DefaultLayout>
+        <MallLayout>
             <Navbar />
-            <div className="w-full h-full px-5">
-                <div className="w-full h-[400px] bg-gray-300 rounded-md"></div>
-            </div>
-            <div className="w-full h-full p-5">
+            <CarouselComp />
+
+            <div className="w-full h-full">
                 <div className="flex items-center justify-between mb-5">
                     <p className="text-xl">Kategori Terpopuler</p>
                     <Button className="rounded-full relative">
@@ -30,7 +31,7 @@ const Mall = () => {
                 </div>
             </div>
             <div className=""></div>
-        </DefaultLayout>
+        </MallLayout>
     )
 }
 
