@@ -30,8 +30,8 @@ function LoginForm() {
             await new Promise(resolve => setTimeout(resolve, 1500))
             // Handle login logic here
             console.log('Login data:', formData)
-            // Navigate to dashboard or mall
-            navigate("/mall")
+            // Navigate to dashboard or mart
+            navigate("/mart")
         } catch (error) {
             console.error("Error logging in:", error)
             // Handle error (e.g., show notification)
@@ -45,7 +45,7 @@ function LoginForm() {
         try {
             // Handle Google login logic here
             await new Promise(resolve => setTimeout(resolve, 1000))
-            navigate("/mall")
+            navigate("/mart")
         } catch (error) {
             console.error("Error with Google login:", error)
         } finally {

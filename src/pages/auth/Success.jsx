@@ -5,7 +5,7 @@ import Navbar from '@/components/modules/auth/Navbar'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 
 const Success = () => {
-    const [countdown, setCountdown] = useState(10) // 10 seconds countdown
+    const [countdown, setCountdown] = useState(10)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -13,7 +13,7 @@ const Success = () => {
             setCountdown((prev) => {
                 if (prev <= 1) {
                     clearInterval(timer)
-                    navigate('/mall')
+                    navigate('/mart')
                     return 0
                 }
                 return prev - 1
@@ -24,7 +24,7 @@ const Success = () => {
     }, [navigate])
 
     const handleRedirectNow = () => {
-        navigate('/mall')
+        navigate('/mart')
     }
 
     return (
@@ -57,7 +57,7 @@ const Success = () => {
                                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                     </svg>
-                                    Lanjutkan ke Mall Sekarang
+                                    Lanjutkan ke Mart Sekarang
                                 </button>
                                 
                                 <button
@@ -77,7 +77,7 @@ const Success = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                     <p className="text-green-700 text-xs font-medium">
-                                        Diarahkan ke Mall dalam
+                                        Diarahkan ke Mart dalam
                                     </p>
                                     <span className="inline-flex items-center justify-center w-6 h-6 bg-green-600 text-white font-bold text-sm rounded-full">
                                         {countdown}
