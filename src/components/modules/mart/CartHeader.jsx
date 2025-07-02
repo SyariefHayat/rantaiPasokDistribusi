@@ -10,7 +10,7 @@ const CartHeader = () => {
                 </button>
                 <h1 className="text-xl font-semibold">Keranjang</h1>
             </div>
-            <button className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+            <button className="flex items-center gap-2 text-blue-600 hover:text-blue-700 cursor-pointer">
                 <MapPin className="w-4 h-4" />
                 <span className="text-sm">Pilih alamat untuk pengiriman</span>
             </button>

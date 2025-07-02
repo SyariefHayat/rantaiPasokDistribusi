@@ -63,7 +63,7 @@ const CartItem = ({
                     </span>
                     <button
                         onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                        className="w-8 h-8 bg-yellow-400 border border-yellow-400 rounded-full flex items-center justify-center hover:bg-yellow-500 cursor-pointer"
+                        className="w-8 h-8 text-white bg-yellow-400 border border-yellow-400 rounded-full flex items-center justify-center hover:bg-yellow-500 cursor-pointer"
                     >
                         <Plus className="w-4 h-4" />
                     </button>
