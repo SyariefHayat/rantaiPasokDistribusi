@@ -1,12 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import EachUtils from '@/utils/EachUtils'
 import { Button } from '@/components/ui/button'
 import { LIST_FEATURED_CATEGORY } from '@/constants/listFeaturedCategory'
 
 const FeaturedCategory = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="w-full h-full">
             <div className="flex items-center justify-between mb-5">
@@ -26,7 +28,8 @@ const FeaturedCategory = () => {
                     render={(item, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-lg flex flex-col cursor-pointer transition group"
+                            className="bg-white rounded-lg flex flex-col cursor-pointer transition"
+                            onClick={() => navigate(`/mart/category/${item.url}`)}
                         >
                             <img
                                 src={item.image}
