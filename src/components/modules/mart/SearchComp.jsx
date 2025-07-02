@@ -1,10 +1,12 @@
 import { Search } from 'lucide-react';
 import React, { useState } from 'react';
+
 import { Input } from '@/components/ui/input';
 
 const SearchComp = () => {
     const [search, setSearch] = useState("");
     const [showDropdown, setShowDropdown] = useState(false);
+
     const [history, setHistory] = useState([
         "Jagung Pipil Kering",
         "Jagung Manis Segar",
@@ -32,9 +34,8 @@ const SearchComp = () => {
     };
 
     const handleSearch = () => {
-        if (search.trim() && !history.includes(search.trim())) {
-            setHistory([search.trim(), ...history]);
-        }
+        if (search.trim() && !history.includes(search.trim())) setHistory([search.trim(), ...history]);
+
         setSearch("");
         setShowDropdown(false);
     };
@@ -52,6 +53,7 @@ const SearchComp = () => {
                 className="w-full h-11 rounded-full bg-gray-100 border-none pl-5 pr-10 hover:bg-white hover:ring-[3px] hover:ring-yellow-100 focus-visible:bg-white focus-visible:ring-yellow-100"
                 placeholder="Masukkan nama merek atau produk..." 
             />
+
             <span 
                 onClick={handleSearch}
                 className="w-8 h-8 rounded-full bg-yellow-500 cursor-pointer absolute top-1/2 right-2 transform -translate-y-1/2 flex items-center justify-center"
@@ -60,7 +62,7 @@ const SearchComp = () => {
             </span>
 
             {search && showDropdown && (
-                <div className="absolute p-2 mt-3 bg-white shadow-xl rounded-lg w-full max-h-60 z-10">
+                <div className="absolute p-2 mt-3 bg-white shadow-xl rounded-lg w-full max-h-60 z-10 border">
                     {history.length > 0 ? (
                         history
                             .filter(item => item.toLowerCase().includes(search.toLowerCase()))

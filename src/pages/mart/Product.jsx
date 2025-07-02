@@ -8,7 +8,8 @@ import {
     Minus, 
     Plus, 
     ShoppingCart, 
-    Heart 
+    Heart, 
+    MessageCircle
 } from 'lucide-react'
 
 import {
@@ -222,8 +223,8 @@ const Product = () => {
                                     size="lg" 
                                     className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
                                 >
-                                    <Heart className="w-4 h-4 mr-2" />
-                                    Wishlist
+                                    <MessageCircle className="w-4 h-4 mr-2" />
+                                    Tanya Penjual
                                 </Button>
                                 <Button 
                                     size="lg" 

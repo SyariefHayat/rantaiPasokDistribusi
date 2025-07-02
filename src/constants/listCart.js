@@ -3,35 +3,35 @@ export const LIST_CART = [
         id: 1,
         name: "Jagung Pipil Kering",
         quantity: 2,
-        price: 35000, // harga per item
-        image: "https://source.unsplash.com/50x50/?corn"
+        price: 35000,
+        image: "/product.jpg"
     },
     {
         id: 2,
         name: "Jagung Manis Segar",
         quantity: 5,
         price: 15000,
-        image: "https://source.unsplash.com/50x50/?sweet-corn"
+        image: "/product.jpg"
     },
     {
         id: 3,
         name: "Jagung Bisi 18",
         quantity: 1,
         price: 50000,
-        image: "https://source.unsplash.com/50x50/?corn-seed"
+        image: "/product.jpg"
     },
     {
         id: 4,
         name: "Benih Jagung Hibrida",
         quantity: 3,
         price: 45000,
-        image: "https://source.unsplash.com/50x50/?seed"
+        image: "/product.jpg"
     },
     {
         id: 5,
         name: "Jagung Pakan Ternak",
         quantity: 4,
         price: 25000,
-        image: "https://source.unsplash.com/50x50/?animal-feed"
+        image: "/product.jpg"
     }
 ]
