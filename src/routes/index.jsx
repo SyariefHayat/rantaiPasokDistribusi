@@ -6,6 +6,7 @@ import VerifyOtp from "@/pages/auth/VerifyOtp"
 import Home from "@/pages/landing/Home"
 import Category from "@/pages/mart/Category"
 import Mart from "@/pages/mart/Mart"
+import Product from "@/pages/mart/Product"
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -17,7 +18,7 @@ const routes = [
     { path: "/mart", element: <Mart /> }, 
     { path: "/mart/category/:category", element: <Category /> },
     { path: "/mart/store/:toko", element: <Mart /> },
-    { path: "/mart/store/:toko/:produk", element: <Mart /> },
+    { path: "/mart/store/:toko/:produk", element: <Product /> },
 ]
 
 export default routes

@@ -123,7 +123,11 @@ const Category = () => {
                             <EachUtils
                                 of={LIST_FOR_YOU.slice(0, visibleCount)}
                                 render={(item, index) => (
-                                    <div key={index} className="bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow cursor-pointer overflow-hidden">
+                                    <div 
+                                        key={index} 
+                                        className="bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow cursor-pointer overflow-hidden"
+                                        onClick={() => navigate(`/mart/store/${item.slugStore}/${item.slugProduct}`)}
+                                    >
                                         <div className="aspect-square overflow-hidden">
                                             <img 
                                                 src={item.image} 
