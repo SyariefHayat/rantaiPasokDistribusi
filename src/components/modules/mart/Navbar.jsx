@@ -8,9 +8,11 @@ import NavProfile from './NavProfile'
 import { Button } from '@/components/ui/button'
 import NavNotification from './NavNotification'
 import { Separator } from "@/components/ui/separator"
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
-    
+    const navigate = useNavigate();
+
     return (
         <header className="flex items-center justify-between mb-5 bg-white">
             <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-all">
@@ -28,7 +30,7 @@ const Navbar = () => {
 
                 <NavProfile />
 
-                <Button>
+                <Button className="bg-yellow-500 cursor-pointer" onClick={() => navigate("/create/store")}>
                     <Store/>
                     Mulai Jualan
                 </Button>

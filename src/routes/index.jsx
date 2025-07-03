@@ -6,6 +6,7 @@ import VerifyOtp from "@/pages/auth/VerifyOtp"
 import Home from "@/pages/landing/Home"
 import Cart from "@/pages/mart/Cart"
 import Category from "@/pages/mart/Category"
+import CreateStore from "@/pages/mart/CreateStore"
 import Mart from "@/pages/mart/Mart"
 import Message from "@/pages/mart/Message"
 import Notification from "@/pages/mart/Notification"
@@ -27,6 +28,7 @@ const routes = [
     { path: "/notification", element: <Notification /> },
     { path: "/cart", element: <Cart /> },
     { path: "/profile", element: <Profile /> },
+    { path: "/create/store", element: <CreateStore /> },
 ]
 
 export default routes
