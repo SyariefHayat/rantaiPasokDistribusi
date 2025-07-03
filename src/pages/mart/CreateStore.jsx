@@ -158,7 +158,7 @@ const CreateStore = () => {
                             <Button 
                                 type="submit" 
                                 className="bg-yellow-500 hover:bg-yellow-600 text-black cursor-pointer" 
-                                onClick={() => navigate("/store")}
+                                onClick={() => navigate("/seller")}
                             >
                                 Buat Toko Sekarang
                             </Button>

@@ -3,6 +3,7 @@ import ProfileSetup from "@/pages/auth/ProfileSetup"
 import SignUp from "@/pages/auth/SignUp"
 import Success from "@/pages/auth/Success"
 import VerifyOtp from "@/pages/auth/VerifyOtp"
+import Seller from "@/pages/dashboard/Seller"
 import Home from "@/pages/landing/Home"
 import Cart from "@/pages/mart/Cart"
 import Category from "@/pages/mart/Category"
@@ -29,6 +30,7 @@ const routes = [
     { path: "/cart", element: <Cart /> },
     { path: "/profile", element: <Profile /> },
     { path: "/create/store", element: <CreateStore /> },
+    { path: "/seller", element: <Seller /> },
 ]
 
 export default routes
