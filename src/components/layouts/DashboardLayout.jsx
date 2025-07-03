@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DashboardLayout = () => {
+const DashboardLayout = ({ children }) => {
     return (
         <div className="font-Poppins">
             {children}
