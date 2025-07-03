@@ -10,6 +10,7 @@ import Mart from "@/pages/mart/Mart"
 import Message from "@/pages/mart/Message"
 import Notification from "@/pages/mart/Notification"
 import Product from "@/pages/mart/Product"
+import Profile from "@/pages/mart/Profile"
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -25,6 +26,7 @@ const routes = [
     { path: "/message", element: <Message /> },
     { path: "/notification", element: <Notification /> },
     { path: "/cart", element: <Cart /> },
+    { path: "/profile", element: <Profile /> },
 ]
 
 export default routes
