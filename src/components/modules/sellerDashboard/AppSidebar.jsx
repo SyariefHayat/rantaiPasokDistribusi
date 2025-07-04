@@ -2,15 +2,16 @@ import React from "react"
 
 import {
     AudioWaveform,
-    BookOpen,
-    Bot,
-    Command,
-    Frame,
-    GalleryVerticalEnd,
-    Map,
-    PieChart,
-    Settings2,
-    SquareTerminal,
+    Bell,
+    ChartNoAxesCombined,
+    House,
+    MessageCircle,
+    Package,
+    ReceiptText,
+    Settings,
+    ShoppingCart,
+    Tag,
+    TicketPercent,
 } from "lucide-react"
 
 import {
@@ -20,10 +21,10 @@ import {
     SidebarHeader,
     SidebarRail,
 } from "@/components/ui/sidebar"
-import TeamSwitcher from "./TeamSwitcher"
+
 import NavMain from "./NavMain"
-import NavProjects from "./NavProjects"
 import NavUser from "./NavUser"
+import TeamSwitcher from "./TeamSwitcher"
 
 // Sample data
 const data = {
@@ -34,82 +35,92 @@ const data = {
     },
     teams: [
         {
-        name: "Acme Inc",
-        logo: GalleryVerticalEnd,
-        plan: "Enterprise",
-        },
-        {
-        name: "Acme Corp.",
-        logo: AudioWaveform,
-        plan: "Startup",
-        },
-        {
-        name: "Evil Corp.",
-        logo: Command,
-        plan: "Free",
+            name: "Acme Corp.",
+            logo: AudioWaveform,
+            plan: "Startup",
         },
     ],
     navMain: [
         {
-        title: "Playground",
-        url: "#",
-        icon: SquareTerminal,
-        isActive: true,
-        items: [
-            { title: "History", url: "#" },
-            { title: "Starred", url: "#" },
-            { title: "Settings", url: "#" },
-        ],
+            title: "Dashboard",
+            desc: "Ringkasan toko anda",
+            url: "#",
+            icon: House,
+            isActive: true,
         },
         {
-        title: "Models",
-        url: "#",
-        icon: Bot,
-        items: [
-            { title: "Genesis", url: "#" },
-            { title: "Explorer", url: "#" },
-            { title: "Quantum", url: "#" },
-        ],
+            title: "Produk",
+            desc: "Kelola produk anda",
+            url: "#",
+            icon: Package,
+            items: [
+                { title: "Daftar Produk", url: "#" },
+                { title: "Tambah Produk", url: "#" },
+            ],
         },
         {
-        title: "Documentation",
-        url: "#",
-        icon: BookOpen,
-        items: [
-            { title: "Introduction", url: "#" },
-            { title: "Get Started", url: "#" },
-            { title: "Tutorials", url: "#" },
-            { title: "Changelog", url: "#" },
-        ],
+            title: "Pesanan Masuk",
+            desc: "Kelola pesanan pelanggan",
+            url: "#",
+            icon: ShoppingCart,
+            items: [
+                { title: "Daftar Pesanan", url: "#" },
+            ],
         },
         {
-        title: "Settings",
-        url: "#",
-        icon: Settings2,
-        items: [
-            { title: "General", url: "#" },
-            { title: "Team", url: "#" },
-            { title: "Billing", url: "#" },
-            { title: "Limits", url: "#" },
-        ],
+            title: "Laporan Penjualan",
+            desc: "Lihat statistik penjualan",
+            url: "#",
+            icon: ChartNoAxesCombined,
+        },
+        {
+            title: "Promosi & Diskon",
+            desc: "Kelola promosi produk",
+            url: "#",
+            icon: Tag,
         },
     ],
-    projects: [
-        { name: "Design Engineering", url: "#", icon: Frame },
-        { name: "Sales & Marketing", url: "#", icon: PieChart },
-        { name: "Travel", url: "#", icon: Map },
+    navSetting: [
+        {
+            title: "Notifikasi",
+            desc: "Kelola notifikasi & pemberitahuan",
+            url: "#",
+            icon: Bell,
+            isActive: true,
+        },
+        {
+            title: "Chat",
+            desc: "Kelola percakapan dengan pelanggan",
+            url: "#",
+            icon: MessageCircle,
+            items: [
+                { title: "Daftar Chat", url: "#" },
+                { title: "Pesan Baru", url: "#" },
+            ],
+        },
+        {
+            title: "Pengaturan",
+            desc: "Konfigurasi akun & preferensi",
+            url: "#",
+            icon: Settings,
+            items: [
+                { title: "Profil Akun", url: "#" },
+                { title: "Keamanan", url: "#" },
+                { title: "Preferensi Tampilan", url: "#" },
+            ],
+        },
     ],
 }
 
 const AppSidebar = (props) => {
     return (
         <Sidebar collapsible="icon" {...props}>
-            <SidebarHeader>
-                <TeamSwitcher teams={data.teams} />
+            <SidebarHeader className="border-b">
+                <TeamSwitcher />
             </SidebarHeader>
             <SidebarContent>
                 <NavMain items={data.navMain} />
-                <NavProjects projects={data.projects} />
+                <NavMain items={data.navSetting} />
             </SidebarContent>
             <SidebarFooter>
                 <NavUser user={data.user} />
