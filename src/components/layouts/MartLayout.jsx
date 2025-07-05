@@ -1,9 +1,11 @@
 import React from 'react'
 import FooterSection from '@/pages/landing/FooterSection'
+import Navbar from '../modules/mart/Navbar'
 
 const MartLayout = ({ children }) => {
     return (
         <div className="w-full h-full font-Poppins">
+            <Navbar />
             <div className="max-w-7xl mx-auto px-4 py-6">
                 {children}
             </div>

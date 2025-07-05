@@ -11,7 +11,7 @@ import MartLayout from '@/components/layouts/MartLayout'
 const Mart = () => {
     return (
         <MartLayout>
-            <Navbar />
+            {/* <Navbar /> */}
             <CarouselComp />
             <FeaturedCategory />
             <PopulerProduct />
