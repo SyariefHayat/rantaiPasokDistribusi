@@ -10,7 +10,7 @@ import {
 
 const CarouselComp = () => {
     return (
-        <Carousel className="w-full h-[450px] overflow-hidden mb-5 rounded-md relative">
+        <Carousel className="w-full h-[450px] overflow-hidden mb-5 rounded-md relative border">
             <CarouselContent className="h-full">
                 <CarouselItem className="h-full">
                     <img src="/5874132.jpg" alt="Banner 2" className="w-full h-full object-cover" />

@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Navbar from '@/components/modules/mart/Navbar'
 import CarouselComp from '@/components/modules/mart/CarouselComp'
 import StoreRecommend from '@/components/modules/mart/StoreRecommend'
 import PopulerProduct from '@/components/modules/mart/PopulerProduct'
@@ -11,7 +10,6 @@ import MartLayout from '@/components/layouts/MartLayout'
 const Mart = () => {
     return (
         <MartLayout>
-            {/* <Navbar /> */}
             <CarouselComp />
             <FeaturedCategory />
             <PopulerProduct />
