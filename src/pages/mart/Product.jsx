@@ -150,7 +150,7 @@ const Product = () => {
                                     <p className="text-sm text-gray-600">Terjual 250+ buah</p>
                                     <p className="text-sm text-gray-600">128 Ulasan</p>
                                 </div>
-                                <p className="text-sm text-gray-600">Laporkan</p>
+                                {/* <p className="text-sm text-gray-600">Laporkan</p> */}
                             </div>
                         </div>
 
@@ -196,7 +196,7 @@ const Product = () => {
                                     <div className="flex items-center border border-gray-300 rounded-md">
                                         <button
                                             onClick={() => handleQuantityChange('decrease')}
-                                            className="p-2 hover:bg-gray-50 transition-colors"
+                                            className="p-2 hover:bg-gray-50 transition-colors cursor-pointer"
                                             disabled={quantity <= 1}
                                         >
                                             <Minus className="w-4 h-4" />
@@ -206,7 +206,7 @@ const Product = () => {
                                         </span>
                                         <button
                                             onClick={() => handleQuantityChange('increase')}
-                                            className="p-2 hover:bg-gray-50 transition-colors"
+                                            className="p-2 hover:bg-gray-50 transition-colors cursor-pointer"
                                         >
                                             <Plus className="w-4 h-4" />
                                         </button>
@@ -219,14 +219,14 @@ const Product = () => {
                                 <Button 
                                     variant="outline" 
                                     size="lg" 
-                                    className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
+                                    className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 cursor-pointer"
                                 >
                                     <MessageCircle className="w-4 h-4 mr-2" />
                                     Tanya Penjual
                                 </Button>
                                 <Button 
                                     size="lg" 
-                                    className="flex-1 bg-blue-600 hover:bg-blue-700"
+                                    className="flex-1 bg-blue-600 hover:bg-blue-700 cursor-pointer"
                                 >
                                     <ShoppingCart className="w-4 h-4 mr-2" />
                                     Tambah ke Keranjang
@@ -235,7 +235,7 @@ const Product = () => {
 
                             <Button 
                                 size="lg" 
-                                className="w-full bg-green-600 hover:bg-green-700"
+                                className="w-full bg-green-600 hover:bg-green-700 cursor-pointer"
                             >
                                 Beli Sekarang
                             </Button>

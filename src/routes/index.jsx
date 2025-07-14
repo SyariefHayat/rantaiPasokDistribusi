@@ -22,6 +22,7 @@ const routes = [
     { path: "/signup/profile-setup", element: <ProfileSetup /> },
     { path: "/signup/success", element: <Success /> },
     { path: "/mart", element: <Mart /> }, 
+    { path: "/mart/category", element: <Category /> },
     { path: "/mart/category/:category", element: <Category /> },
     { path: "/mart/store/:toko", element: <Mart /> },
     { path: "/mart/store/:toko/:produk", element: <Product /> },

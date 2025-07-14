@@ -39,7 +39,7 @@ const Category = () => {
                 {/* Simple Header */}
                 <div className="w-full h-[400px] mb-5 rounded-md bg-[url(/category.jpeg)] bg-cover bg-center flex items-center justify-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-black/20"></div>
-                    <h2 className="text-5xl font-bold capitalize relative z-10 text-white">{formatText}</h2>
+                    <h2 className="text-5xl font-bold capitalize relative z-10 text-white">{formatText === "category" ? "Semua Kategori" : formatText}</h2>
                 </div>
 
                 <div className="flex gap-8">
@@ -170,7 +170,7 @@ const Category = () => {
                                 <Button
                                     onClick={showMore}
                                     variant="outline"
-                                    className="px-8 py-2 border-gray-300 text-gray-700 hover:bg-gray-50"
+                                    className="px-8 py-2 border-gray-300 text-gray-700 hover:bg-gray-50 cursor-pointer"
                                 >
                                     Tampilkan Lebih Banyak
                                 </Button>

@@ -14,8 +14,8 @@ const FeaturedCategory = () => {
             <div className="flex items-center justify-between mb-5">
                 <p className="text-xl font-semibold text-gray-800">Kategori Unggulan</p>
                 
-                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-yellow-600 hover:bg-yellow-100">
-                    <Link to="/mart" className="flex items-center space-x-1">
+                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-yellow-600 hover:bg-yellow-100 cursor-pointer">
+                    <Link to="/mart/category" className="flex items-center space-x-1">
                         <span>Lihat Semua</span>
                         <ArrowRight size={16} />
                     </Link>
