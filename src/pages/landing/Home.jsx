@@ -21,7 +21,7 @@ const Home = () => {
             {/* <AboutUs /> */}
             {/* <BussinessSection /> */}
             {/* <MarketplaceSection /> */}
-            <CTASection />
+            {/* <CTASection /> */}
             <FooterSection />
         </DefaultLayout>
     )

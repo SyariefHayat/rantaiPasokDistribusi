@@ -30,7 +30,8 @@ const FooterSection = () => {
                     {/* Logo and Description */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center space-x-2 mb-4">
-                            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-full flex items-center justify-center">
+                                <img src="/logo.png" alt="logo si juki" />
                                 <div className="w-4 h-4 bg-green-600 rounded-full"></div>
                             </div>
                             <span className="text-xl font-bold">SIJUKI</span>
@@ -120,7 +121,7 @@ const FooterSection = () => {
                 {/* Bottom Footer */}
                 <div className="border-t border-green-600 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <div className="text-green-100 text-sm mb-4 md:mb-0">
-                        © 2024 SIJUKI. Semua hak dilindungi.
+                        © 2025 SIJUKI. Semua hak dilindungi.
                     </div>
                     <div className="flex space-x-6 text-sm">
                         <a href="#" className="text-green-100 hover:text-white transition-colors">Privacy Policy</a>
