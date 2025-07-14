@@ -28,7 +28,6 @@ import {
 } from "@/components/ui/avatar"
 
 import { Button } from "@/components/ui/button"
-import Navbar from '@/components/modules/mart/Navbar'
 import MartLayout from '@/components/layouts/MartLayout'
 
 const Product = () => {
@@ -53,7 +52,6 @@ const Product = () => {
 
     return (
         <MartLayout>
-            <Navbar />
             <div className="max-w-7xl mx-auto px-4 py-6">
                 {/* Breadcrumb */}
                 <div className="mb-6">
@@ -66,7 +64,7 @@ const Product = () => {
                             </BreadcrumbItem>
                             <BreadcrumbSeparator />
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="/category" className="text-gray-600 hover:text-gray-900">
+                                <BreadcrumbLink href="/mart/category/benih-jagung-hibrida" className="text-gray-600 hover:text-gray-900">
                                     Kategori
                                 </BreadcrumbLink>
                             </BreadcrumbItem>

@@ -35,7 +35,6 @@ const Category = () => {
 
     return (
         <MartLayout>
-            <Navbar />
             <div className="max-w-7xl mx-auto px-4 py-6">
                 {/* Simple Header */}
                 <div className="w-full h-[400px] mb-5 rounded-md bg-[url(/category.jpeg)] bg-cover bg-center flex items-center justify-center relative overflow-hidden">
