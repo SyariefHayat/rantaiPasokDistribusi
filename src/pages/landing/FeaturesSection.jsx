@@ -1,3 +1,4 @@
+import EachUtils from '@/utils/EachUtils';
 import React from 'react';
 
 const FeaturesSection = () => {
@@ -32,46 +33,45 @@ const FeaturesSection = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white">
-            {/* Features Content */}
+        <section id="features" className="min-h-screen bg-white">
             <div className="container mx-auto px-6 py-20">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                        Features
+                        Fitur
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    {features.map((feature, index) => (
-                        <div key={index} className="group">
-                            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
-                                {/* Icon Container */}
-                                <div className="mb-6 flex justify-center">
-                                    <div className="w-20 h-20 bg-green-50 rounded-2xl flex items-center justify-center group-hover:bg-green-100 transition-colors duration-300">
-                                        {feature.icon}
+                    <EachUtils 
+                        of={features}
+                        render={(item, index) => (
+                            <div key={index} className="group">
+                                <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+                                    <div className="mb-6 flex justify-center">
+                                        <div className="w-20 h-20 bg-green-50 rounded-2xl flex items-center justify-center group-hover:bg-green-100 transition-colors duration-300">
+                                            {item.icon}
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <h3 className="text-xl font-bold text-gray-900">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="w-12 h-1 bg-green-600 rounded-full mx-auto"></div>
                                     </div>
                                 </div>
-
-                                {/* Content */}
-                                <div className="space-y-4">
-                                    <h3 className="text-xl font-bold text-gray-900">
-                                        {feature.title}
-                                    </h3>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        {feature.description}
-                                    </p>
-                                </div>
-
-                                {/* Hover Effect Indicator */}
-                                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <div className="w-12 h-1 bg-green-600 rounded-full mx-auto"></div>
-                                </div>
                             </div>
-                        </div>
-                    ))}
+                        )}
+                    />
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
