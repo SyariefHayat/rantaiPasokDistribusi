@@ -11,7 +11,7 @@ const NavBar = () => {
     ];
 
     return (
-        <header className="relative w-full px-6 py-4 z-10">
+        <header className="w-full px-6 py-4">
             <nav className="flex items-center justify-between">
                 <a href="/" className="flex items-center space-x-2">
                     <div className="w-10 h-10 flex items-center justify-center">

@@ -101,23 +101,6 @@ const FooterSection = () => {
                     </div>
                 </div>
 
-                {/* Newsletter Section */}
-                <div className="border-t border-green-600 pt-8 mb-8">
-                    <div className="max-w-md mx-auto text-center">
-                        <h4 className="text-lg font-semibold mb-4">Dapatkan Update Terbaru</h4>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <input
-                                type="email"
-                                placeholder="Masukkan email Anda"
-                                className="flex-1 px-4 py-2 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-400"
-                            />
-                            <button className="px-6 py-2 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors">
-                                Berlangganan
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 {/* Bottom Footer */}
                 <div className="border-t border-green-600 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <div className="text-green-100 text-sm mb-4 md:mb-0">
