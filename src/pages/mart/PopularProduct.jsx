@@ -43,7 +43,7 @@ const PopularProducts = () => {
         <MartLayout>
             <div className="max-w-7xl mx-auto px-4 py-6">
                 {/* Header with trending theme */}
-                <div className="w-full h-[400px] mb-5 rounded-md bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center relative overflow-hidden">
+                <div className="w-full h-[400px] mb-5 rounded-md bg-[url(/category.jpeg)] bg-cover bg-center flex items-center justify-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-black/20"></div>
                     <div className="relative z-10 text-center text-white">
                         <div className="flex items-center justify-center gap-3 mb-4">
