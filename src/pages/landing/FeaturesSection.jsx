@@ -70,15 +70,6 @@ const FeaturesSection = () => {
                         </div>
                     ))}
                 </div>
-
-                {/* Additional Visual Elements */}
-                <div className="mt-20 text-center">
-                    <div className="inline-flex items-center space-x-2 text-green-600">
-                        <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium">Solusi Terintegrasi untuk Distribusi Jagung</span>
-                        <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
-                    </div>
-                </div>
             </div>
         </div>
     );
