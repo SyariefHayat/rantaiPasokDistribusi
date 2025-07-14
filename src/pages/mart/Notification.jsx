@@ -13,7 +13,6 @@ import MartLayout from '@/components/layouts/MartLayout'
 const Notification = () => {
     return (
         <MartLayout>
-            <Navbar />
             <div className="max-w-7xl mx-auto py-6">
                 <div className="mb-8">
                     <div className="flex items-center gap-3 mb-2">

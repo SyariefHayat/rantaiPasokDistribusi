@@ -60,7 +60,7 @@ const Profile = () => {
                     <div className="relative">
                         <div className="w-24 h-24 border-2 border-gray-300 bg-gray-50">
                             <img 
-                                src="/api/placeholder/96/96" 
+                                src="https://github.com/shadcn.png" 
                                 alt="Profile" 
                                 className="w-full h-full object-cover"
                             />
@@ -295,7 +295,6 @@ const Profile = () => {
 
     return (
         <MartLayout>
-            <Navbar />
             <div className="min-h-screen bg-white py-6">
                 <div className="flex flex-col lg:flex-row gap-6">
                     {/* Sidebar */}
@@ -304,7 +303,7 @@ const Profile = () => {
                             <div className="p-4 border-b border-gray-300 bg-gray-50">
                                 <div className="flex items-center gap-3">
                                     <img 
-                                        src="/api/placeholder/48/48" 
+                                        src="https://github.com/shadcn.png" 
                                         alt="Profile" 
                                         className="w-12 h-12 border border-gray-300 object-cover"
                                     />
