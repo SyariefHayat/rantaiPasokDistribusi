@@ -8,6 +8,7 @@ import Home from "@/pages/landing/Home"
 import Cart from "@/pages/mart/Cart"
 import Category from "@/pages/mart/Category"
 import CreateStore from "@/pages/mart/CreateStore"
+import ForYouRecom from "@/pages/mart/ForYouRecommendation"
 import Mart from "@/pages/mart/Mart"
 import Message from "@/pages/mart/Message"
 import Notification from "@/pages/mart/Notification"
@@ -24,10 +25,11 @@ const routes = [
     { path: "/signup/success", element: <Success /> },
     { path: "/mart", element: <Mart /> }, 
     { path: "/mart/category", element: <Category /> },
-    { path: "/mart/category/:category", element: <Category /> },
     { path: "/mart/popular", element: <PopularProducts /> },
+    { path: "/mart/category/:category", element: <Category /> },
     { path: "/mart/store/:toko", element: <Mart /> },
     { path: "/mart/store/:toko/:produk", element: <Product /> },
+    { path: "/mart/for-you", element: <ForYouRecom /> },
     { path: "/message", element: <Message /> },
     { path: "/notification", element: <Notification /> },
     { path: "/cart", element: <Cart /> },

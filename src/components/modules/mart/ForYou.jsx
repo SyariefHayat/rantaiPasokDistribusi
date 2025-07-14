@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
 
 import EachUtils from '@/utils/EachUtils';
@@ -8,6 +8,7 @@ import { LIST_FOR_YOU } from '@/constants/listForYou';
 
 const ForYou = () => {
     const [visibleCount, setVisibleCount] = useState(10);
+    const navigate = useNavigate();
 
     const showMore = () => {
         setVisibleCount((prev) => prev + 10);
@@ -19,7 +20,7 @@ const ForYou = () => {
                 <p className="text-xl font-semibold text-gray-800">Untuk Kamu</p>
                 
                 <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-yellow-600 hover:bg-yellow-100">
-                    <Link to="/mart" className="flex items-center space-x-1">
+                    <Link to="/mart/for-you" className="flex items-center space-x-1">
                         <span>Lihat Semua</span>
                         <ArrowRight size={16} />
                     </Link>
@@ -30,7 +31,11 @@ const ForYou = () => {
                 <EachUtils
                     of={LIST_FOR_YOU.slice(0, visibleCount)}
                     render={(item, index) => (
-                        <div key={index} className="w-full h-full bg-gray-100 rounded-lg shadow hover:shadow-lg transition cursor-pointer overflow-hidden flex flex-col">
+                        <div 
+                            key={index}
+                            onClick={() => navigate(`/mart/store/${item.slugStore}/${item.slugProduct}`)}
+                            className="w-full h-full bg-gray-100 rounded-lg shadow hover:shadow-lg transition cursor-pointer overflow-hidden flex flex-col"
+                        >
                             <img src={item.image} alt={item.name} className="h-2/3 w-full object-cover" />
                             <div className="p-3 flex flex-col justify-between h-1/3">
                                 <p className="font-semibold text-sm text-gray-800 line-clamp-2">{item.name}</p>
