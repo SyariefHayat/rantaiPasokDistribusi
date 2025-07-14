@@ -15,6 +15,8 @@ import Notification from "@/pages/mart/Notification"
 import PopularProducts from "@/pages/mart/PopularProduct"
 import Product from "@/pages/mart/Product"
 import Profile from "@/pages/mart/Profile"
+import StoreDetail from "@/pages/mart/Store"
+import StoreRecommendations from "@/pages/mart/StoreRecommendation"
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -27,7 +29,8 @@ const routes = [
     { path: "/mart/category", element: <Category /> },
     { path: "/mart/popular", element: <PopularProducts /> },
     { path: "/mart/category/:category", element: <Category /> },
-    { path: "/mart/store/:toko", element: <Mart /> },
+    { path: "/mart/store", element: <StoreRecommendations /> },
+    { path: "/mart/store/:toko", element: <StoreDetail /> },
     { path: "/mart/store/:toko/:produk", element: <Product /> },
     { path: "/mart/for-you", element: <ForYouRecom /> },
     { path: "/message", element: <Message /> },

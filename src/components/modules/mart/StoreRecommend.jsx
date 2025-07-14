@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 import EachUtils from '@/utils/EachUtils'
@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button'
 import { LIST_STORE } from '@/constants/listStore'
 
 const StoreRecommend = () => {
+    const navigate = useNavigate();
+    
     return (
         <div className="w-full h-full">
             
@@ -14,8 +16,8 @@ const StoreRecommend = () => {
             <div className="flex items-center justify-between my-5">
                 <p className="text-xl font-semibold text-gray-800">Rekomendasi Toko</p>
                 
-                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-yellow-600 hover:bg-yellow-100">
-                    <Link to="/mart" className="flex items-center space-x-1">
+                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-yellow-600 hover:bg-yellow-100 cursor-pointer">
+                    <Link to="/mart/store" className="flex items-center space-x-1">
                         <span>Lihat Semua</span>
                         <ArrowRight size={16} />
                     </Link>
@@ -27,7 +29,11 @@ const StoreRecommend = () => {
                 <EachUtils 
                     of={LIST_STORE}
                     render={(item, index) => (
-                        <div key={index} className="w-full h-80 bg-gray-100 rounded-lg shadow hover:shadow-lg transition cursor-pointer overflow-hidden flex flex-col">
+                        <div 
+                            key={index}
+                            onClick={() => navigate(`/mart/store/${item.name}`)}
+                            className="w-full h-80 bg-gray-100 rounded-lg shadow hover:shadow-lg transition cursor-pointer overflow-hidden flex flex-col"
+                        >
         
                             <img src={item.image} alt={item.name} className="h-2/3 w-full object-cover" />
                             
