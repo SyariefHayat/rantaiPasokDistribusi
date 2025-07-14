@@ -26,7 +26,7 @@ const Navbar = () => {
     return (
         <header className="flex flex-col mb-5 sticky top-0 z-50 bg-white shadow-sm">
             <div className="flex items-center justify-between px-8 py-3 border-b">
-                <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-all">
+                <Link to="/mart" className="flex items-center space-x-2 hover:opacity-80 transition-all">
                     <h1 className="text-2xl font-bold text-gray-800">
                         Sistem Jagung <span className="text-yellow-500">Untuk Kita</span>
                     </h1>
