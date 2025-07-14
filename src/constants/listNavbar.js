@@ -13,7 +13,7 @@ export const LIST_NAVBAR = [
     },
     {
         title: "Marketplace",
-        url: "#marketplace"
+        url: "/mart"
     }
 ]
 

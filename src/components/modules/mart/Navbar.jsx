@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between px-8 py-3 border-b">
                 <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-all">
                     <h1 className="text-2xl font-bold text-gray-800">
-                        Rantai Pasok <span className="text-yellow-500">Distribusi</span>
+                        Sistem Jagung <span className="text-yellow-500">Untuk Kita</span>
                     </h1>
                 </Link>
 
@@ -66,7 +66,7 @@ const Navbar = () => {
                                 <ul className="grid w-[400px] gap-3 p-4">
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/products" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#products" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Semua Produk</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Jelajahi semua produk jagung yang tersedia
@@ -76,7 +76,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/products/konsumsi" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#products/konsumsi" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Jagung Konsumsi</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Jagung berkualitas tinggi untuk konsumsi sehari-hari
@@ -86,7 +86,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/products/pakan" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#products/pakan" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Jagung Pakan</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Jagung khusus untuk pakan ternak berkualitas
@@ -96,7 +96,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/products/pipilan" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#products/pipilan" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Jagung Pipilan Kering</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Jagung pipilan kering dengan kadar air optimal
@@ -114,7 +114,7 @@ const Navbar = () => {
                                 <ul className="grid w-[400px] gap-3 p-4">
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/farmers" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#farmers" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Direktori Petani</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Temukan petani dan produsen terpercaya di seluruh Indonesia
@@ -124,7 +124,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/farmers/profile" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#farmers/profile" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Profil Petani</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Informasi lengkap tentang latar belakang dan sertifikasi petani
@@ -134,7 +134,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/become-farmer" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#become-farmer" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Bergabung Sebagai Petani</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Daftarkan diri Anda sebagai petani mitra kami
@@ -152,7 +152,7 @@ const Navbar = () => {
                                 <ul className="grid w-[400px] gap-3 p-4">
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/funding/active" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#funding/active" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Proyek Pendanaan Aktif</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Lihat dan dukung proyek-proyek pertanian yang sedang berjalan
@@ -162,7 +162,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/funding/impact" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#funding/impact" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Laporan Dampak</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Transparansi dampak positif dari program pendanaan kami
@@ -172,7 +172,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <NavigationMenuLink asChild>
-                                            <Link to="/funding/apply" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                            <Link to="#funding/apply" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                                                 <div className="text-sm font-medium leading-none">Ajukan Pendanaan</div>
                                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                                     Ajukan proposal pendanaan untuk proyek pertanian Anda
@@ -186,13 +186,13 @@ const Navbar = () => {
                         
                         <NavigationMenuItem>
                             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                <Link to="/articles">Artikel & Edukasi</Link>
+                                <Link to="#articles">Artikel & Edukasi</Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         
                         <NavigationMenuItem>
                             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                <Link to="/contact">Hubungi Kami</Link>
+                                <Link to="#contact">Hubungi Kami</Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                     </NavigationMenuList>
