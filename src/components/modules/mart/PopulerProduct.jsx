@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight, ShoppingBag } from 'lucide-react'
 
 import EachUtils from '@/utils/EachUtils'
@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button'
 import { LIST_POPULER_PRODUCTS } from '@/constants/listPopulerProducts'
 
 const PopulerProduct = () => {
+    const navigate = useNavigate();
+    
     return (
         <div className="w-full h-full">
             
@@ -15,7 +17,7 @@ const PopulerProduct = () => {
                 <p className="text-xl font-semibold text-gray-800">Populer Minggu Ini</p>
 
                 <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-yellow-600 hover:bg-yellow-100">
-                    <Link to="/mart" className="flex items-center space-x-1">
+                    <Link to="/mart/popular" className="flex items-center space-x-1">
                         <span>Lihat Semua</span>
                         <ArrowRight size={16} />
                     </Link>
@@ -29,7 +31,8 @@ const PopulerProduct = () => {
                     of={LIST_POPULER_PRODUCTS}
                     render={(item, index) => (
                         <div 
-                            key={index} 
+                            key={index}
+                            onClick={() => navigate(`/mart/store/${item.store}/${item.name}`)}
                             className="bg-white rounded-lg shadow hover:shadow-lg p-3 flex flex-col cursor-pointer relative group transition"
                         >
                             {/* Badge jika ada */}

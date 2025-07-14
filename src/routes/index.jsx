@@ -11,6 +11,7 @@ import CreateStore from "@/pages/mart/CreateStore"
 import Mart from "@/pages/mart/Mart"
 import Message from "@/pages/mart/Message"
 import Notification from "@/pages/mart/Notification"
+import PopularProducts from "@/pages/mart/PopularProduct"
 import Product from "@/pages/mart/Product"
 import Profile from "@/pages/mart/Profile"
 
@@ -24,6 +25,7 @@ const routes = [
     { path: "/mart", element: <Mart /> }, 
     { path: "/mart/category", element: <Category /> },
     { path: "/mart/category/:category", element: <Category /> },
+    { path: "/mart/popular", element: <PopularProducts /> },
     { path: "/mart/store/:toko", element: <Mart /> },
     { path: "/mart/store/:toko/:produk", element: <Product /> },
     { path: "/message", element: <Message /> },
