@@ -4,17 +4,13 @@ export const LIST_NAVBAR = [
         url: "/"
     },
     {
-        title: "Tentang Kami",
-        url: "#about-us"
+        title: "Fitur",
+        url: "#features"
     },
     {
-        title: "Bisnis",
-        url: "#bisnis"
+        title: "Harga",
+        url: "#pricing"
     },
-    {
-        title: "Marketplace",
-        url: "/mart"
-    }
 ]
 
 export const LIST_NAVBAR_MALL = [

@@ -8,15 +8,19 @@ import BussinessSection from '@/pages/landing/BussinessSection'
 import MarketplaceSection from '@/pages/landing/MarketplaceSection'
 import CTASection from '@/pages/landing/CTASection'
 import FooterSection from '@/pages/landing/FooterSection'
+import FeaturesSection from './FeaturesSection'
+import PricingSection from './PricingSection'
 
 const Home = () => {
     return (
         <DefaultLayout>
             <NavBar />
             <HeroSection />
-            <AboutUs />
-            <BussinessSection />
-            <MarketplaceSection />
+            <FeaturesSection />
+            <PricingSection />
+            {/* <AboutUs /> */}
+            {/* <BussinessSection /> */}
+            {/* <MarketplaceSection /> */}
             <CTASection />
             <FooterSection />
         </DefaultLayout>

@@ -1,44 +1,55 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
-
-import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
     return (
-        <section className="w-full h-fit flex flex-col justify-center px-4 sm:px-6 lg:px-8 bg-gray-50 py-12 sm:py-16 lg:py-24 relative overflow-hidden">
-            <div className="absolute inset-0 z-0">
-                <img 
-                    src="/13.jpg" 
-                    alt="Petani Jagung"
-                    className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
+        <div className="bg-gradient-to-r from-green-600 to-green-700 py-20">
+            <div className="container mx-auto px-6 text-center">
+                <div className="max-w-4xl mx-auto">
+                    {/* Main CTA Content */}
+                    <div className="mb-8">
+                        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                            Siap Memulai Distribusi Jagung yang Lebih Efisien?
+                        </h2>
+                        <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+                            Bergabunglah dengan ribuan petani dan distributor yang telah merasakan kemudahan SIJUKI dalam mengelola distribusi jagung secara transparan dan efisien.
+                        </p>
+                    </div>
+
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                        <button className="px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Mulai Gratis Sekarang
+                        </button>
+                        <button className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-green-600 transition-all duration-300">
+                            Pelajari Lebih Lanjut
+                        </button>
+                    </div>
+
+                    {/* Trust Indicators */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-white mb-2">1000+</div>
+                            <div className="text-green-100">Petani Terdaftar</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-white mb-2">500+</div>
+                            <div className="text-green-100">Distributor Aktif</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-white mb-2">99.9%</div>
+                            <div className="text-green-100">Uptime Sistem</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div className="relative z-10 w-full text-white flex flex-col lg:flex-row gap-5 lg:gap-5">
-                <div className="w-full lg:w-1/2">
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-6 sm:mb-8 lg:mb-10 font-bold leading-tight">
-                        Siap Bergabung dengan Komunitas Petani Jagung Sukses?
-                    </h2>
-                    <Button 
-                        variant="outline" 
-                        className="bg-white text-black rounded-full cursor-pointer group hover:bg-transparent hover:text-white hover:border-white transition-all duration-300 w-auto"
-                    >
-                        <div className="flex items-center justify-between gap-2">
-                            <span className="font-medium">Mulai Sekarang</span>
-                            <span className="p-1 bg-black rounded-full group-hover:bg-white transition-all duration-300">
-                                <ArrowRight size={16} className="text-white group-hover:text-black transition-colors duration-300" />
-                            </span>
-                        </div>
-                    </Button>
-                </div>
-                <div className="w-full lg:w-1/2 lg:self-end">
-                    <p className="text-base sm:text-lg leading-relaxed opacity-90">
-                        Mulai journey kesuksesan bisnis jagung Anda hari ini. Bergabunglah dengan ribuan petani yang telah merasakan manfaat platform kami. Gratis tanpa biaya tersembunyi.
-                    </p>
-                </div>
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+                <div className="w-full h-full bg-repeat" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+                }}></div>
             </div>
-        </section>
+        </div>
     );
 };
 

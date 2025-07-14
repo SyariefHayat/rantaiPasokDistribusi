@@ -1,46 +1,111 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-
 import EachUtils from '@/utils/EachUtils';
-import { Button } from '@/components/ui/button';
-import { LIST_NAVBAR } from '@/constants/listNavbar';
-import AccountMobile from '@/components/modules/landing/NavMobile';
+import React, { useState } from 'react';
 
 const NavBar = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const navigationItems = [
+        { title: 'Beranda', url: '/' },
+        { title: 'Fitur', url: '#features' },
+        { title: 'Harga', url: '#pricing' }
+    ];
+
     return (
-        <header className="w-full p-6 lg:px-8 absolute z-10 text-white">
+        <header className="relative w-full px-6 py-4 z-10">
             <nav className="flex items-center justify-between">
-                <a href="/" className="flex-shrink-0 mt-1">
-                    <h1 className="text-lg sm:text-xl lg:text-2xl whitespace-nowrap">
-                        <span className="hidden sm:inline">Sistem Jagung Untuk Kita</span>
-                        <span className="sm:hidden">SIJUKI</span>
-                    </h1>
+                <a href="/" className="flex items-center space-x-2">
+                    <div className="w-10 h-10 flex items-center justify-center">
+                        <img src="/logo.png" alt="logo si juki" />
+                    </div>
+                    <span className="text-3xl font-bold text-green-600">SIJUKI</span>
                 </a>
-                <AccountMobile />
-                <ul className="hidden lg:flex gap-6 xl:gap-10">
-                    <EachUtils
-                        of={LIST_NAVBAR}
+
+                <ul className="hidden md:flex items-center space-x-8">
+                    <EachUtils 
+                        of={navigationItems}
                         render={(item, index) => (
                             <li key={index}>
-                                <a href={item.url} className="relative cursor-pointer group inline-block overflow-hidden">
+                                <a
+                                    href={item.url}
+                                    className="text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium relative group"
+                                >
                                     {item.title}
-                                    <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
+                                    <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-green-600 transition-all duration-300 group-hover:w-full" />
                                 </a>
                             </li>
                         )}
                     />
                 </ul>
-                <Button
-                    variant="outline"
-                    className="hidden lg:flex bg-transparent border-1 border-white rounded-full cursor-pointer"
+
+                <div className="hidden md:flex items-center space-x-4">
+                    <a 
+                        href="/login" 
+                        className="text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium"
+                    >
+                        Login
+                    </a>
+                    <a 
+                        href="/signup" 
+                        className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors duration-200 font-medium"
+                    >
+                        Signup
+                    </a>
+                </div>
+
+                <button 
+                    className="md:hidden flex items-center justify-center w-8 h-8 text-gray-700 hover:text-green-600 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
-                    <Link to="/" className="flex items-center gap-2">
-                        <span className="whitespace-nowrap">Hubungi Kami</span>
-                        <ArrowRight size={16} />
-                    </Link>
-                </Button>
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            strokeWidth={2} 
+                            d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} 
+                        />
+                    </svg>
+                </button>
             </nav>
+
+            {isMobileMenuOpen && (
+                <div className="md:hidden mt-4 pb-4 border-t border-gray-100">
+                    <ul className="flex flex-col space-y-3 mt-4">
+                        <EachUtils 
+                            of={navigationItems}
+                            render={(item, index) => (
+                                <li key={index}>
+                                    <a
+                                        href={item.url}
+                                        className="block text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium py-2"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        {item.title}
+                                    </a>
+                                </li>
+                            )}
+                        />
+                        
+                        <li className="pt-2 border-t border-gray-100">
+                            <a
+                                href="/login"
+                                className="block text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium py-2"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Login
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/signup"
+                                className="block w-full text-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors duration-200 font-medium"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Signup
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            )}
         </header>
     );
 };
