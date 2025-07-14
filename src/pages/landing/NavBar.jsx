@@ -13,7 +13,7 @@ const NavBar = () => {
             <nav className="flex items-center justify-between">
                 <a href="/" className="flex-shrink-0 mt-1">
                     <h1 className="text-lg sm:text-xl lg:text-2xl whitespace-nowrap">
-                        <span className="hidden sm:inline">SIJUKI</span>
+                        <span className="hidden sm:inline">Sistem Jagung Untuk Kita</span>
                         <span className="sm:hidden">SIJUKI</span>
                     </h1>
                 </a>
