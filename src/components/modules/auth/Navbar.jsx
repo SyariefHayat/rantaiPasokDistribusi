@@ -9,10 +9,10 @@ const Navbar = () => {
                         <a href="/" className="flex items-center space-x-3 group">
                             <div>
                                 <span className="hidden sm:block text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-200">
-                                    Rantai Pasok Distribusi
+                                    Sistem Jagung Untuk Kita
                                 </span>
                                 <span className="block sm:hidden text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-200">
-                                    RPD
+                                    SIJUKI
                                 </span>
                             </div>
                         </a>
