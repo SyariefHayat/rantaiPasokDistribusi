@@ -2,28 +2,35 @@ import React from 'react';
 
 const HeroSection = () => {
     return (
-        <section className="h-full bg-gray-50">
+        <section className="min-h-screen bg-gray-50 flex items-center">
             <div className="container mx-auto px-6 py-20">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 sm:-mt-16">
                     
+                    {/* Kiri: Teks */}
                     <div className="flex-1 space-y-8 text-center lg:text-left">
-                        <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                             Pemutus Rantai<br />
                             Distribusi Jagung
                         </h1>
                         
-                        <p className="text-xl text-gray-600 max-w-lg mx-auto lg:mx-0">
+                        <p className="text-lg sm:text-xl text-gray-600 max-w-lg mx-auto lg:mx-0">
                             Kelola distribusi jagung secara efisien dan transparan.
                         </p>
                         
                         <div>
-                            <button className="relative px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all transform hover:scale-105 shadow-lg cursor-pointer z-10">
+                            <button className="px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all transform hover:scale-105 shadow-lg">
                                 Mulai Sekarang
                             </button>
                         </div>
                     </div>
 
-                    <div className="flex-1 min-h-[200px] sm:h-80 bg-[url('/51.webp')] bg-center bg-cover rounded-xl shadow-lg w-full bg-gray-200">
+                    {/* Kanan: Gambar */}
+                    <div className="">
+                        <img 
+                            src="/maskot.png" 
+                            alt="Maskot Jagung" 
+                            className="w-full max-w-md mx-auto lg:mx-0 object-contain"
+                        />
                     </div>
                 </div>
             </div>
