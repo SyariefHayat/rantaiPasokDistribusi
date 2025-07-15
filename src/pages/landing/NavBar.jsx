@@ -7,7 +7,7 @@ const NavBar = () => {
     const navigationItems = [
         { title: 'Beranda', url: '/' },
         { title: 'Fitur', url: '#features' },
-        { title: 'Harga', url: '#pricing' }
+        { title: 'Marketplace', url: '#marketplace' }
     ];
 
     return (

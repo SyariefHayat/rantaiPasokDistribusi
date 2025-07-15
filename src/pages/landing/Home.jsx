@@ -17,10 +17,10 @@ const Home = () => {
             <NavBar />
             <HeroSection />
             <FeaturesSection />
-            <PricingSection />
+            <MarketplaceSection />
+            {/* <PricingSection /> */}
             {/* <AboutUs /> */}
             {/* <BussinessSection /> */}
-            {/* <MarketplaceSection /> */}
             {/* <CTASection /> */}
             <FooterSection />
         </DefaultLayout>
