@@ -39,21 +39,22 @@ const NavBar = () => {
     return (
         <header className="w-full px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
             <nav className="flex items-center justify-between max-w-7xl mx-auto">
-                <a href="/" className="flex items-center group">
-                    <div className="relative">
-                        <img 
-                            src="/logo.png" 
-                            alt="logo si juki" 
-                            className="mb-2 size-10 transition-transform group-hover:scale-110" 
-                        />
-                        <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full opacity-0 group-hover:opacity-20 blur transition-opacity"></div>
+                <a href="/" className="flex flex-col items-center justify-center group text-center">
+                    <div className="flex items-center space-x-2">
+                        <div className="relative">
+                            <img 
+                                src="/logo.png" 
+                                alt="logo si juki" 
+                                className="mb-2 size-10 transition-transform group-hover:scale-110" 
+                            />
+                        </div>
+                        <span className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                            SIJUKI
+                        </span>
                     </div>
-                    <span className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                        SIJUKI
-                    </span>
+                    <p className="text-sm text-center text-gray-600">Sistem Jagung Untuk Kita</p>
                 </a>
 
-                {/* Desktop Navigation */}
                 <ul className="hidden md:flex items-center space-x-8">
                     <EachUtils 
                         of={navigationItems}
@@ -90,7 +91,6 @@ const NavBar = () => {
                                     <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-green-600 transition-all duration-300 group-hover:w-full" />
                                 </a>
                                 
-                                {/* Dropdown Menu */}
                                 {item.hasDropdown && (
                                     <div 
                                         className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden transition-all duration-300 ${
@@ -123,7 +123,6 @@ const NavBar = () => {
                     />
                 </ul>
 
-                {/* Auth Buttons */}
                 <div className="hidden md:flex items-center space-x-4">
                     <a 
                         href="/login" 
@@ -139,7 +138,6 @@ const NavBar = () => {
                     </a>
                 </div>
 
-                {/* Mobile Menu Button */}
                 <button 
                     className="md:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-green-600 transition-colors rounded-lg hover:bg-gray-100"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -155,7 +153,6 @@ const NavBar = () => {
                 </button>
             </nav>
 
-            {/* Mobile Menu */}
             {isMobileMenuOpen && (
                 <div className="md:hidden mt-4 pb-4 border-t border-gray-200 bg-white/95 backdrop-blur-md">
                     <ul className="flex flex-col space-y-2 mt-4">
@@ -171,7 +168,6 @@ const NavBar = () => {
                                         {item.title}
                                     </a>
                                     
-                                    {/* Mobile Submenu */}
                                     {item.hasDropdown && (
                                         <div className="ml-4 mt-2 space-y-1">
                                             <EachUtils 
@@ -194,7 +190,6 @@ const NavBar = () => {
                             )}
                         />
                         
-                        {/* Mobile Auth Buttons */}
                         <li className="pt-4 border-t border-gray-200 mt-4">
                             <a
                                 href="/login"

@@ -6,7 +6,6 @@ const HeroSection = () => {
             <div className="container mx-auto px-6 py-20">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
                     
-                    {/* Bagian Kiri: Teks */}
                     <div className="flex-1 space-y-8 text-center lg:text-left">
                         <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                             Pemutus Rantai<br />
@@ -24,7 +23,6 @@ const HeroSection = () => {
                         </div>
                     </div>
 
-                    {/* Bagian Kanan: Gambar */}
                     <div className="flex-1 min-h-[200px] sm:h-80 bg-[url('/51.webp')] bg-center bg-cover rounded-xl shadow-lg w-full bg-gray-200">
                     </div>
                 </div>
