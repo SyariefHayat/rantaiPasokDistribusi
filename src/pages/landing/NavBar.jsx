@@ -13,10 +13,8 @@ const NavBar = () => {
     return (
         <header className="w-full px-6 py-4">
             <nav className="flex items-center justify-between">
-                <a href="/" className="flex items-center space-x-2">
-                    <div className="w-10 h-10 flex items-center justify-center">
-                        <img src="/logo.png" alt="logo si juki" />
-                    </div>
+                <a href="/" className="flex items-center">
+                    <img src="/logo.png" alt="logo si juki" className="mb-2 size-10" />
                     <span className="text-3xl font-bold text-green-600">SIJUKI</span>
                 </a>
 
