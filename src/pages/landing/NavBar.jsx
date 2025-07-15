@@ -52,7 +52,6 @@ const NavBar = () => {
                             SIJUKI
                         </span>
                     </div>
-                    <p className="text-sm text-center text-gray-600">Sistem Jagung Untuk Kita</p>
                 </a>
 
                 <ul className="hidden md:flex items-center space-x-8">
