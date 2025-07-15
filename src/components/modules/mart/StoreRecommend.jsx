@@ -16,7 +16,7 @@ const StoreRecommend = () => {
             <div className="flex items-center justify-between my-5">
                 <p className="text-xl font-semibold text-gray-800">Rekomendasi Toko</p>
                 
-                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-yellow-600 hover:bg-yellow-100 cursor-pointer">
+                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-green-600 hover:bg-green-100 cursor-pointer">
                     <Link to="/mart/store" className="flex items-center space-x-1">
                         <span>Lihat Semua</span>
                         <ArrowRight size={16} />

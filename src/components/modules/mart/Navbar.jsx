@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between px-8 py-3 border-b">
                 <Link to="/mart" className="flex items-center space-x-2 hover:opacity-80 transition-all">
                     <h1 className="text-2xl font-bold text-gray-800">
-                        Sistem Jagung <span className="text-yellow-500">Untuk Kita</span>
+                        Sistem Jagung <span className="text-green-500">Untuk Kita</span>
                     </h1>
                 </Link>
 
@@ -42,7 +42,7 @@ const Navbar = () => {
                     <NavProfile />
 
                     <Button 
-                        className="bg-yellow-500 hover:bg-yellow-400 text-white flex items-center gap-2" 
+                        className="bg-green-500 hover:bg-green-400 text-white flex items-center gap-2" 
                         onClick={() => navigate("/create/store")}
                     >
                         <Store size={18} />

@@ -19,7 +19,7 @@ const ForYou = () => {
             <div className="flex items-center justify-between my-5">
                 <p className="text-xl font-semibold text-gray-800">Untuk Kamu</p>
                 
-                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-yellow-600 hover:bg-yellow-100">
+                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-green-600 hover:bg-green-100">
                     <Link to="/mart/for-you" className="flex items-center space-x-1">
                         <span>Lihat Semua</span>
                         <ArrowRight size={16} />
@@ -50,7 +50,7 @@ const ForYou = () => {
 
                             <div className="flex items-center justify-between p-3 mt-auto border-t border-gray-100">
                                 <div className="flex items-baseline space-x-1">
-                                    <span className="text-lg font-bold text-yellow-600">
+                                    <span className="text-lg font-bold text-green-600">
                                         Rp {item.price.toLocaleString('id-ID')}
                                     </span>
                                     <span className="text-xs text-gray-500 font-medium">{item.unit}</span>
@@ -70,7 +70,7 @@ const ForYou = () => {
                 <div className="flex justify-center mt-6">
                     <Button 
                         onClick={showMore}
-                        className="bg-yellow-500 hover:bg-yellow-600 text-white px-6"
+                        className="bg-green-500 hover:bg-green-600 text-white px-6"
                     >
                         Tampilkan Lebih Banyak
                     </Button>

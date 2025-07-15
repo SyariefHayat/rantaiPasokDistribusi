@@ -16,7 +16,7 @@ const PopulerProduct = () => {
             <div className="flex items-center justify-between my-5">
                 <p className="text-xl font-semibold text-gray-800">Populer Minggu Ini</p>
 
-                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-yellow-600 hover:bg-yellow-100">
+                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-green-600 hover:bg-green-100">
                     <Link to="/mart/popular" className="flex items-center space-x-1">
                         <span>Lihat Semua</span>
                         <ArrowRight size={16} />
@@ -37,7 +37,7 @@ const PopulerProduct = () => {
                         >
                             {/* Badge jika ada */}
                             {item.badge && (
-                                <span className="absolute top-2 left-2 bg-yellow-500 text-white text-[10px] px-2 py-0.5 rounded shadow-md">
+                                <span className="absolute top-2 left-2 bg-green-500 text-white text-[10px] px-2 py-0.5 rounded shadow-md">
                                     {item.badge}
                                 </span>
                             )}
@@ -54,7 +54,7 @@ const PopulerProduct = () => {
 
                             <div className="space-y-2 pt-2 mt-auto border-t border-gray-100">
                                 <div className="flex items-baseline space-x-1">
-                                    <span className="text-lg font-bold text-yellow-600">
+                                    <span className="text-lg font-bold text-green-600">
                                         Rp {item.price.toLocaleString('id-ID')}
                                     </span>
                                     <span className="text-xs text-gray-500 font-medium">{item.unit}</span>

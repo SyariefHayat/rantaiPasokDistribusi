@@ -50,13 +50,13 @@ const SearchComp = () => {
             <Input
                 value={search}
                 onChange={handleChange}
-                className="w-full h-11 rounded-full bg-gray-100 border-none pl-5 pr-10 hover:bg-white hover:ring-[3px] hover:ring-yellow-100 focus-visible:bg-white focus-visible:ring-yellow-100"
+                className="w-full h-11 rounded-full bg-gray-100 border-none pl-5 pr-10 hover:bg-white hover:ring-[3px] hover:ring-green-100 focus-visible:bg-white focus-visible:ring-green-100"
                 placeholder="Masukkan nama merek atau produk..." 
             />
 
             <span 
                 onClick={handleSearch}
-                className="w-8 h-8 rounded-full bg-yellow-500 cursor-pointer absolute top-1/2 right-2 transform -translate-y-1/2 flex items-center justify-center"
+                className="w-8 h-8 rounded-full bg-green-500 cursor-pointer absolute top-1/2 right-2 transform -translate-y-1/2 flex items-center justify-center"
             >
                 <Search size="18" className="text-white" />
             </span>
@@ -73,7 +73,7 @@ const SearchComp = () => {
                                     onClick={() => handleSelectItem(item)}
                                     className="p-2 hover:bg-gray-100 cursor-pointer text-sm rounded-sm"
                                 >
-                                    <Search size="16" className="inline mr-2 text-yellow-500" />
+                                    <Search size="16" className="inline mr-2 text-green-500" />
                                     {item}
                                 </div>
                             ))
