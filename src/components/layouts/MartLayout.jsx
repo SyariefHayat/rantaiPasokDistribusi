@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Navbar from '../modules/mart/Navbar'
-import FooterSection from '@/pages/landing/FooterSection'
+import FooterSection from '@/pages/landing/Footer'
 
 const MartLayout = ({ children }) => {
     return (

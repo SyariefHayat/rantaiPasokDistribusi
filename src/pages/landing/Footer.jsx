@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FooterSection = () => {
+const Footer = () => {
     const footerLinks = {
         mulai: [
             { title: 'Beranda', url: '/' },
@@ -117,4 +117,4 @@ const FooterSection = () => {
     );
 };
 
-export default FooterSection;
+export default Footer;

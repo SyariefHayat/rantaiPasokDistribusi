@@ -5,23 +5,23 @@ export const LIST_NAVBAR = [
     },
     {
         title: "Harga Pasar",
-        url: "/harga-pasar"
+        url: "/price-market"
     },
     {
         title: "Komunitas",
-        url: "/komunitas"
+        url: "/community"
     },
     {
         title: "Kerja Sama",
-        url: "/kerja-sama"
+        url: "/cooperation"
     },
     {
         title: "Pasar Jagung",
-        url: "/pasar-jagung"
+        url: "/marketplace"
     },
     {
         title: "Berita dan Kegiatan",
-        url: "/berita-dan-kegiatan"
+        url: "/news"
     },
 ]
 

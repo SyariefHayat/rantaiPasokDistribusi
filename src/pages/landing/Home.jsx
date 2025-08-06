@@ -7,9 +7,9 @@ import AboutUs from '@/pages/landing/AboutUs'
 import BussinessSection from '@/pages/landing/BussinessSection'
 import MarketplaceSection from '@/pages/landing/MarketplaceSection'
 import CTASection from '@/pages/landing/CTASection'
-import FooterSection from '@/pages/landing/FooterSection'
 import FeaturesSection from './FeaturesSection'
 import PricingSection from './PricingSection'
+import Footer from '@/pages/landing/Footer'
 
 const Home = () => {
     return (
@@ -22,7 +22,7 @@ const Home = () => {
             {/* <AboutUs /> */}
             {/* <BussinessSection /> */}
             {/* <CTASection /> */}
-            <FooterSection />
+            <Footer />
         </DefaultLayout>
     )
 }

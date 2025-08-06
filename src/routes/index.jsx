@@ -3,6 +3,8 @@ import ProfileSetup from "@/pages/auth/ProfileSetup"
 import SignUp from "@/pages/auth/SignUp"
 import Success from "@/pages/auth/Success"
 import VerifyOtp from "@/pages/auth/VerifyOtp"
+import Community from "@/pages/community"
+import Cooperation from "@/pages/cooperation"
 import Seller from "@/pages/dashboard/Seller"
 import Home from "@/pages/landing/Home"
 import Cart from "@/pages/mart/Cart"
@@ -17,9 +19,16 @@ import Product from "@/pages/mart/Product"
 import Profile from "@/pages/mart/Profile"
 import StoreDetail from "@/pages/mart/Store"
 import StoreRecommendations from "@/pages/mart/StoreRecommendation"
+import News from "@/pages/news"
+import PriceMarket from "@/pages/priceMarket"
 
 const routes = [
     { path: "/", element: <Home /> },
+    { path: "/price-market", element: <PriceMarket /> },
+    { path: "/community", element: <Community /> },
+    { path: "/cooperation", element: <Cooperation /> },
+    { path: "/marketplace", element: <Mart /> },
+    { path: "/news", element: <News /> },
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <SignUp /> },
     { path: "/signup/verify-otp", element: <VerifyOtp /> },
