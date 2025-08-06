@@ -1,40 +1,10 @@
-import EachUtils from '@/utils/EachUtils';
 import React, { useState } from 'react';
+
+import EachUtils from '@/utils/EachUtils';
+import { LIST_NAVBAR } from '@/constants/listNavbar';
 
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeDropdown, setActiveDropdown] = useState(null);
-
-    const navigationItems = [
-        { title: 'Beranda', url: '/' },
-        { title: 'Fitur', url: '#features' },
-        { title: 'Market', url: '#marketplace' },
-        { 
-            title: 'Jaringan Industri', 
-            url: '#network',
-            hasDropdown: true,
-            submenu: [
-                { title: 'Jaringan Penjual', url: '#sellers-network', icon: '🏪' },
-                { title: 'Jaringan Pembeli', url: '#buyers-network', icon: '🛒' },
-                { title: 'Jaringan Distributor', url: '#distributors-network', icon: '🚚' },
-                { title: 'Jaringan Investor', url: '#investors-network', icon: '💰' }
-            ]
-        },
-        { title: 'Berita', url: '#news' }
-    ];
-
-    const handleMouseEnter = (index) => {
-        setActiveDropdown(index);
-    };
-
-    const handleMouseLeave = () => {
-        setActiveDropdown(null);
-    };
-
-    const handleDropdownClick = (e) => {
-        e.preventDefault();
-        // Handle dropdown click if needed
-    };
 
     return (
         <header className="w-full px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
@@ -45,7 +15,7 @@ const NavBar = () => {
                             <img 
                                 src="/logo.png" 
                                 alt="logo si juki" 
-                                className="mb-2 size-10 transition-transform group-hover:scale-110" 
+                                className="mb-2 size-10 transition-transform" 
                             />
                         </div>
                         <span className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
@@ -56,67 +26,19 @@ const NavBar = () => {
 
                 <ul className="hidden md:flex items-center space-x-8">
                     <EachUtils 
-                        of={navigationItems}
+                        of={LIST_NAVBAR}
                         render={(item, index) => (
                             <li 
                                 key={index}
                                 className="relative"
-                                onMouseEnter={() => item.hasDropdown && handleMouseEnter(index)}
-                                onMouseLeave={() => item.hasDropdown && handleMouseLeave()}
                             >
                                 <a
                                     href={item.url}
                                     className="text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium relative group flex items-center"
-                                    onClick={item.hasDropdown ? handleDropdownClick : undefined}
                                 >
                                     {item.title}
-                                    {item.hasDropdown && (
-                                        <svg 
-                                            className={`ml-1 w-4 h-4 transition-transform duration-200 ${
-                                                activeDropdown === index ? 'rotate-180' : ''
-                                            }`}
-                                            fill="none" 
-                                            stroke="currentColor" 
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path 
-                                                strokeLinecap="round" 
-                                                strokeLinejoin="round" 
-                                                strokeWidth={2} 
-                                                d="M19 9l-7 7-7-7" 
-                                            />
-                                        </svg>
-                                    )}
                                     <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-green-600 transition-all duration-300 group-hover:w-full" />
                                 </a>
-                                
-                                {item.hasDropdown && (
-                                    <div 
-                                        className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden transition-all duration-300 ${
-                                            activeDropdown === index 
-                                                ? 'opacity-100 translate-y-0 visible' 
-                                                : 'opacity-0 translate-y-2 invisible'
-                                        }`}
-                                    >
-                                        <div className="py-2">
-                                            <EachUtils 
-                                                of={item.submenu}
-                                                render={(subItem, subIndex) => (
-                                                    <a
-                                                        key={subIndex}
-                                                        href={subItem.url}
-                                                        className="flex items-center px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-200 group"
-                                                    >
-                                                        <span className="text-lg mr-3 group-hover:scale-110 transition-transform">
-                                                            {subItem.icon}
-                                                        </span>
-                                                        <span className="font-medium">{subItem.title}</span>
-                                                    </a>
-                                                )}
-                                            />
-                                        </div>
-                                    </div>
-                                )}
                             </li>
                         )}
                     />
@@ -131,7 +53,7 @@ const NavBar = () => {
                     </a>
                     <a 
                         href="/signup" 
-                        className="px-6 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+                        className="px-6 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all duration-200 font-medium shadow-lg transform"
                     >
                         Signup
                     </a>

@@ -4,12 +4,24 @@ export const LIST_NAVBAR = [
         url: "/"
     },
     {
-        title: "Fitur",
-        url: "#features"
+        title: "Harga Pasar",
+        url: "/harga-pasar"
     },
     {
-        title: "Harga",
-        url: "#pricing"
+        title: "Komunitas",
+        url: "/komunitas"
+    },
+    {
+        title: "Kerja Sama",
+        url: "/kerja-sama"
+    },
+    {
+        title: "Pasar Jagung",
+        url: "/pasar-jagung"
+    },
+    {
+        title: "Berita dan Kegiatan",
+        url: "/berita-dan-kegiatan"
     },
 ]
 
