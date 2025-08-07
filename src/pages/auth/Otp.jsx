@@ -50,7 +50,6 @@ const Otp = () => {
         setError('');
 
         try {
-            // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500));
             navigate("/signup/verify-otp");
         } catch (err) {

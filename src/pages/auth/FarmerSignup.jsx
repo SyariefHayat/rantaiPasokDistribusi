@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ChevronDownIcon, Mail, MapPin, Phone, Tractor, User } from "lucide-react"
+
+import { 
+    MapPin, 
+    Tractor, 
+    User,
+    ChevronDownIcon
+} from "lucide-react"
 
 import {
     Select,
@@ -19,24 +25,36 @@ import {
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Button } from "@/components/ui/button"
+import { Textarea } from '@/components/ui/textarea'
 import { Calendar } from "@/components/ui/calendar"
 import Navbar from '@/components/modules/auth/Navbar'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
-import { Textarea } from '@/components/ui/textarea'
 
 const FarmerSignup = () => {
+    const [open, setOpen] = useState(false);
+    const [date, setDate] = useState(undefined);
+
     const [formData, setFormData] = useState({
-        nama: '',
+        namaLengkap: '',
         email: '',
         username: '',
+        noTelepon: '',
         jenisKelamin: '',
         tanggalLahir: '',
+        kodePos: '',
         provinsi: '',
-        kabupatenKota: ''
+        kota: '',
+        kecamatan: '',
+        kelurahan: '',
+        alamatLengkap: '',
+        luasLahan: '',
+        jenisBenih: '',
+        estimasiHasilPanen: '',
+        lamaPetani: '',
+        statusKepemilikanLahan: ''
     })
+    
     const [isLoading, setIsLoading] = useState(false)
-    const [calendarOpen, setCalendarOpen] = useState(false)
-    const [selectedDate, setSelectedDate] = useState(undefined)
     
     const navigate = useNavigate()
 
@@ -60,9 +78,10 @@ const FarmerSignup = () => {
         setIsLoading(true)
         
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500))
             console.log('Profile data:', formData)
-            navigate("/signup/success")
+            setTimeout(() => {
+                navigate("/signup/success")
+            }, 1500)
         } catch (error) {
             console.error("Error setting up profile:", error)
         } finally {
@@ -70,9 +89,14 @@ const FarmerSignup = () => {
         }
     }
 
-    const isFormValid = () => {
-        return Object.values(formData).every(value => value.trim() !== '')
-    }
+    const daftarBenih = [
+        "BISI-18",
+        "NK 7328",
+        "Pioneer P27",
+        "DK 95",
+        "JH 37",
+        "Hibrida Lokal",
+    ];
 
     return (
         <DefaultLayout>
@@ -82,9 +106,7 @@ const FarmerSignup = () => {
                     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
                         <div className="text-center mb-8">
                             <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
+                                <Tractor className="w-8 h-8 text-white" />
                             </div>
                             <h1 className="text-2xl font-bold text-gray-900 mb-2">
                                 Daftar Sebagai Petani
@@ -104,7 +126,7 @@ const FarmerSignup = () => {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="md:col-span-2">
                                             <Label htmlFor="namaLengkap" className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Nama Lengkap *
+                                                Nama Lengkap
                                             </Label>
                                             <Input
                                                 id="namaLengkap"
@@ -113,31 +135,13 @@ const FarmerSignup = () => {
                                                 value={formData.namaLengkap}
                                                 onChange={handleChange}
                                                 placeholder="Masukkan nama lengkap sesuai KTP"
-                                                className={`w-full focus:border-green-500`}
+                                                className="w-full focus:border-green-500"
                                             />
                                         </div>
 
                                         <div>
-                                            <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Email *
-                                            </Label>
-                                            <div className="relative">
-                                                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                                                <Input
-                                                    id="email"
-                                                    name="email"
-                                                    type="email"
-                                                    value={formData.email}
-                                                    onChange={handleChange}
-                                                    placeholder="petani@email.com"
-                                                    className={`pl-10 focus:border-green-500`}
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div>
                                             <Label htmlFor="username" className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Username *
+                                                Username
                                             </Label>
                                             <Input
                                                 id="username"
@@ -146,31 +150,28 @@ const FarmerSignup = () => {
                                                 value={formData.username}
                                                 onChange={handleChange}
                                                 placeholder="petani_muda123"
-                                                className={`focus:border-green-500`}
+                                                className="focus:border-green-500"
                                             />
                                         </div>
 
                                         <div>
                                             <Label htmlFor="noTelepon" className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Nomor Telepon *
+                                                Nomor Telepon
                                             </Label>
-                                            <div className="relative">
-                                                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                                                <Input
-                                                    id="noTelepon"
-                                                    name="noTelepon"
-                                                    type="tel"
-                                                    value={formData.noTelepon}
-                                                    onChange={handleChange}
-                                                    placeholder="081234567890"
-                                                    className={`pl-10 focus:border-green-500`}
-                                                />
-                                            </div>
+                                            <Input
+                                                id="noTelepon"
+                                                name="noTelepon"
+                                                type="tel"
+                                                value={formData.noTelepon}
+                                                onChange={handleChange}
+                                                placeholder="081234567890"
+                                                className="focus:border-green-500"
+                                            />
                                         </div>
 
                                         <div>
                                             <Label className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Jenis Kelamin *
+                                                Jenis Kelamin
                                             </Label>
                                             <Select onValueChange={(value) => handleSelectChange('jenisKelamin', value)}>
                                                 <SelectTrigger className="w-full">
@@ -183,23 +184,61 @@ const FarmerSignup = () => {
                                             </Select>
                                         </div>
 
-                                        <div>
-                                            <Label className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Tanggal Lahir *
+                                        <div className="flex flex-col gap-3">
+                                            <Label htmlFor="date" className="px-1">
+                                                Tanggal Lahir
                                             </Label>
+                                            <Popover open={open} onOpenChange={setOpen}>
+                                                <PopoverTrigger asChild>
+                                                    <Button
+                                                        variant="outline"
+                                                        id="date"
+                                                        className="w-48 justify-between font-normal"
+                                                    >
+                                                        {date ? date.toLocaleDateString() : "Select date"}
+                                                        <ChevronDownIcon />
+                                                    </Button>
+                                                </PopoverTrigger>
+                                                <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+                                                    <Calendar
+                                                        mode="single"
+                                                        selected={date}
+                                                        captionLayout="dropdown"
+                                                        onSelect={(date) => {
+                                                        setDate(date);
+                                                        setOpen(false);
+                                                        }}
+                                                    />
+                                                </PopoverContent>
+                                            </Popover>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="bg-blue-50 rounded-xl p-6">
+                                <div className="bg-gray-50 rounded-xl p-6">
                                     <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                                         <MapPin className="w-5 h-5 mr-2 text-blue-600" />
                                         Alamat
                                     </h3>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="col-span-2">
+                                            <Label htmlFor="kodePos" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Kode Pos
+                                            </Label>
+                                            <Input
+                                                id="kodePos"
+                                                name="kodePos"
+                                                type="text"
+                                                value={formData.kodePos}
+                                                onChange={handleChange}
+                                                placeholder="6000"
+                                                className="focus:border-blue-500"
+                                            />
+                                        </div>
+
                                         <div>
                                             <Label htmlFor="provinsi" className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Provinsi *
+                                                Provinsi
                                             </Label>
                                             <Input
                                                 id="provinsi"
@@ -208,28 +247,58 @@ const FarmerSignup = () => {
                                                 value={formData.provinsi}
                                                 onChange={handleChange}
                                                 placeholder="Jawa Timur"
-                                                className={`focus:border-blue-500`}
+                                                className="focus:border-blue-500"
                                             />
                                         </div>
 
                                         <div>
-                                            <Label htmlFor="kabupatenKota" className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Kabupaten / Kota *
+                                            <Label htmlFor="kota" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Kota
                                             </Label>
                                             <Input
-                                                id="kabupatenKota"
-                                                name="kabupatenKota"
+                                                id="kota"
+                                                name="kota"
                                                 type="text"
-                                                value={formData.kabupatenKota}
+                                                value={formData.kota}
                                                 onChange={handleChange}
                                                 placeholder="Malang"
-                                                className={`focus:border-blue-500`}
+                                                className="focus:border-blue-500"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <Label htmlFor="kecamatan" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Kecamatan
+                                            </Label>
+                                            <Input
+                                                id="kecamatan"
+                                                name="kecamatan"
+                                                type="text"
+                                                value={formData.kecamatan}
+                                                onChange={handleChange}
+                                                placeholder="Klojen"
+                                                className="focus:border-blue-500"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <Label htmlFor="kelurahan" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Kelurahan
+                                            </Label>
+                                            <Input
+                                                id="kelurahan"
+                                                name="kelurahan"
+                                                type="text"
+                                                value={formData.kelurahan}
+                                                onChange={handleChange}
+                                                placeholder="Kauman"
+                                                className="focus:border-blue-500"
                                             />
                                         </div>
 
                                         <div className="md:col-span-2">
                                             <Label htmlFor="alamatLengkap" className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Alamat Lengkap *
+                                                Alamat Lengkap
                                             </Label>
                                             <Textarea
                                                 id="alamatLengkap"
@@ -238,39 +307,21 @@ const FarmerSignup = () => {
                                                 onChange={handleChange}
                                                 placeholder="Jl. Raya Pertanian No. 123, Desa Subur, Kec. Makmur"
                                                 rows={3}
-                                                className={`focus:border-blue-500`}
+                                                className="focus:border-blue-500"
                                             />
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="bg-emerald-50 rounded-xl p-6">
+                                <div className="bg-gray-50 rounded-xl p-6">
                                     <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                                         <Tractor className="w-5 h-5 mr-2 text-emerald-600" />
                                         Informasi Pertanian
                                     </h3>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div>
-                                            <Label className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Jenis Pertanian *
-                                            </Label>
-                                            <Select onValueChange={(value) => handleSelectChange('jenisPertanian', value)}>
-                                                <SelectTrigger>
-                                                    <SelectValue placeholder="Pilih jenis pertanian" />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    {/* {jenisPertanianOptions.map(option => (
-                                                        <SelectItem key={option.value} value={option.value}>
-                                                            {option.label}
-                                                        </SelectItem>
-                                                    ))} */}
-                                                </SelectContent>
-                                            </Select>
-                                        </div>
-
-                                        <div>
+                                        <div className="col-span-2">
                                             <Label htmlFor="luasLahan" className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Luas Lahan (Ha) *
+                                                Luas Lahan (Ha)
                                             </Label>
                                             <Input
                                                 id="luasLahan"
@@ -286,52 +337,79 @@ const FarmerSignup = () => {
                                         </div>
 
                                         <div>
-                                            <Label htmlFor="komoditas" className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Komoditas Utama *
+                                            <Label htmlFor="jenis-benih" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Jenis Benih Jagung
+                                            </Label>
+                                            <Select onValueChange={(value) => handleSelectChange('jenisBenih', value)}>
+                                                <SelectTrigger id="jenis-benih" className="w-full">
+                                                    <SelectValue placeholder="Pilih jenis benih" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    {daftarBenih.map((benih) => (
+                                                        <SelectItem key={benih} value={benih}>
+                                                        {benih}
+                                                        </SelectItem>
+                                                    ))}
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+
+                                        <div>
+                                            <Label htmlFor="estimasiHasilPanen" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Estimasi Hasil Panen (Ton)
                                             </Label>
                                             <Input
-                                                id="komoditas"
-                                                name="komoditas"
-                                                type="text"
-                                                value={formData.komoditas}
+                                                id="estimasiHasilPanen"
+                                                name="estimasiHasilPanen"
+                                                type="number"
+                                                step="0.1"
+                                                min="0.1"
+                                                value={formData.estimasiHasilPanen}
                                                 onChange={handleChange}
-                                                placeholder="Padi, Jagung, Cabai, dll"
+                                                placeholder="2.5"
                                                 className='focus:border-emerald-500'
                                             />
                                         </div>
 
                                         <div>
-                                            <Label className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Pengalaman Bertani *
+                                            <Label
+                                                htmlFor="lamaPetani"
+                                                className="text-sm font-medium text-gray-700 mb-1 block"
+                                            >
+                                                Berapa lama menjadi petani (Tahun)
                                             </Label>
-                                            <Select onValueChange={(value) => handleSelectChange('pengalamanBertani', value)}>
-                                                <SelectTrigger>
-                                                    <SelectValue placeholder="Pilih pengalaman" />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    {/* {pengalamanOptions.map(option => (
-                                                        <SelectItem key={option.value} value={option.value}>
-                                                            {option.label}
-                                                        </SelectItem>
-                                                    ))} */}
-                                                </SelectContent>
-                                            </Select>
+                                            <Input
+                                                id="lamaPetani"
+                                                name="lamaPetani"
+                                                type="number"
+                                                step="1"
+                                                min="0"
+                                                value={formData.lamaPetani}
+                                                onChange={handleChange}
+                                                placeholder="Contoh: 2"
+                                                className="focus:border-emerald-500"
+                                            />
                                         </div>
 
-                                        <div className="md:col-span-2">
+                                        <div>
                                             <Label className="text-sm font-medium text-gray-700 mb-1 block">
-                                                Status Kepemilikan Lahan *
+                                                Status Kepemilikan Lahan
                                             </Label>
-                                            <Select onValueChange={(value) => handleSelectChange('statusKepemilikanLahan', value)}>
-                                                <SelectTrigger>
-                                                    <SelectValue placeholder="Pilih status kepemilikan" />
+                                            <Select
+                                                onValueChange={(value) =>
+                                                handleSelectChange("statusKepemilikanLahan", value)
+                                                }
+                                                value={formData.statusKepemilikanLahan}
+                                            >
+                                                <SelectTrigger className="w-full">
+                                                <SelectValue placeholder="Pilih status kepemilikan" />
                                                 </SelectTrigger>
                                                 <SelectContent>
-                                                    {/* {statusKepemilikanOptions.map(option => (
-                                                        <SelectItem key={option.value} value={option.value}>
-                                                            {option.label}
-                                                        </SelectItem>
-                                                    ))} */}
+                                                <SelectItem value="milik_pribadi">Milik Pribadi</SelectItem>
+                                                <SelectItem value="sewa">Sewa</SelectItem>
+                                                <SelectItem value="bagi_hasil">Bagi Hasil</SelectItem>
+                                                <SelectItem value="keluarga">Milik Keluarga</SelectItem>
+                                                <SelectItem value="lainnya">Lainnya</SelectItem>
                                                 </SelectContent>
                                             </Select>
                                         </div>
@@ -341,7 +419,7 @@ const FarmerSignup = () => {
 
                             <button
                                 type="submit"
-                                disabled={!isFormValid() || isLoading}
+                                disabled={isLoading}
                                 className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center cursor-pointer"
                             >
                                 {isLoading ? (

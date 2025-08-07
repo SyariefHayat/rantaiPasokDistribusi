@@ -23,6 +23,7 @@ import News from "@/pages/news"
 import PriceMarket from "@/pages/priceMarket"
 import SignUp from "@/pages/auth/SignUp"
 import FarmerSignup from "@/pages/auth/FarmerSignup"
+import DistributorSignup from "@/pages/auth/DistributorSignup"
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -34,6 +35,7 @@ const routes = [
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <SignUp /> },
     { path: "/signup/farmer", element: <FarmerSignup /> },
+    { path: "/signup/distributor", element: <DistributorSignup /> },
     { path: "/signup/otp", element: <Otp /> },
     { path: "/signup/verify-otp", element: <VerifyOtp /> },
     { path: "/signup/profile-setup", element: <ProfileSetup /> },
