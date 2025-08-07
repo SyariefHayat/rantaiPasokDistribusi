@@ -1,6 +1,6 @@
 import Login from "@/pages/auth/Login"
 import ProfileSetup from "@/pages/auth/ProfileSetup"
-import SignUp from "@/pages/auth/SignUp"
+import Otp from "@/pages/auth/Otp"
 import Success from "@/pages/auth/Success"
 import VerifyOtp from "@/pages/auth/VerifyOtp"
 import Community from "@/pages/community"
@@ -21,6 +21,7 @@ import StoreDetail from "@/pages/mart/Store"
 import StoreRecommendations from "@/pages/mart/StoreRecommendation"
 import News from "@/pages/news"
 import PriceMarket from "@/pages/priceMarket"
+import SignUp from "@/pages/auth/SignUp"
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -31,6 +32,7 @@ const routes = [
     { path: "/news", element: <News /> },
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <SignUp /> },
+    { path: "/signup/otp", element: <Otp /> },
     { path: "/signup/verify-otp", element: <VerifyOtp /> },
     { path: "/signup/profile-setup", element: <ProfileSetup /> },
     { path: "/signup/success", element: <Success /> },

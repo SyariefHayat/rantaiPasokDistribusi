@@ -1,173 +1,229 @@
-import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import React, { useState, useCallback } from 'react'
 
-import { Input } from '@/components/ui/input'
 import Navbar from '@/components/modules/auth/Navbar'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 
 const SignUp = () => {
     const navigate = useNavigate();
-    const [phoneNumber, setPhoneNumber] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
+    const [selectedRole, setSelectedRole] = useState('');
 
-    const validatePhoneNumber = (phone) => {
-        const cleanedPhone = phone.replace(/[\s-]/g, '');
-        const phoneRegex = /^(?:\+62|62|0)8[1-9][0-9]{7,10}$/;
-        return phoneRegex.test(cleanedPhone);
-    };
-
-    const formatPhoneNumber = (value) => {
-        const digits = value.replace(/\D/g, '');
-        
-        if (digits.length <= 4) return digits;
-        if (digits.length <= 8) return `${digits.slice(0, 4)}-${digits.slice(4)}`;
-        if (digits.length <= 12) return `${digits.slice(0, 4)}-${digits.slice(4, 8)}-${digits.slice(8)}`;
-        return `${digits.slice(0, 4)}-${digits.slice(4, 8)}-${digits.slice(8, 12)}`;
-    };
-
-    const handlePhoneChange = (e) => {
-        const value = e.target.value;
-        const formatted = formatPhoneNumber(value);
-        setPhoneNumber(formatted);
-        setError('');
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        if (!phoneNumber.trim()) {
-            setError('Nomor telepon wajib diisi');
-            return;
+    const roles = [
+        {
+            id: 'petani',
+            title: 'Petani',
+            description: 'Saya ingin menjual hasil panen dan bergabung dengan komunitas petani',
+            icon: (
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            ),
+            route: '/signup/farmer',
+            color: 'bg-green-500',
+            borderColor: 'border-green-200',
+            focusColor: 'ring-green-500'
+        },
+        {
+            id: 'distributor',
+            title: 'Distributor',
+            description: 'Saya ingin mendistribusikan produk pertanian ke berbagai wilayah',
+            icon: (
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+            ),
+            route: '/signup/distributor',
+            color: 'bg-blue-500',
+            borderColor: 'border-blue-200',
+            focusColor: 'ring-blue-500'
+        },
+        {
+            id: 'investor',
+            title: 'Investor',
+            description: 'Saya ingin berinvestasi dalam sektor pertanian dan agribisnis',
+            icon: (
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            ),
+            route: '/signup/investor',
+            color: 'bg-purple-500',
+            borderColor: 'border-purple-200',
+            focusColor: 'ring-purple-500'
+        },
+        {
+            id: 'pembeli',
+            title: 'Pembeli',
+            description: 'Saya ingin membeli produk pertanian langsung dari petani',
+            icon: (
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+            ),
+            route: '/signup/pembeli',
+            color: 'bg-orange-500',
+            borderColor: 'border-orange-200',
+            focusColor: 'ring-orange-500'
         }
+    ];
 
-        if (!validatePhoneNumber(phoneNumber)) {
-            setError('Format nomor telepon tidak valid');
-            return;
-        }
+    const handleRoleSelect = useCallback((roleId) => {
+        setSelectedRole(roleId);
+    }, []);
 
+    const handleContinue = useCallback(async () => {
+        if (!selectedRole || isLoading) return;
+        
         setIsLoading(true);
-        setError('');
-
+        
         try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            navigate("/signup/verify-otp");
-        } catch (err) {
-            setError('Terjadi kesalahan. Silakan coba lagi.');
-        } finally {
+            const selectedRoleData = roles.find(role => role.id === selectedRole);
+            
+            if (selectedRoleData) {
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                navigate(selectedRoleData.route);
+            }
+        } catch (error) {
+            console.error('Navigation error:', error);
             setIsLoading(false);
         }
-    };
+    }, [selectedRole, isLoading, navigate]);
 
-    const isFormValid = phoneNumber.trim() && validatePhoneNumber(phoneNumber);
+    const handleKeyDown = useCallback((event, roleId) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            handleRoleSelect(roleId);
+        }
+    }, [handleRoleSelect]);
 
     return (
         <DefaultLayout>
-            <div className="bg-gray-100 w-full min-h-screen">
+            <div className="bg-gray-50 w-full min-h-screen">
                 <Navbar />
-                <div className="min-h-screen flex items-center justify-center px-4 pt-20 pb-5 mt-5">
-                    <div className="w-full max-w-lg">
+                <main className="min-h-screen flex items-center justify-center px-4 pt-20 pb-8">
+                    <div className="w-full max-w-2xl">
                         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
-                            <div className="text-center mb-8">
-                                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <header className="text-center mb-8">
+                                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                                     </svg>
                                 </div>
                                 <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                                    Mulai Keanggotaan Anda
+                                    Pilih Peran Anda
                                 </h1>
                                 <p className="text-gray-600 text-sm leading-relaxed">
-                                    Daftarkan nomor handphone untuk verifikasi cepat dan akses langsung ke sistem distribusi kami
+                                    Bergabunglah dengan ekosistem pertanian digital. Pilih peran yang sesuai dengan kebutuhan Anda
                                 </p>
+                            </header>
+
+                            <div className="space-y-4 mb-8" role="radiogroup" aria-labelledby="role-selection">
+                                <h2 id="role-selection" className="sr-only">Pilih peran Anda</h2>
+                                {roles.map((role) => (
+                                    <div
+                                        key={role.id}
+                                        onClick={() => handleRoleSelect(role.id)}
+                                        className={`
+                                            relative p-6 rounded-xl border-2 cursor-pointer transition-all duration-300 hover:shadow-lg
+                                            ${selectedRole === role.id 
+                                                ? `${role.borderColor} ${role.focusColor} ring-2 bg-gray-50` 
+                                                : 'border-gray-200 hover:border-gray-300'
+                                            }
+                                        `}
+                                    >
+                                        <div className="flex items-start space-x-4">
+                                            <div className={`${role.color} text-white p-3 rounded-lg flex-shrink-0`}>
+                                                {role.icon}
+                                            </div>
+                                            <div className="flex-1">
+                                                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                                    {role.title}
+                                                </h3>
+                                                <p className="text-gray-600 text-sm leading-relaxed">
+                                                    {role.description}
+                                                </p>
+                                            </div>
+                                            <div className="flex-shrink-0">
+                                                <div className={`
+                                                    w-6 h-6 rounded-full border-2 transition-all duration-200
+                                                    ${selectedRole === role.id 
+                                                        ? `bg-green-500 border-green-500` 
+                                                        : 'border-gray-300'
+                                                    }
+                                                `}>
+                                                    {selectedRole === role.id && (
+                                                        <svg className="w-4 h-4 text-white m-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                        </svg>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div>
-                                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Nomor Telepon
-                                    </label>
-                                    <div className="relative">
-                                        <Input 
-                                            id="phone"
-                                            type="tel"
-                                            value={phoneNumber}
-                                            onChange={handlePhoneChange}
-                                            placeholder="8xxx-xxxx-xxxx"
-                                            className={`h-12 text-base border-2 rounded-lg transition-all duration-200 ${
-                                                error 
-                                                    ? 'border-red-300 focus:border-red-500 focus:ring-red-200' 
-                                                    : 'border-gray-200 focus:border-green-500 focus:ring-green-200'
-                                            } focus:ring-2 focus:outline-none`}
-                                            disabled={isLoading}
-                                        />
-                                        {phoneNumber && validatePhoneNumber(phoneNumber) && (
-                                            <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                                                <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                                </svg>
-                                            </div>
-                                        )}
-                                    </div>
-                                    {error && (
-                                        <p className="mt-2 text-sm text-red-600 flex items-center">
-                                            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                                            </svg>
-                                            {error}
-                                        </p>
-                                    )}
-                                    <p className="mt-2 text-xs text-gray-500">
-                                        Contoh: 08123456789 atau +628123456789
-                                    </p>
-                                </div>
+                            <button
+                                onClick={handleContinue}
+                                disabled={!selectedRole || isLoading}
+                                className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 cursor-pointer"
+                                aria-describedby={!selectedRole ? "button-help" : undefined}
+                            >
+                                {isLoading ? (
+                                    <>
+                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        <span>Memproses...</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span>Lanjutkan</span>
+                                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </>
+                                )}
+                            </button>
+                            
+                            {!selectedRole && (
+                                <p id="button-help" className="text-xs text-gray-500 text-center mt-2">
+                                    Silakan pilih peran terlebih dahulu
+                                </p>
+                            )}
 
-                                <button
-                                    type="submit"
-                                    disabled={!isFormValid || isLoading}
-                                    className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center cursor-pointer"
-                                >
-                                    {isLoading ? (
-                                        <>
-                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                            </svg>
-                                            Memproses...
-                                        </>
-                                    ) : (
-                                        <>
-                                            Kirim Kode Verifikasi
-                                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                            </svg>
-                                        </>
-                                    )}
-                                </button>
-                            </form>
-
-                            <div className="mt-6 pt-6 border-t border-gray-100">
+                            <footer className="mt-6 pt-6 border-t border-gray-100">
                                 <p className="text-xs text-gray-500 text-center">
                                     Sudah punya akun? 
-                                    <a href="/login" className="text-green-600 hover:text-green-700 font-medium ml-1">
+                                    <a 
+                                        href="/login" 
+                                        className="text-green-600 hover:text-green-700 font-medium ml-1 focus:outline-none focus:underline"
+                                    >
                                         Masuk di sini
                                     </a>
                                 </p>
                                 <p className="text-xs text-gray-400 text-center mt-2">
                                     Dengan mendaftar, Anda menyetujui 
-                                    <a href="/terms" className="text-green-600 hover:text-green-700 font-medium mx-1">
+                                    <a 
+                                        href="/terms" 
+                                        className="text-green-600 hover:text-green-700 font-medium mx-1 focus:outline-none focus:underline"
+                                    >
                                         Syarat & Ketentuan
                                     </a> 
                                     dan 
-                                    <a href="/privacy" className="text-green-600 hover:text-green-700 font-medium ml-1">
+                                    <a 
+                                        href="/privacy" 
+                                        className="text-green-600 hover:text-green-700 font-medium ml-1 focus:outline-none focus:underline"
+                                    >
                                         Kebijakan Privasi
                                     </a>
                                 </p>
-                            </div>
+                            </footer>
                         </div>
                     </div>
-                </div>
+                </main>
             </div>
         </DefaultLayout>
     )
