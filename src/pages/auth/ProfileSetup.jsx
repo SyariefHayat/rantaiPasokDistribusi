@@ -50,7 +50,6 @@ const ProfileSetup = () => {
     const handleDateSelect = (date) => {
         setSelectedDate(date)
         if (date) {
-            // Format date to YYYY-MM-DD for form data
             const formattedDate = date.toISOString().split('T')[0]
             setFormData(prev => ({
                 ...prev,
@@ -72,15 +71,11 @@ const ProfileSetup = () => {
         setIsLoading(true)
         
         try {
-            // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500))
-            // Handle profile setup logic here
             console.log('Profile data:', formData)
-            // Navigate to next step or dashboard
             navigate("/signup/success")
         } catch (error) {
             console.error("Error setting up profile:", error)
-            // Handle error (e.g., show notification)
         } finally {
             setIsLoading(false)
         }
