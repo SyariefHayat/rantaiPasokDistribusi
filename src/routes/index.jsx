@@ -28,6 +28,7 @@ import InvestorSignup from "@/pages/auth/InvestorSignup"
 import BuyerSignup from "@/pages/auth/BuyerSignup"
 import Farmer from "@/pages/dashboard/Farmer"
 import Distributor from "@/pages/dashboard/Distributor"
+import Investor from "@/pages/dashboard/Investor"
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -48,6 +49,7 @@ const routes = [
     { path: "/signup/success", element: <Success /> },
     { path: "/dashboard/farmer", element: <Farmer /> },
     { path: "/dashboard/distributor", element: <Distributor /> },
+    { path: "/dashboard/investor", element: <Investor /> },
     { path: "/mart", element: <Mart /> }, 
     { path: "/mart/category", element: <Category /> },
     { path: "/mart/popular", element: <PopularProducts /> },
