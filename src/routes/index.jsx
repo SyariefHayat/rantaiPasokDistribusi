@@ -26,6 +26,7 @@ import FarmerSignup from "@/pages/auth/FarmerSignup"
 import DistributorSignup from "@/pages/auth/DistributorSignup"
 import InvestorSignup from "@/pages/auth/InvestorSignup"
 import BuyerSignup from "@/pages/auth/BuyerSignup"
+import Farmer from "@/pages/dashboard/Farmer"
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -44,6 +45,7 @@ const routes = [
     { path: "/signup/verify-otp", element: <VerifyOtp /> },
     { path: "/signup/profile-setup", element: <ProfileSetup /> },
     { path: "/signup/success", element: <Success /> },
+    { path: "/dashboard/farmer", element: <Farmer /> },
     { path: "/mart", element: <Mart /> }, 
     { path: "/mart/category", element: <Category /> },
     { path: "/mart/popular", element: <PopularProducts /> },
