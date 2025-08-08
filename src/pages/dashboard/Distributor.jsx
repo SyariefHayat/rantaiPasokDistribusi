@@ -1,14 +1,10 @@
 import React from 'react'
 
-import {
-    SidebarInset,
-    SidebarProvider,
-} from "@/components/ui/sidebar"
+import AppSidebar from '@/components/modules/distributorDashboard/AppSidebar'
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
+import SiteHeader from '@/components/modules/distributorDashboard/SiteHeader'
 
-import AppSidebar from '@/components/modules/farmerDashboard/AppSidebar'
-import SiteHeader from '@/components/modules/farmerDashboard/SiteHeader'
-
-const Farmer = () => {
+const Distributor = () => {
     return (
         <SidebarProvider
             style={
@@ -29,4 +25,4 @@ const Farmer = () => {
     )
 }
 
-export default Farmer
+export default Distributor

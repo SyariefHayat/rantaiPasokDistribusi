@@ -79,9 +79,7 @@ const FarmerSignup = () => {
         
         try {
             console.log('Profile data:', formData)
-            setTimeout(() => {
-                navigate("/signup/success")
-            }, 1500)
+            navigate("/dashboard/farmer")
         } catch (error) {
             console.error("Error setting up profile:", error)
         } finally {

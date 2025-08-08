@@ -82,9 +82,8 @@ const DistributorSignup = () => {
         setIsLoading(true)
         
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500))
             console.log('Data distributor:', formData)
-            navigate("/signup/success")
+            navigate("/dashboard/distributor")
         } catch (error) {
             console.error("Error:", error)
         } finally {
@@ -424,7 +423,7 @@ const DistributorSignup = () => {
 
                             <button
                                 type="submit"
-                                disabled={!isFormValid() || isLoading}
+                                // disabled={!isFormValid() || isLoading}
                                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-all duration-300 flex items-center justify-center cursor-pointer"
                             >
                                 {isLoading ? (
