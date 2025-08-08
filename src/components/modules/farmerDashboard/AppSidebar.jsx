@@ -41,13 +41,149 @@ const data = {
         avatar: "/avatars/shadcn.jpg",
     },
     navMain: [
-        { title: "Dashboard", url: "#", icon: Home },
-        { title: "Rantai Pasok", url: "#", icon: Truck },
-        { title: "Ekonomi", url: "#", icon: LineChart },
-        { title: "Lingkungan", url: "#", icon: TreeDeciduous },
-        { title: "Sosial", url: "#", icon: Users },
-        { title: "External", url: "#", icon: ExternalLink },
-        { title: "Prediksi", url: "#", icon: Activity },
+        { 
+            title: "Dashboard", 
+            url: "#", 
+            icon: Home 
+        },
+        { 
+            title: "Rantai Pasok", 
+            url: "#", 
+            icon: Truck,
+            items: [
+                {
+                    title: "Key Performance Indicator",
+                    url: "#"
+                },
+                {
+                    title: "Distribusi Jagung",
+                    url: "#"
+                }
+            ]
+        },
+        { 
+            title: "Ekonomi", 
+            url: "#", 
+            icon: LineChart,
+            items: [
+                {
+                    title: "Produktivitas",
+                    url: "#"
+                },
+                {
+                    title: "Produksi",
+                    url: "#"
+                },
+                {
+                    title: "Permintaan",
+                    url: "#"
+                },
+                {
+                    title: "Efektivitas Pembiayaan Budidaya",
+                    url: "#"
+                },
+                {
+                    title: "Kualitas Komoditas",
+                    url: "#"
+                },
+                {
+                    title: "Luas Lahan",
+                    url: "#"
+                },
+                {
+                    title: "Stok Jagung",
+                    url: "#"
+                },
+                {
+                    title: "Saprodi",
+                    url: "#"
+                },
+                {
+                    title: "Sarana dan Prasarana",
+                    url: "#"
+                },
+            ]
+        },
+        { 
+            title: "Lingkungan", 
+            url: "#", 
+            icon: TreeDeciduous,
+            items: [
+                {
+                    title: "Mitigasi Limbah",
+                    url: "#"
+                },
+                {
+                    title: "Daur Ulang Limbah",
+                    url: "#"
+                },
+                {
+                    title: "Mitigasi Emisi Karbon",
+                    url: "#"
+                },
+                {
+                    title: "Kondisi Existing",
+                    url: "#"
+                },
+                {
+                    title: "Hama",
+                    url: "#"
+                },
+            ]
+        },
+        { 
+            title: "Sosial", 
+            url: "#", 
+            icon: Users,
+            items: [
+                {
+                    title: "Peningkatan Pendapatan Petani",
+                    url: "#"
+                },
+                {
+                    title: "Peningkatan Fungsi Kelembagaan",
+                    url: "#"
+                },
+                {
+                    title: "Rekomendasi Budidaya Berdaya Asing",
+                    url: "#"
+                },
+            ]
+        },
+        { 
+            title: "External", 
+            url: "#", 
+            icon: ExternalLink,
+            items: [
+                {
+                    title: "Kebijakan Pemerintah",
+                    url: "#"
+                },
+                {
+                    title: "Degradasi Lingkungan",
+                    url: "#"
+                },
+                {
+                    title: "Nilai-Nilai Sosial",
+                    url: "#"
+                },
+            ]
+        },
+        { 
+            title: "Prediksi", 
+            url: "#", 
+            icon: Activity,
+            items: [
+                {
+                    title: "Cuaca",
+                    url: "#"
+                },
+                {
+                    title: "Supply dan Demand",
+                    url: "#"
+                },
+            ]
+        },
         { title: "Kalender Tanam", url: "#", icon: Calendar },
         { title: "Layanan Digital", url: "#", icon: Smartphone },
     ],
