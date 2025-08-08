@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ChevronDownIcon, Truck } from "lucide-react"
+
+import { 
+    ChevronDownIcon, 
+    MapPin, 
+    Tractor, 
+    Truck, 
+    User 
+} from "lucide-react"
 
 import {
     Select,
@@ -20,24 +27,28 @@ import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
+import { Textarea } from '@/components/ui/textarea'
 import Navbar from '@/components/modules/auth/Navbar'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 
 const DistributorSignup = () => {
     const [formData, setFormData] = useState({
         namaLengkap: '',
-        email: '',
         username: '',
         noTelepon: '',
         jenisKelamin: '',
         tanggalLahir: '',
+        kodePos: '',
         provinsi: '',
-        kabupatenKota: '',
-        namaPerusahaan: '',
-        jenisDistribusi: '',
-        wilayahOperasi: '',
+        kota: '',
+        kecamatan: '',
+        kelurahan: '',
+        alamatLengkap: '',
+        wilayahDistribusi: '',
         kapasitasDistribusi: '',
-        jenisKendaraan: ''
+        jenisKendaraan: '',
+        tipeBadanUsaha: '',
+        metodeTracking: ''
     })
     
     const [isLoading, setIsLoading] = useState(false)
@@ -82,7 +93,20 @@ const DistributorSignup = () => {
     }
 
     const isFormValid = () => {
-        return Object.values(formData).every(value => value.trim() !== '')
+        const requiredFields = [
+            'namaLengkap', 'username', 'noTelepon', 'jenisKelamin', 
+            'kodePos', 'provinsi', 'kota', 'kecamatan', 'kelurahan', 'alamatLengkap',
+            'wilayahDistribusi', 'kapasitasDistribusi', 'jenisKendaraan', 'tipeBadanUsaha', 'metodeTracking'
+        ];
+        
+        const allFieldsFilled = requiredFields.every(field => {
+            const value = formData[field];
+            return value && value.toString().trim() !== '';
+        });
+
+        const isDateSelected = selectedDate !== undefined && selectedDate !== null;
+        
+        return allFieldsFilled && isDateSelected;
     }
 
     return (
@@ -104,193 +128,304 @@ const DistributorSignup = () => {
                         </div>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="md:col-span-2">
-                                    <Label htmlFor="namaLengkap">Nama Lengkap</Label>
-                                    <Input
-                                        id="namaLengkap"
-                                        name="namaLengkap"
-                                        value={formData.namaLengkap}
-                                        onChange={handleChange}
-                                        placeholder="Masukkan nama lengkap"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <Label htmlFor="email">Email</Label>
-                                    <Input
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        placeholder="distributor@email.com"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <Label htmlFor="username">Username</Label>
-                                    <Input
-                                        id="username"
-                                        name="username"
-                                        value={formData.username}
-                                        onChange={handleChange}
-                                        placeholder="username"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <Label htmlFor="noTelepon">No. Telepon</Label>
-                                    <Input
-                                        id="noTelepon"
-                                        name="noTelepon"
-                                        type="tel"
-                                        value={formData.noTelepon}
-                                        onChange={handleChange}
-                                        placeholder="081234567890"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <Label>Jenis Kelamin</Label>
-                                    <Select onValueChange={(value) => handleSelectChange('jenisKelamin', value)}>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder="Pilih gender" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="laki-laki">Laki-laki</SelectItem>
-                                            <SelectItem value="perempuan">Perempuan</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-
-                                <div>
-                                    <Label>Tanggal Lahir</Label>
-                                    <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
-                                        <PopoverTrigger asChild>
-                                            <Button variant="outline" className="w-full justify-between">
-                                                {selectedDate ? selectedDate.toLocaleDateString('id-ID') : "Pilih tanggal"}
-                                                <ChevronDownIcon className="h-4 w-4" />
-                                            </Button>
-                                        </PopoverTrigger>
-                                        <PopoverContent className="w-auto p-0">
-                                            <Calendar
-                                                mode="single"
-                                                selected={selectedDate}
-                                                onSelect={handleDateSelect}
-                                                fromYear={1950}
-                                                toYear={new Date().getFullYear()}
-                                                captionLayout="dropdown"
+                            <div className="space-y-4">
+                                <div className="bg-gray-50 rounded-xl p-6">
+                                    <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                        <User className="w-5 h-5 mr-2 text-blue-600" />
+                                        Data Pribadi
+                                    </h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="md:col-span-2">
+                                            <Label htmlFor="namaLengkap" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Nama Lengkap
+                                            </Label>
+                                            <Input
+                                                id="namaLengkap"
+                                                name="namaLengkap"
+                                                type="text"
+                                                value={formData.namaLengkap}
+                                                onChange={handleChange}
+                                                placeholder="Masukkan nama lengkap sesuai KTP"
+                                                className="w-full focus:border-green-500"
                                             />
-                                        </PopoverContent>
-                                    </Popover>
+                                        </div>
+
+                                        <div>
+                                            <Label htmlFor="username" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Username
+                                            </Label>
+                                            <Input
+                                                id="username"
+                                                name="username"
+                                                type="text"
+                                                value={formData.username}
+                                                onChange={handleChange}
+                                                placeholder="distributor123"
+                                                className="focus:border-green-500"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <Label htmlFor="noTelepon" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Nomor Telepon
+                                            </Label>
+                                            <Input
+                                                id="noTelepon"
+                                                name="noTelepon"
+                                                type="tel"
+                                                value={formData.noTelepon}
+                                                onChange={handleChange}
+                                                placeholder="081234567890"
+                                                className="focus:border-green-500"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <Label className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Jenis Kelamin
+                                            </Label>
+                                            <Select onValueChange={(value) => handleSelectChange('jenisKelamin', value)}>
+                                                <SelectTrigger className="w-full">
+                                                    <SelectValue placeholder="Pilih jenis kelamin" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="laki-laki">Laki-laki</SelectItem>
+                                                    <SelectItem value="perempuan">Perempuan</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+
+                                        <div>
+                                            <Label className="text-sm font-medium text-gray-700 mb-1 block">Tanggal Lahir</Label>
+                                            <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+                                                <PopoverTrigger asChild>
+                                                    <Button variant="outline" className="w-full justify-between">
+                                                        {selectedDate ? selectedDate.toLocaleDateString('id-ID') : "Pilih tanggal"}
+                                                        <ChevronDownIcon className="h-4 w-4" />
+                                                    </Button>
+                                                </PopoverTrigger>
+                                                <PopoverContent className="w-auto p-0">
+                                                    <Calendar
+                                                        mode="single"
+                                                        selected={selectedDate}
+                                                        onSelect={handleDateSelect}
+                                                        fromYear={1950}
+                                                        toYear={new Date().getFullYear()}
+                                                        captionLayout="dropdown"
+                                                    />
+                                                </PopoverContent>
+                                            </Popover>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <Label htmlFor="provinsi">Provinsi</Label>
-                                    <Input
-                                        id="provinsi"
-                                        name="provinsi"
-                                        value={formData.provinsi}
-                                        onChange={handleChange}
-                                        placeholder="Jawa Timur"
-                                        required
-                                    />
+                                <div className="bg-gray-50 rounded-xl p-6">
+                                    <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                        <MapPin className="w-5 h-5 mr-2 text-blue-600" />
+                                        Alamat
+                                    </h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="col-span-2">
+                                            <Label htmlFor="kodePos" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Kode Pos
+                                            </Label>
+                                            <Input
+                                                id="kodePos"
+                                                name="kodePos"
+                                                type="text"
+                                                value={formData.kodePos}
+                                                onChange={handleChange}
+                                                placeholder="6000"
+                                                className="focus:border-blue-500"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <Label htmlFor="provinsi" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Provinsi
+                                            </Label>
+                                            <Input
+                                                id="provinsi"
+                                                name="provinsi"
+                                                type="text"
+                                                value={formData.provinsi}
+                                                onChange={handleChange}
+                                                placeholder="Jawa Timur"
+                                                className="focus:border-blue-500"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <Label htmlFor="kota" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Kota
+                                            </Label>
+                                            <Input
+                                                id="kota"
+                                                name="kota"
+                                                type="text"
+                                                value={formData.kota}
+                                                onChange={handleChange}
+                                                placeholder="Malang"
+                                                className="focus:border-blue-500"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <Label htmlFor="kecamatan" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Kecamatan
+                                            </Label>
+                                            <Input
+                                                id="kecamatan"
+                                                name="kecamatan"
+                                                type="text"
+                                                value={formData.kecamatan}
+                                                onChange={handleChange}
+                                                placeholder="Klojen"
+                                                className="focus:border-blue-500"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <Label htmlFor="kelurahan" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Kelurahan
+                                            </Label>
+                                            <Input
+                                                id="kelurahan"
+                                                name="kelurahan"
+                                                type="text"
+                                                value={formData.kelurahan}
+                                                onChange={handleChange}
+                                                placeholder="Kauman"
+                                                className="focus:border-blue-500"
+                                            />
+                                        </div>
+
+                                        <div className="md:col-span-2">
+                                            <Label htmlFor="alamatLengkap" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Alamat Lengkap
+                                            </Label>
+                                            <Textarea
+                                                id="alamatLengkap"
+                                                name="alamatLengkap"
+                                                value={formData.alamatLengkap}
+                                                onChange={handleChange}
+                                                placeholder="Jl. Raya Pertanian No. 123, Desa Subur, Kec. Makmur"
+                                                rows={3}
+                                                className="focus:border-blue-500"
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <Label htmlFor="kabupatenKota">Kabupaten/Kota</Label>
-                                    <Input
-                                        id="kabupatenKota"
-                                        name="kabupatenKota"
-                                        value={formData.kabupatenKota}
-                                        onChange={handleChange}
-                                        placeholder="Surabaya"
-                                        required
-                                    />
-                                </div>
+                                <div className="bg-gray-50 rounded-xl p-6">
+                                    <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                        <Truck className="w-5 h-5 mr-2 text-emerald-600" />
+                                        Informasi Distribusi
+                                    </h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="col-span-2">
+                                            <Label htmlFor="wilayahDistribusi" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Wilayah Distribusi Utama
+                                            </Label>
+                                            <Input
+                                                id="wilayahDistribusi"
+                                                name="wilayahDistribusi"
+                                                type="text"
+                                                value={formData.wilayahDistribusi}
+                                                onChange={handleChange}
+                                                placeholder="Jawa Timur, Jawa Tengah"
+                                                className='focus:border-emerald-500'
+                                            />
+                                        </div>
 
-                                <div className="md:col-span-2">
-                                    <Label htmlFor="namaPerusahaan">Nama Perusahaan/Usaha</Label>
-                                    <Input
-                                        id="namaPerusahaan"
-                                        name="namaPerusahaan"
-                                        value={formData.namaPerusahaan}
-                                        onChange={handleChange}
-                                        placeholder="CV. Distributor Agro"
-                                        required
-                                    />
-                                </div>
+                                        <div>
+                                            <Label htmlFor="kapasitasDistribusi" className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Kapasitas Distribusi (Ton/Bulan)
+                                            </Label>
+                                            <Input
+                                                id="kapasitasDistribusi"
+                                                name="kapasitasDistribusi"
+                                                type="number"
+                                                step="0.1"
+                                                value={formData.kapasitasDistribusi}
+                                                onChange={handleChange}
+                                                placeholder="50"
+                                                className="focus:border-emerald-500"
+                                            />
+                                        </div>
 
-                                <div>
-                                    <Label>Jenis Distribusi</Label>
-                                    <Select onValueChange={(value) => handleSelectChange('jenisDistribusi', value)}>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder="Pilih jenis distribusi" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="sayuran-segar">Sayuran Segar</SelectItem>
-                                            <SelectItem value="buah-buahan">Buah-buahan</SelectItem>
-                                            <SelectItem value="beras-padi">Beras & Padi</SelectItem>
-                                            <SelectItem value="produk-olahan">Produk Olahan</SelectItem>
-                                            <SelectItem value="pupuk-pestisida">Pupuk & Pestisida</SelectItem>
-                                            <SelectItem value="alat-pertanian">Alat Pertanian</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
+                                        <div>
+                                            <Label className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Jenis Kendaraan
+                                            </Label>
+                                            <Select onValueChange={(value) => handleSelectChange('jenisKendaraan', value)}>
+                                                <SelectTrigger className="w-full" >
+                                                    <SelectValue placeholder="Pilih kendaraan" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="pickup">Pickup</SelectItem>
+                                                    <SelectItem value="truk-kecil">Truk Kecil 5 Ton</SelectItem>
+                                                    <SelectItem value="truk-sedang">Truk Sedang 5-10 Ton</SelectItem>
+                                                    <SelectItem value="truk-besar">Truk Besar 10 Ton</SelectItem>
+                                                    <SelectItem value="container">Container</SelectItem>
+                                                    <SelectItem value="truk-box">Truk Box</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
 
-                                <div>
-                                    <Label htmlFor="wilayahOperasi">Wilayah Operasi</Label>
-                                    <Input
-                                        id="wilayahOperasi"
-                                        name="wilayahOperasi"
-                                        value={formData.wilayahOperasi}
-                                        onChange={handleChange}
-                                        placeholder="Jawa Timur, Jawa Tengah"
-                                        required
-                                    />
-                                </div>
+                                        <div>
+                                            <Label className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Tipe Badan Usaha
+                                            </Label>
+                                            <Select
+                                                onValueChange={(value) =>
+                                                handleSelectChange("tipeBadanUsaha", value)
+                                                }
+                                                value={formData.tipeBadanUsaha}
+                                            >
+                                                <SelectTrigger className="w-full">
+                                                <SelectValue placeholder="Pilih tipe badan usaha" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                <SelectItem value="distributor-jagung-lokal">Distributor Jagung Lokal</SelectItem>
+                                                <SelectItem value="distributor-antar-kota">Distributor Antar Kota</SelectItem>
+                                                <SelectItem value="distributor-ekspor">Distributor Ekspor</SelectItem>
+                                                <SelectItem value="distributor-bahan-olahan">Distributor Bahan Olahan</SelectItem>
+                                                <SelectItem value="gudang-penyimpanan">Gudang dan Penyimpanan</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
 
-                                <div>
-                                    <Label htmlFor="kapasitasDistribusi">Kapasitas Distribusi (Ton/Bulan)</Label>
-                                    <Input
-                                        id="kapasitasDistribusi"
-                                        name="kapasitasDistribusi"
-                                        type="number"
-                                        step="0.1"
-                                        value={formData.kapasitasDistribusi}
-                                        onChange={handleChange}
-                                        placeholder="50"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <Label>Jenis Kendaraan</Label>
-                                    <Select onValueChange={(value) => handleSelectChange('jenisKendaraan', value)}>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder="Pilih kendaraan" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="pickup">Pickup</SelectItem>
-                                            <SelectItem value="truk-kecil">Truk Kecil 5 Ton</SelectItem>
-                                            <SelectItem value="truk-sedang">Truk Sedang 5-10 Ton</SelectItem>
-                                            <SelectItem value="truk-besar">Truk Besar 10 Ton</SelectItem>
-                                            <SelectItem value="container">Container</SelectItem>
-                                            <SelectItem value="truk-box">Truk Box</SelectItem>
-                                        </SelectContent>
-                                    </Select>
+                                        <div>
+                                            <Label className="text-sm font-medium text-gray-700 mb-1 block">
+                                                Metode Tracking
+                                            </Label>
+                                            <Select
+                                                onValueChange={(value) =>
+                                                handleSelectChange("metodeTracking", value)
+                                                }
+                                                value={formData.metodeTracking}
+                                            >
+                                                <SelectTrigger className="w-full">
+                                                <SelectValue placeholder="Pilih metode tracking" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                <SelectItem value="gps-real-time">GPS Real Time</SelectItem>
+                                                <SelectItem value="scan-qr">Scan QR per titik</SelectItem>
+                                                <SelectItem value="manual-update">Manual Update</SelectItem>
+                                                <SelectItem value="integrasi-ekspedisi">Integrasi dengan ekspedisi</SelectItem>
+                                                <SelectItem value="gudang-penyimpanan">Gudang dan Penyimpanan</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <button
                                 type="submit"
                                 disabled={!isFormValid() || isLoading}
-                                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-3 rounded-lg transition-all duration-300 flex items-center justify-center"
+                                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-all duration-300 flex items-center justify-center cursor-pointer"
                             >
                                 {isLoading ? (
                                     <>
