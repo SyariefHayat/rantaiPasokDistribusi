@@ -23,7 +23,7 @@ const TeamSwitcher = () => {
                         <AudioWaveform className="size-4" />
                     </div>
                     <div className="grid flex-1 text-left text-sm leading-tight">
-                        <span className="truncate font-medium">Sistem Jagung Untuk Kita</span>
+                        <span className="truncate font-medium">Sistem Informasi Jagung Untuk Kita</span>
                         <span className="truncate text-xs">Dashboard Penjual</span>
                     </div>
                 </SidebarMenuButton>

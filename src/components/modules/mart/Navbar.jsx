@@ -42,7 +42,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 border-b">
                 <Link to="/mart" className="flex items-center space-x-2 hover:opacity-80 transition-all">
                     <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">
-                        <span className="hidden sm:inline">Sistem Jagung</span>
+                        <span className="hidden sm:inline">Sistem Informasi Jagung</span>
                         <span className="sm:hidden">SI</span>
                         <span className="text-green-500 ml-1">
                             <span className="hidden sm:inline">Untuk Kita</span>
