@@ -1,6 +1,6 @@
-import React from 'react'
-import { MapPin, Store } from 'lucide-react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { MapPin, Store, Menu, X, ChevronDown } from 'lucide-react'
 
 import {
     NavigationMenu,
@@ -22,36 +22,78 @@ import { Separator } from "@/components/ui/separator"
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [mobileSubMenus, setMobileSubMenus] = useState({});
+
+    const toggleMobileSubMenu = (menu) => {
+        setMobileSubMenus(prev => ({
+            ...prev,
+            [menu]: !prev[menu]
+        }));
+    };
+
+    const closeMobileMenu = () => {
+        setMobileMenuOpen(false);
+        setMobileSubMenus({});
+    };
 
     return (
         <header className="flex flex-col mb-5 sticky top-0 z-50 bg-white shadow-sm">
-            <div className="flex items-center justify-between px-8 py-3 border-b">
+            <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 border-b">
                 <Link to="/mart" className="flex items-center space-x-2 hover:opacity-80 transition-all">
-                    <h1 className="text-2xl font-bold text-gray-800">
-                        Sistem Jagung <span className="text-green-500">Untuk Kita</span>
+                    <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">
+                        <span className="hidden sm:inline">Sistem Jagung</span>
+                        <span className="sm:hidden">SI</span>
+                        <span className="text-green-500 ml-1">
+                            <span className="hidden sm:inline">Untuk Kita</span>
+                            <span className="sm:hidden">JUKI</span>
+                        </span>
                     </h1>
                 </Link>
 
-                <SearchComp />
+                <div className="hidden md:block flex-1 max-w-lg mx-4">
+                    <SearchComp />
+                </div>
 
-                <div className="flex items-center h-8 gap-5">
+                <div className="hidden lg:flex items-center h-8 gap-3 xl:gap-5">
                     <NavMessage />
                     <NavNotification />
                     <NavCart />
                     <Separator orientation="vertical" />
                     <NavProfile />
-
                     <Button 
-                        className="bg-green-500 hover:bg-green-400 text-white flex items-center gap-2" 
+                        className="bg-green-500 hover:bg-green-400 text-white flex items-center gap-2 text-sm" 
                         onClick={() => navigate("/create/store")}
                     >
-                        <Store size={18} />
-                        Mulai Jualan
+                        <Store size={16} />
+                        <span className="hidden xl:inline">Mulai Jualan</span>
+                        <span className="xl:hidden">Jual</span>
+                    </Button>
+                </div>
+
+                <div className="flex lg:hidden items-center gap-2">
+                    <div className="flex items-center gap-2">
+                        <NavMessage />
+                        <NavNotification />
+                        <NavCart />
+                        <NavProfile />
+                    </div>
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="p-2"
+                    >
+                        {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                     </Button>
                 </div>
             </div>
 
-            <div className="flex items-center justify-between px-8 py-2">
+            <div className="md:hidden px-4 py-2 border-b bg-gray-50">
+                <SearchComp />
+            </div>
+
+            <div className="hidden lg:flex items-center justify-between px-8 py-2">
                 <NavigationMenu viewport={false}>
                     <NavigationMenuList>
                         <NavigationMenuItem>
@@ -205,6 +247,137 @@ const Navbar = () => {
                     </p>
                 </div>
             </div>
+
+            {mobileMenuOpen && (
+                <div className="lg:hidden bg-white border-b shadow-lg">
+                    <div className="px-4 py-2 space-y-1">
+                        <Link 
+                            to="/" 
+                            className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+                            onClick={closeMobileMenu}
+                        >
+                            Beranda
+                        </Link>
+
+                        <div>
+                            <button
+                                onClick={() => toggleMobileSubMenu('products')}
+                                className="flex items-center justify-between w-full px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+                            >
+                                Produk Jagung
+                                <ChevronDown 
+                                    size={16} 
+                                    className={`transition-transform ${mobileSubMenus.products ? 'rotate-180' : ''}`} 
+                                />
+                            </button>
+                            {mobileSubMenus.products && (
+                                <div className="ml-4 mt-1 space-y-1">
+                                    <Link to="#products" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Semua Produk
+                                    </Link>
+                                    <Link to="#products/konsumsi" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Jagung Konsumsi
+                                    </Link>
+                                    <Link to="#products/pakan" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Jagung Pakan
+                                    </Link>
+                                    <Link to="#products/pipilan" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Jagung Pipilan Kering
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+
+                        <div>
+                            <button
+                                onClick={() => toggleMobileSubMenu('farmers')}
+                                className="flex items-center justify-between w-full px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+                            >
+                                Petani & Produsen
+                                <ChevronDown 
+                                    size={16} 
+                                    className={`transition-transform ${mobileSubMenus.farmers ? 'rotate-180' : ''}`} 
+                                />
+                            </button>
+                            {mobileSubMenus.farmers && (
+                                <div className="ml-4 mt-1 space-y-1">
+                                    <Link to="#farmers" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Direktori Petani
+                                    </Link>
+                                    <Link to="#farmers/profile" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Profil Petani
+                                    </Link>
+                                    <Link to="#become-farmer" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Bergabung Sebagai Petani
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+
+                        <div>
+                            <button
+                                onClick={() => toggleMobileSubMenu('funding')}
+                                className="flex items-center justify-between w-full px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+                            >
+                                Pendanaan
+                                <ChevronDown 
+                                    size={16} 
+                                    className={`transition-transform ${mobileSubMenus.funding ? 'rotate-180' : ''}`} 
+                                />
+                            </button>
+                            {mobileSubMenus.funding && (
+                                <div className="ml-4 mt-1 space-y-1">
+                                    <Link to="#funding/active" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Proyek Pendanaan Aktif
+                                    </Link>
+                                    <Link to="#funding/impact" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Laporan Dampak
+                                    </Link>
+                                    <Link to="#funding/apply" className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md" onClick={closeMobileMenu}>
+                                        Ajukan Pendanaan
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+
+                        <Link 
+                            to="#articles" 
+                            className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+                            onClick={closeMobileMenu}
+                        >
+                            Artikel & Edukasi
+                        </Link>
+                        
+                        <Link 
+                            to="#contact" 
+                            className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+                            onClick={closeMobileMenu}
+                        >
+                            Hubungi Kami
+                        </Link>
+
+                        <div className="pt-3 border-t space-y-2">
+                            <Button 
+                                className="w-full bg-green-500 hover:bg-green-400 text-white flex items-center justify-center gap-2" 
+                                onClick={() => {
+                                    navigate("/create/store");
+                                    closeMobileMenu();
+                                }}
+                            >
+                                <Store size={16} />
+                                Mulai Jualan
+                            </Button>
+                            
+                            <div className="flex items-center justify-center gap-2 py-2">
+                                <MapPin size="16" className="text-gray-500" />
+                                <p className="text-xs font-medium text-gray-600">
+                                    Gresik, Jawa Timur, Indonesia
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </header>
     )
 }

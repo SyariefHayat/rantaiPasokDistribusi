@@ -46,7 +46,7 @@ const SearchComp = () => {
     };
 
     return (
-        <div className="relative w-[40%]">
+        <div className="relative w-full">
             <Input
                 value={search}
                 onChange={handleChange}

@@ -10,35 +10,40 @@ const StoreRecommend = () => {
     const navigate = useNavigate();
     
     return (
-        <div className="w-full h-full">
-            
-            {/* Header */}
-            <div className="flex items-center justify-between my-5">
-                <p className="text-xl font-semibold text-gray-800">Rekomendasi Toko</p>
+        <div className="w-full h-full my-10 sm:my-6">
+            <div className="flex items-center justify-between gap-3 mb-5">
+                <p className="text-lg sm:text-xl font-semibold text-gray-800">Rekomendasi Toko</p>
                 
-                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-green-600 hover:bg-green-100 cursor-pointer">
+                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-green-600 hover:bg-green-100">
                     <Link to="/mart/store" className="flex items-center space-x-1">
-                        <span>Lihat Semua</span>
+                        <span className="text-sm sm:text-base">Lihat Semua</span>
                         <ArrowRight size={16} />
                     </Link>
                 </Button>
             </div>
 
-            {/* Grid Toko */}
-            <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
                 <EachUtils 
                     of={LIST_STORE}
                     render={(item, index) => (
                         <div 
                             key={index}
                             onClick={() => navigate(`/mart/store/${item.name}`)}
-                            className="w-full h-80 bg-gray-100 rounded-lg shadow hover:shadow-lg transition cursor-pointer overflow-hidden flex flex-col"
+                            className="w-full bg-gray-100 rounded-lg shadow hover:shadow-lg transition cursor-pointer overflow-hidden flex flex-col min-h-[240px] sm:min-h-[280px] md:min-h-[320px]"
                         >
         
-                            <img src={item.image} alt={item.name} className="h-2/3 w-full object-cover" />
+                            <div className="flex-1">
+                                <img 
+                                    src={item.image} 
+                                    alt={item.name} 
+                                    className="w-full h-32 sm:h-40 md:h-48 object-cover" 
+                                />
+                            </div>
                             
-                            <div className="p-3 flex flex-col justify-between h-1/3">
-                                <p className="font-semibold text-sm text-gray-800 truncate">{item.name}</p>
+                            <div className="p-2 sm:p-3 flex flex-col justify-between">
+                                <p className="font-semibold text-xs sm:text-sm text-gray-800 line-clamp-2 mb-1">
+                                    {item.name}
+                                </p>
                                 <span className="text-xs text-gray-500">{item.location}</span>
                             </div>
 
@@ -51,4 +56,4 @@ const StoreRecommend = () => {
     )
 }
 
-export default StoreRecommend
+export default StoreRecommend;
