@@ -15,80 +15,70 @@ import NavBar from '../landing/NavBar'
 import Footer from '../landing/Footer'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 
-const invoices = [
+const stakeholders = [
     {
-        invoice: "INV001",
-        paymentStatus: "Paid",
-        totalAmount: "$250.00",
-        paymentMethod: "Credit Card",
+        name: "Budi Santoso",
+        role: "Petani",
+        contribution: "Menyuplai 20 ton jagung/season",
+        status: "Aktif",
     },
     {
-        invoice: "INV002",
-        paymentStatus: "Pending",
-        totalAmount: "$150.00",
-        paymentMethod: "PayPal",
+        name: "PT Jagung Sejahtera",
+        role: "Distributor",
+        contribution: "Distribusi jagung ke pasar regional",
+        status: "Aktif",
     },
     {
-        invoice: "INV003",
-        paymentStatus: "Unpaid",
-        totalAmount: "$350.00",
-        paymentMethod: "Bank Transfer",
+        name: "Siti Aminah",
+        role: "Investor",
+        contribution: "Investasi modal Rp 500 juta untuk perluasan lahan",
+        status: "Pending",
     },
     {
-        invoice: "INV004",
-        paymentStatus: "Paid",
-        totalAmount: "$450.00",
-        paymentMethod: "Credit Card",
+        name: "PT Pakan Ternak Makmur",
+        role: "PT Penyerap",
+        contribution: "Membeli 50 ton jagung/bulan",
+        status: "Aktif",
     },
     {
-        invoice: "INV005",
-        paymentStatus: "Paid",
-        totalAmount: "$550.00",
-        paymentMethod: "PayPal",
+        name: "Kelompok Tani Jagung Jaya",
+        role: "Petani",
+        contribution: "Mengelola 15 hektar lahan jagung",
+        status: "Aktif",
     },
-    {
-        invoice: "INV006",
-        paymentStatus: "Pending",
-        totalAmount: "$200.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        invoice: "INV007",
-        paymentStatus: "Unpaid",
-        totalAmount: "$300.00",
-        paymentMethod: "Credit Card",
-    },
-]
+];
 
 const Cooperation = () => {
     return (
         <DefaultLayout>
             <NavBar/>
             <div className="w-full h-screen p-10">
+                <h1 className="text-2xl font-semibold mb-6">Kerja Sama Stakeholder</h1>
+
                 <Table>
-                    <TableCaption>A list of your recent invoices.</TableCaption>
+                    <TableCaption>Daftar kerja sama aktif antara petani, investor, distributor, dan PT penyerap jagung.</TableCaption>
                     <TableHeader>
                         <TableRow>
-                            <TableHead className="w-[100px]">Invoice</TableHead>
-                            <TableHead>Status</TableHead>
-                            <TableHead>Method</TableHead>
-                            <TableHead className="text-right">Amount</TableHead>
+                            <TableHead className="w-[100px]">Nama Stakeholder</TableHead>
+                            <TableHead>Peran</TableHead>
+                            <TableHead>Kontribusi</TableHead>
+                            <TableHead className="text-right">Status</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {invoices.map((invoice) => (
-                            <TableRow key={invoice.invoice}>
-                                <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                                <TableCell>{invoice.paymentStatus}</TableCell>
-                                <TableCell>{invoice.paymentMethod}</TableCell>
-                                <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+                        {stakeholders.map((item, index) => (
+                            <TableRow key={index}>
+                                <TableCell className="font-medium">{item.name}</TableCell>
+                                <TableCell>{item.role}</TableCell>
+                                <TableCell>{item.contribution}</TableCell>
+                                <TableCell className="text-right">{item.status}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                     <TableFooter>
                         <TableRow>
-                            <TableCell colSpan={3}>Total</TableCell>
-                            <TableCell className="text-right">$2,500.00</TableCell>
+                            <TableCell colSpan={3}>Total Stakeholder</TableCell>
+                            <TableCell className="text-right">{stakeholders.length}</TableCell>
                         </TableRow>
                     </TableFooter>
                 </Table>
