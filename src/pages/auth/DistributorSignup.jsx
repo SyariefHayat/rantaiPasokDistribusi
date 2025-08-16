@@ -239,7 +239,7 @@ const DistributorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="provinsi" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Provinsi
                                             </Label>
@@ -254,7 +254,7 @@ const DistributorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kota" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kota
                                             </Label>
@@ -269,7 +269,7 @@ const DistributorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kecamatan" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kecamatan
                                             </Label>
@@ -284,7 +284,7 @@ const DistributorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kelurahan" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kelurahan
                                             </Label>
@@ -337,7 +337,7 @@ const DistributorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kapasitasDistribusi" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kapasitas Distribusi (Ton/Bulan)
                                             </Label>
@@ -353,7 +353,7 @@ const DistributorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Jenis Kendaraan
                                             </Label>
@@ -372,7 +372,7 @@ const DistributorSignup = () => {
                                             </Select>
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Tipe Badan Usaha
                                             </Label>
@@ -395,7 +395,7 @@ const DistributorSignup = () => {
                                             </Select>
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Metode Tracking
                                             </Label>
