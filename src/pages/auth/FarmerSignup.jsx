@@ -234,7 +234,7 @@ const FarmerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="provinsi" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Provinsi
                                             </Label>
@@ -249,7 +249,7 @@ const FarmerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kota" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kota
                                             </Label>
@@ -264,7 +264,7 @@ const FarmerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kecamatan" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kecamatan
                                             </Label>
@@ -279,7 +279,7 @@ const FarmerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kelurahan" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kelurahan
                                             </Label>
@@ -294,7 +294,7 @@ const FarmerSignup = () => {
                                             />
                                         </div>
 
-                                        <div className="md:col-span-2">
+                                        <div className="col-span-2">
                                             <Label htmlFor="alamatLengkap" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Alamat Lengkap
                                             </Label>
@@ -334,7 +334,7 @@ const FarmerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="jenis-benih" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Jenis Benih Jagung
                                             </Label>
@@ -352,7 +352,7 @@ const FarmerSignup = () => {
                                             </Select>
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="estimasiHasilPanen" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Estimasi Hasil Panen (Ton)
                                             </Label>
@@ -369,7 +369,7 @@ const FarmerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label
                                                 htmlFor="lamaPetani"
                                                 className="text-sm font-medium text-gray-700 mb-1 block"
@@ -389,7 +389,7 @@ const FarmerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Status Kepemilikan Lahan
                                             </Label>
