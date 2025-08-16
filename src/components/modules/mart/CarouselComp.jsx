@@ -9,10 +9,10 @@ import {
 
 const CarouselComp = () => {
     return (
-        <Carousel className="w-full h-[200px] sm:h-[280px] md:h-[350px] overflow-hidden mb-5 rounded-md relative border">
+        <Carousel className="flex w-full h-[200px] sm:h-[280px] md:h-[350px] overflow-hidden mb-5 rounded-md relative border">
             <CarouselContent className="h-full">
                 <CarouselItem className="h-full">
-                    <div className="h-full">
+                    <div className="w-full h-full">
                         <img src="/5874132.jpg" alt="Banner 2" className="w-full h-full object-cover" />
                     </div>
                 </CarouselItem>
