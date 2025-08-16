@@ -241,7 +241,7 @@ const InvestorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="provinsi" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Provinsi
                                             </Label>
@@ -256,7 +256,7 @@ const InvestorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kota" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kota
                                             </Label>
@@ -271,7 +271,7 @@ const InvestorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kecamatan" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kecamatan
                                             </Label>
@@ -286,7 +286,7 @@ const InvestorSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kelurahan" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kelurahan
                                             </Label>
@@ -434,7 +434,7 @@ const InvestorSignup = () => {
 
                             <button
                                 type="submit"
-                                disabled={!isFormValid() || isLoading}
+                                // disabled={!isFormValid() || isLoading}
                                 className="w-full bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center"
                             >
                                 {isLoading ? (
