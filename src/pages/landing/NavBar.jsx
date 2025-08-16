@@ -78,7 +78,7 @@ const NavBar = () => {
                 <div className="md:hidden mt-4 pb-4 border-t border-gray-200 bg-white/95 backdrop-blur-md">
                     <ul className="flex flex-col space-y-2 mt-4">
                         <EachUtils 
-                            of={navigationItems}
+                            of={LIST_NAVBAR}
                             render={(item, index) => (
                                 <li key={index}>
                                     <a

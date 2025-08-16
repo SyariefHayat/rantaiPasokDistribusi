@@ -15,85 +15,134 @@ import NavBar from '../landing/NavBar'
 import Footer from '../landing/Footer'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 
-const invoices = [
+const marketPrices = [
     {
-        invoice: "INV001",
-        paymentStatus: "Paid",
-        totalAmount: "$250.00",
-        paymentMethod: "Credit Card",
+        id: "CRN001",
+        variety: "Jagung Kuning",
+        location: "Jakarta",
+        price: "Rp 4.200",
+        pricePerKg: 4200,
+        change: "+2.5%",
+        trend: "up",
+        quality: "Grade A",
+        lastUpdated: "2 jam lalu",
     },
     {
-        invoice: "INV002",
-        paymentStatus: "Pending",
-        totalAmount: "$150.00",
-        paymentMethod: "PayPal",
+        id: "CRN002",
+        variety: "Jagung Putih",
+        location: "Surabaya",
+        price: "Rp 4.050",
+        pricePerKg: 4050,
+        change: "-1.2%",
+        trend: "down",
+        quality: "Grade A",
+        lastUpdated: "1 jam lalu",
     },
     {
-        invoice: "INV003",
-        paymentStatus: "Unpaid",
-        totalAmount: "$350.00",
-        paymentMethod: "Bank Transfer",
+        id: "CRN003",
+        variety: "Jagung Manis",
+        location: "Bandung",
+        price: "Rp 5.500",
+        pricePerKg: 5500,
+        change: "+0.8%",
+        trend: "up",
+        quality: "Premium",
+        lastUpdated: "30 menit lalu",
     },
     {
-        invoice: "INV004",
-        paymentStatus: "Paid",
-        totalAmount: "$450.00",
-        paymentMethod: "Credit Card",
+        id: "CRN004",
+        variety: "Jagung Pakan",
+        location: "Medan",
+        price: "Rp 3.800",
+        pricePerKg: 3800,
+        change: "0.0%",
+        trend: "stable",
+        quality: "Standar",
+        lastUpdated: "45 menit lalu",
     },
     {
-        invoice: "INV005",
-        paymentStatus: "Paid",
-        totalAmount: "$550.00",
-        paymentMethod: "PayPal",
+        id: "CRN005",
+        variety: "Jagung Kuning",
+        location: "Semarang",
+        price: "Rp 4.150",
+        pricePerKg: 4150,
+        change: "+1.5%",
+        trend: "up",
+        quality: "Grade A",
+        lastUpdated: "1 jam lalu",
     },
     {
-        invoice: "INV006",
-        paymentStatus: "Pending",
-        totalAmount: "$200.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        invoice: "INV007",
-        paymentStatus: "Unpaid",
-        totalAmount: "$300.00",
-        paymentMethod: "Credit Card",
+        id: "CRN006",
+        variety: "Jagung Putih",
+        location: "Yogyakarta",
+        price: "Rp 4.100",
+        pricePerKg: 4100,
+        change: "-0.5%",
+        trend: "down",
+        quality: "Grade B",
+        lastUpdated: "3 jam lalu",
     },
 ]
 
 const PriceMarket = () => {
     return (
         <DefaultLayout>
-            <NavBar/>
-            <div className="w-full h-screen p-10">
+            <NavBar />
+            <div className="w-full min-h-screen p-10 bg-gray-50">
+                <h1 className="text-2xl font-semibold mb-6">Harga Pasar Jagung</h1>
                 <Table>
-                    <TableCaption>A list of your recent invoices.</TableCaption>
+                    <TableCaption>Update terbaru harga jagung di berbagai kota.</TableCaption>
                     <TableHeader>
                         <TableRow>
-                            <TableHead className="w-[100px]">Invoice</TableHead>
-                            <TableHead>Status</TableHead>
-                            <TableHead>Method</TableHead>
-                            <TableHead className="text-right">Amount</TableHead>
+                            <TableHead className="w-[120px]">ID</TableHead>
+                            <TableHead>Varietas</TableHead>
+                            <TableHead>Lokasi</TableHead>
+                            <TableHead>Kualitas</TableHead>
+                            <TableHead>Perubahan</TableHead>
+                            <TableHead>Harga</TableHead>
+                            <TableHead className="text-right">Terakhir Update</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {invoices.map((invoice) => (
-                            <TableRow key={invoice.invoice}>
-                                <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                                <TableCell>{invoice.paymentStatus}</TableCell>
-                                <TableCell>{invoice.paymentMethod}</TableCell>
-                                <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+                        {marketPrices.map((item) => (
+                            <TableRow key={item.id}>
+                                <TableCell className="font-medium">{item.id}</TableCell>
+                                <TableCell>{item.variety}</TableCell>
+                                <TableCell>{item.location}</TableCell>
+                                <TableCell>{item.quality}</TableCell>
+                                <TableCell
+                                    className={`${
+                                        item.trend === "up"
+                                        ? "text-green-600"
+                                        : item.trend === "down"
+                                        ? "text-red-600"
+                                        : "text-gray-600"
+                                    }`}
+                                >
+                                    {item.change}
+                                </TableCell>
+                                <TableCell>{item.price}</TableCell>
+                                <TableCell className="text-right">{item.lastUpdated}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                     <TableFooter>
                         <TableRow>
-                            <TableCell colSpan={3}>Total</TableCell>
-                            <TableCell className="text-right">$2,500.00</TableCell>
+                            <TableCell colSpan={6} className="font-semibold">
+                                Rata-rata Harga
+                            </TableCell>
+                            <TableCell className="text-right">
+                                Rp{" "}
+                                {Math.round(
+                                marketPrices.reduce((acc, cur) => acc + cur.pricePerKg, 0) /
+                                    marketPrices.length
+                                ).toLocaleString("id-ID")}
+                            </TableCell>
                         </TableRow>
                     </TableFooter>
                 </Table>
             </div>
-            <Footer/>
+            <Footer />
         </DefaultLayout>
     )
 }
