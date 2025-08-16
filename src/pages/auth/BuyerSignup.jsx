@@ -101,7 +101,6 @@ const BuyerSignup = () => {
             'jenisBuyer', 'bidangUsaha', 'kebutuhanBulanan', 'jenisKomoditas', 'metodePembayaran', 'sertifikasiDibutuhkan'
         ];
 
-        // Add namaPerusahaan to required fields if jenisBuyer is not 'individu'
         const fieldsToCheck = [...requiredFields];
         if (formData.jenisBuyer && formData.jenisBuyer !== 'individu') {
             fieldsToCheck.push('namaPerusahaan');
@@ -248,7 +247,7 @@ const BuyerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="provinsi" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Provinsi
                                             </Label>
@@ -263,7 +262,7 @@ const BuyerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kota" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kota
                                             </Label>
@@ -278,7 +277,7 @@ const BuyerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kecamatan" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kecamatan
                                             </Label>
@@ -293,7 +292,7 @@ const BuyerSignup = () => {
                                             />
                                         </div>
 
-                                        <div>
+                                        <div className="col-span-2 md:col-span-1">
                                             <Label htmlFor="kelurahan" className="text-sm font-medium text-gray-700 mb-1 block">
                                                 Kelurahan
                                             </Label>
@@ -463,7 +462,7 @@ const BuyerSignup = () => {
 
                             <button
                                 type="submit"
-                                disabled={!isFormValid() || isLoading}
+                                // disabled={!isFormValid() || isLoading}
                                 className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center"
                             >
                                 {isLoading ? (
