@@ -488,7 +488,7 @@ const BuyerSignup = () => {
                                 <a href="/purchase-policy" className="text-purple-600 hover:text-purple-700 ml-1">
                                     Kebijakan Pembelian
                                 </a>
-            </p>
+                            </p>
                         </div>
                     </div>
                 </div>
