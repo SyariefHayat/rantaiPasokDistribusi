@@ -5,7 +5,7 @@ const HeroSection = () => {
     return (
         <section className="min-h-screen bg-gray-50 flex items-center">
             <div className="w-full h-screen p-4 sm:p-6 flex flex-col bg-[url(/background.png)] bg-cover bg-center text-white relative overflow-hidden">
-                <h1 className="font-Avallon text-5xl md:text-8xl font-bold leading-tight tracking-[0.1em] sm:tracking-[0.2em] pl-7">
+                <h1 className="font-Avallon text-5xl md:text-8xl font-bold leading-tight tracking-[0.1em] sm:tracking-[0.2em] pl-7 pt-10">
                 Selamat Datang
                 </h1>
 
