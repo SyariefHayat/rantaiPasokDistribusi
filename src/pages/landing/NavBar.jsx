@@ -5,6 +5,20 @@ import { LIST_NAVBAR } from '@/constants/listNavbar';
 
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState(null);
+    const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
+
+    const toggleMobileDropdown = (index) => {
+        setActiveMobileDropdown(activeMobileDropdown === index ? null : index);
+    };
+
+    const handleMouseEnter = (index) => {
+        setActiveDropdown(index);
+    };
+
+    const handleMouseLeave = () => {
+        setActiveDropdown(null);
+    };
 
     return (
         <header className="w-full px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
@@ -15,12 +29,9 @@ const NavBar = () => {
                             <img 
                                 src="/logo.png" 
                                 alt="logo si juki" 
-                                className="mb-2 size-10 transition-transform" 
+                                className="mb-2 transition-transform" 
                             />
                         </div>
-                        <span className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                            SIJUKI
-                        </span>
                     </div>
                 </a>
 
@@ -31,14 +42,55 @@ const NavBar = () => {
                             <li 
                                 key={index}
                                 className="relative"
+                                onMouseEnter={() => handleMouseEnter(index)}
+                                onMouseLeave={handleMouseLeave}
                             >
-                                <a
-                                    href={item.url}
-                                    className="text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium relative group flex items-center"
-                                >
-                                    {item.title}
-                                    <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-green-600 transition-all duration-300 group-hover:w-full" />
-                                </a>
+                                {item.subMenu ? (
+                                    <div className="relative">
+                                        <button
+                                            className="text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium relative group flex items-center space-x-1"
+                                        >
+                                            <span>{item.title}</span>
+                                            <svg 
+                                                className={`w-4 h-4 transition-transform duration-200 ${
+                                                    activeDropdown === index ? 'rotate-180' : ''
+                                                }`}
+                                                fill="none" 
+                                                stroke="currentColor" 
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                            <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-green-600 transition-all duration-300 group-hover:w-full" />
+                                        </button>
+
+                                        <div 
+                                            className={`absolute top-full left-0 mt-2 min-w-[180px] bg-white rounded-lg shadow-lg border border-gray-200 py-2 transition-all duration-200 ${
+                                                activeDropdown === index 
+                                                    ? 'opacity-100 visible transform translate-y-0' 
+                                                    : 'opacity-0 invisible transform -translate-y-2'
+                                            }`}
+                                        >
+                                            {item.subMenu.map((subItem, subIndex) => (
+                                                <a
+                                                    key={subIndex}
+                                                    href={subItem.url}
+                                                    className="block px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors duration-200"
+                                                >
+                                                    {subItem.title}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <a
+                                        href={item.url}
+                                        className="text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium relative group flex items-center"
+                                    >
+                                        {item.title}
+                                        <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-green-600 transition-all duration-300 group-hover:w-full" />
+                                    </a>
+                                )}
                             </li>
                         )}
                     />
@@ -81,31 +133,51 @@ const NavBar = () => {
                             of={LIST_NAVBAR}
                             render={(item, index) => (
                                 <li key={index}>
-                                    <a
-                                        href={item.url}
-                                        className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 font-medium py-3 px-4 rounded-lg"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                    >
-                                        {item.title}
-                                    </a>
-                                    
-                                    {item.hasDropdown && (
-                                        <div className="ml-4 mt-2 space-y-1">
-                                            <EachUtils 
-                                                of={item.submenu}
-                                                render={(subItem, subIndex) => (
-                                                    <a
-                                                        key={subIndex}
-                                                        href={subItem.url}
-                                                        className="flex items-center text-gray-600 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 py-2 px-3 rounded-lg text-sm"
-                                                        onClick={() => setIsMobileMenuOpen(false)}
-                                                    >
-                                                        <span className="text-base mr-2">{subItem.icon}</span>
-                                                        {subItem.title}
-                                                    </a>
-                                                )}
-                                            />
+                                    {item.subMenu ? (
+                                        <div>
+                                            <button
+                                                className="flex items-center justify-between w-full text-left text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 font-medium py-3 px-4 rounded-lg"
+                                                onClick={() => toggleMobileDropdown(index)}
+                                            >
+                                                <span>{item.title}</span>
+                                                <svg 
+                                                    className={`w-4 h-4 transition-transform duration-200 ${
+                                                        activeMobileDropdown === index ? 'rotate-180' : ''
+                                                    }`}
+                                                    fill="none" 
+                                                    stroke="currentColor" 
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                            
+                                            {activeMobileDropdown === index && (
+                                                <div className="ml-4 mt-2 space-y-1">
+                                                    <EachUtils 
+                                                        of={item.subMenu}
+                                                        render={(subItem, subIndex) => (
+                                                            <a
+                                                                key={subIndex}
+                                                                href={subItem.url}
+                                                                className="block text-gray-600 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 py-2 px-3 rounded-lg text-sm"
+                                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                            >
+                                                                {subItem.title}
+                                                            </a>
+                                                        )}
+                                                    />
+                                                </div>
+                                            )}
                                         </div>
+                                    ) : (
+                                        <a
+                                            href={item.url}
+                                            className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 font-medium py-3 px-4 rounded-lg"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            {item.title}
+                                        </a>
                                     )}
                                 </li>
                             )}
