@@ -7,6 +7,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Bright";
+  src: url("/fonts/Bright.otf") format("opentype");
+  font-weight: 200 700;
+  font-style: normal;
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -15,6 +22,7 @@
 @theme {
   --font-Poppins: "Poppins", "sans-serif";
   --font-Avallon: "Avallon", "serif";
+  --font-Bright: "Bright", "sans-serif";
 }
 
 @theme inline {
