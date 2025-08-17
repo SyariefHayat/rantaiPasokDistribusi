@@ -3,7 +3,7 @@ import React from 'react';
 const HeroSection = () => {
     return (
         <section className="min-h-screen bg-gray-50 flex items-center">
-            <div className="w-full h-screen bg-[url(./beranda.png)] bg-cover object-center"></div>
+            <div className="w-full h-screen bg-[url(/beranda.png)] bg-cover object-center"></div>
             {/* <div className="container mx-auto px-6 py-20">
                 <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 sm:-mt-16">
                     
