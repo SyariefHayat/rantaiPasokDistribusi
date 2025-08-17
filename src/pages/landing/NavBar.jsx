@@ -24,7 +24,7 @@ const NavBar = () => {
                     </div>
                 </a>
 
-                <ul className="hidden md:flex items-center space-x-8">
+                <ul className="hidden lg:flex items-center space-x-8">
                     <EachUtils 
                         of={LIST_NAVBAR}
                         render={(item, index) => (
@@ -44,7 +44,7 @@ const NavBar = () => {
                     />
                 </ul>
 
-                <div className="hidden md:flex items-center space-x-4">
+                <div className="hidden lg:flex items-center space-x-4">
                     <a 
                         href="/login" 
                         className="text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium"
@@ -60,7 +60,7 @@ const NavBar = () => {
                 </div>
 
                 <button 
-                    className="md:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-green-600 transition-colors rounded-lg hover:bg-gray-100"
+                    className="lg:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-green-600 transition-colors rounded-lg hover:bg-gray-100"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ const NavBar = () => {
             </nav>
 
             {isMobileMenuOpen && (
-                <div className="md:hidden mt-4 pb-4 border-t border-gray-200 bg-white/95 backdrop-blur-md">
+                <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 bg-white/95 backdrop-blur-md">
                     <ul className="flex flex-col space-y-2 mt-4">
                         <EachUtils 
                             of={LIST_NAVBAR}
