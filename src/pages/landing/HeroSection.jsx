@@ -11,11 +11,11 @@ const HeroSection = () => {
 
                 <div className="w-full h-full pl-7 flex flex-col-reverse lg:flex-row lg:items-center">
                     <div className="w-full lg:w-1/2 space-y-2 mb-8 lg:mb-0  text-start lg:text-left">
-                        <p className="text-lg sm:text-xl md:text-4xl font-Bright font-semibold tracking-[0.1em]">
+                        <p className="text-xl md:text-4xl font-Bright font-semibold tracking-[0.1em]">
                         Putus Rantai Pasok,
                         </p>
-                        <p className="text-base sm:text-lg md:text-xl">Satukan Petani dan Pasar</p>
-                        <p className="text-sm sm:text-base md:text-xl">
+                        <p className="text-lg md:text-xl">Satukan Petani dan Pasar</p>
+                        <p className="text-lg md:text-xl">
                         Petani Makmur Bersama SIJUKI HUB
                         </p>
                         <Button className="bg-green-500 mt-3">Gabung Sekarang</Button>
@@ -27,7 +27,7 @@ const HeroSection = () => {
                         <img
                         src="/mockup.png"
                         alt="mockup sijuki"
-                        className="w-[300px] sm:w-[400px] md:w-[550px] lg:w-[450px] absolute z-10 max-w-full h-auto lg:mb-20 -top-[350px] md:-top-[650px] lg:-top-[270px] lg:right-28"
+                        className="w-[400px] md:w-[550px] lg:w-[450px] absolute z-10 max-w-full h-auto lg:mb-20 -top-[400px] md:-top-[650px] lg:-top-[270px] lg:right-28"
                         />
                     </div>
                 </div>
