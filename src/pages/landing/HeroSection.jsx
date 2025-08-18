@@ -14,7 +14,7 @@ const HeroSection = () => {
                 <div className="flex-1 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 px-2 sm:px-4 lg:px-7 py-8 lg:py-0">
                     <div className="w-full lg:w-1/2 space-y-4 lg:space-y-6 order-2 lg:order-1">
                         <div className="space-y-2 lg:space-y-4">
-                            <div className="w-full h-8 sm:h-14 lg:h-24 flex items-center justify-start -ml-1">
+                            <div className="w-full h-8 sm:h-14 lg:h-[70px] flex items-center justify-start -ml-1">
                                 <img 
                                     src="/hero-text.png" 
                                     alt="Putus Rantai Pasok" 
@@ -29,7 +29,7 @@ const HeroSection = () => {
                             </p>
                         </div>
                         <div className="pt-4">
-                            <Button className="bg-green-500 hover:bg-green-600 transition-colors duration-200 px-6 py-3 text-base sm:text-lg font-medium">
+                            <Button className="bg-green-500 hover:bg-green-600 transition-colors duration-200 px-6 py-3 text-base sm:text-lg font-medium cursor-pointer">
                                 Gabung Sekarang
                             </Button>
                         </div>
