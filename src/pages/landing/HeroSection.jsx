@@ -35,7 +35,7 @@ const HeroSection = () => {
                         </div>
                     </div>
 
-                    <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end order-1 lg:order-2 min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
+                    <div className="w-full lg:w-1/2 relative flex items-center justify-center lg:justify-end order-1 lg:order-2 min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
                         <div className="absolute w-48 h-24 sm:w-64 sm:h-32 md:w-80 md:h-40 lg:w-96 lg:h-48 bg-white rounded-full blur-3xl opacity-60 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:translate-x-0 lg:translate-y-0 lg:top-1/3 lg:left-1/4"></div>
 
                         <div className="relative z-10 flex items-center justify-center w-full h-full">
