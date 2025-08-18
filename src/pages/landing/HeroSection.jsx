@@ -6,7 +6,7 @@ const HeroSection = () => {
         <section className="min-h-screen bg-gray-50">
             <div className="min-h-screen w-full p-4 sm:p-6 lg:p-8 flex flex-col bg-[url(/background.png)] bg-cover bg-center bg-no-repeat text-white relative overflow-hidden">
                 <div className="flex-shrink-0 pt-6 sm:pt-8 lg:pt-12">
-                    <h1 className="font-Avallon text-4xl sm:text-8xl font-bold leading-tight tracking-[0.05em] sm:tracking-[0.1em] lg:tracking-[0.2em] px-2 sm:px-4 lg:px-7">
+                    <h1 className="font-Avallon text-4xl sm:text-7xl lg:text-8xl font-bold leading-tight tracking-[0.05em] sm:tracking-[0.1em] lg:tracking-[0.2em] px-2 sm:px-4 lg:px-7">
                         Selamat Datang
                     </h1>
                 </div>
