@@ -14,9 +14,9 @@ const HeroSection = () => {
                 <div className="flex-1 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 px-2 sm:px-4 lg:px-7 py-8 lg:py-0">
                     <div className="w-full lg:w-1/2 space-y-4 lg:space-y-6 order-2 lg:order-1">
                         <div className="space-y-2 lg:space-y-4">
-                            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-Bright font-semibold tracking-[0.05em] sm:tracking-[0.1em] leading-tight">
-                                Putus Rantai Pasok,
-                            </p>
+                            <div className="w-full h-20 flex items-center justify-start -ml-1">
+                                <img src="/hero-text.png" alt="" />
+                            </div>
                             <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
                                 Satukan Petani dan Pasar
                             </p>
