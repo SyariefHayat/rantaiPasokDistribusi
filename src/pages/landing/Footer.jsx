@@ -25,22 +25,18 @@ const Footer = () => {
     return (
         <footer className="bg-green-700 text-white">
             <div className="container mx-auto px-6 py-16">
-                {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                    {/* Logo and Description */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center space-x-2 mb-4">
-                            <div className="w-8 h-8 rounded-full flex items-center justify-center">
-                                <img src="/logo.png" alt="logo si juki" />
-                                <div className="w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div className="flex items-center justify-center">
+                                <img src="/logo3.png" alt="logo si juki" />
+                                <div className="bg-green-600 rounded-full"></div>
                             </div>
-                            <span className="text-xl font-bold">SIJUKI</span>
                         </div>
                         <p className="text-green-100 mb-6 leading-relaxed">
                             Solusi terdepan untuk manajemen distribusi jagung yang efisien dan transparan di Indonesia.
                         </p>
                         
-                        {/* Social Media */}
                         <div className="flex space-x-4">
                             <a href="#" className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors">
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -60,7 +56,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Links Columns */}
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Mulai</h4>
                         <ul className="space-y-2">
@@ -101,7 +96,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Bottom Footer */}
                 <div className="border-t border-green-600 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <div className="text-green-100 text-sm mb-4 md:mb-0">
                         © 2025 SIJUKI. Semua hak dilindungi.
