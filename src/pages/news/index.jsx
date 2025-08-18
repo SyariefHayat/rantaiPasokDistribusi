@@ -9,14 +9,13 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 
 import NavBar from '../landing/NavBar'
 import Footer from '../landing/Footer'
+import { Button } from "@/components/ui/button"
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 
 const News = () => {
-    // Sample news data
     const newsData = [
         {
             id: 1,
@@ -78,7 +77,6 @@ const News = () => {
         <DefaultLayout>
             <NavBar />
             
-            {/* Hero Section */}
             <div className="bg-gradient-to-r from-green-600 to-green-800 text-white py-16">
                 <div className="container mx-auto px-4">
                     <div className="text-center">
@@ -92,19 +90,16 @@ const News = () => {
                 </div>
             </div>
 
-            {/* News Grid */}
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {newsData.map((news) => (
                         <Card key={news.id} className="group hover:shadow-lg transition-all duration-300 flex flex-col">
                             <CardHeader className="p-0">
-                                {/* Image placeholder */}
                                 <div className="w-full h-48 bg-gradient-to-br from-green-100 to-green-200 rounded-t-lg flex items-center justify-center relative overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                                     <span className="text-green-600 font-medium text-sm bg-white px-3 py-1 rounded-full absolute top-3 left-3 z-10">
                                         {news.category}
                                     </span>
-                                    {/* Placeholder for actual image */}
                                     <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center">
                                         <Calendar className="w-8 h-8 text-white" />
                                     </div>
@@ -144,7 +139,6 @@ const News = () => {
                     ))}
                 </div>
 
-                {/* Load More Button */}
                 <div className="text-center mt-12">
                     <Button size="lg" className="bg-green-600 hover:bg-green-700">
                         Muat Berita Lainnya

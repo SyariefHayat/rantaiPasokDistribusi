@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button";
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
     return (
         <section className="min-h-screen bg-gray-50">
-            <div className="min-h-screen w-full p-4 sm:p-6 lg:p-8 flex flex-col bg-[url(/background.png)] bg-cover bg-center bg-no-repeat text-white relative overflow-hidden">
+            <div className="min-h-screen w-full p-4 sm:p-6 lg:p-8 flex flex-col justify-center bg-[url(/background.png)] bg-cover bg-center bg-no-repeat text-white relative overflow-hidden">
                 <div className="flex-shrink-0 pt-6 sm:pt-8 lg:pt-12">
                     <h1 className="font-Avallon text-6xl sm:text-8xl lg:text-9xl font-bold leading-tight tracking-[0.05em] sm:tracking-[0.1em] lg:tracking-[0.2em] px-2 sm:px-4 lg:px-7">
                         Selamat Datang
@@ -40,7 +40,7 @@ const HeroSection = () => {
                             <img
                                 src="/mockup.png"
                                 alt="mockup sijuki"
-                                className="h-auto w-[450px] md:w-[550px] lg:w-[650px] max-w-full object-contain drop-shadow-2xl"
+                                className="h-auto w-full md:w-[550px] lg:w-[650px] max-w-full drop-shadow-2xl"
                             />
                         </div>
                     </div>
