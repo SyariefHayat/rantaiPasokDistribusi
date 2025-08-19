@@ -21,7 +21,7 @@ const NavBar = () => {
     };
 
     return (
-        <header className="w-full px-6 py-4 bg-white backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+        <header className={`w-full px-6 py-4 ${isMobileMenuOpen ? "bg-white" : "bg-white/80"} backdrop-blur-md border-b border-gray-200 sticky top-0 z-50`}>
             <nav className="flex items-center justify-between max-w-7xl mx-auto">
                 <a href="/" className="flex flex-col items-center justify-center group text-center">
                     <div className="flex items-center space-x-2">
