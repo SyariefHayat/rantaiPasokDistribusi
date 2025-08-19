@@ -13,8 +13,8 @@ const HeroSection = () => {
                 </div>
 
                 <div className="flex-1 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 px-2 sm:px-4 lg:px-7 py-8 lg:py-0">
-                    <div className="w-full lg:w-1/2 space-y-4 lg:space-y-6 order-2 lg:order-1 sm:-mt-16 lg:mt-0">
-                        <div className="space-y-2 lg:space-y-4">
+                    <div className="w-full lg:w-1/2 space-y-4 lg:space-y-6 order-2 lg:order-1 -mt-5 sm:-mt-16 lg:mt-0">
+                        <div className="space-y-2 lg:space-y-4 -ml-2 sm:-ml-3">
                             <div className="w-full h-10 sm:h-14 lg:h-[70px] flex items-center justify-start">
                                 <img 
                                     src="/hero-text.png" 
@@ -31,7 +31,7 @@ const HeroSection = () => {
                     </div>
 
                     <div className="w-full lg:w-1/2 relative flex items-center justify-center lg:justify-end order-1 lg:order-2 min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
-                        <div className="relative z-10 flex items-center justify-center w-full h-full lg:-mt-1">
+                        <div className="relative z-10 flex items-center justify-center w-full h-full mt-3 sm:mt-0 lg:-mt-1">
                             <img
                                 src="/mockup.png"
                                 alt="mockup sijuki"
