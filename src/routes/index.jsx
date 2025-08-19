@@ -29,9 +29,11 @@ import BuyerSignup from "@/pages/auth/BuyerSignup"
 import Farmer from "@/pages/dashboard/Farmer"
 import Distributor from "@/pages/dashboard/Distributor"
 import Investor from "@/pages/dashboard/Investor"
+import AboutUs from "@/pages/aboutUs"
 
 const routes = [
     { path: "/", element: <Home /> },
+    { path: "/about-us", element: <AboutUs /> },
     { path: "/price-market", element: <PriceMarket /> },
     { path: "/community", element: <Community /> },
     { path: "/cooperation", element: <Cooperation /> },

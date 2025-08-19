@@ -4,6 +4,10 @@ export const LIST_NAVBAR = [
         url: "/"
     },
     {
+        title: "Tentang Kami",
+        url: "/about-us"
+    },
+    {
         title: "Pasar",
         subMenu: [
             {
@@ -27,10 +31,6 @@ export const LIST_NAVBAR = [
     {
         title: "Berita",
         url: "/news"
-    },
-    {
-        title: "Profile",
-        url: "/profile"
     },
 ]
 
