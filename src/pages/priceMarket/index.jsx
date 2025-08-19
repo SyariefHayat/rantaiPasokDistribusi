@@ -25,6 +25,7 @@ const marketPrices = [
         change: "+2.5%",
         trend: "up",
         quality: "Grade A",
+        unit: "kg",
         lastUpdated: "2 jam lalu",
     },
     {
@@ -36,6 +37,7 @@ const marketPrices = [
         change: "-1.2%",
         trend: "down",
         quality: "Grade A",
+        unit: "kg",
         lastUpdated: "1 jam lalu",
     },
     {
@@ -47,6 +49,7 @@ const marketPrices = [
         change: "+0.8%",
         trend: "up",
         quality: "Premium",
+        unit: "kg",
         lastUpdated: "30 menit lalu",
     },
     {
@@ -58,6 +61,7 @@ const marketPrices = [
         change: "0.0%",
         trend: "stable",
         quality: "Standar",
+        unit: "kg",
         lastUpdated: "45 menit lalu",
     },
     {
@@ -69,6 +73,7 @@ const marketPrices = [
         change: "+1.5%",
         trend: "up",
         quality: "Grade A",
+        unit: "kg",
         lastUpdated: "1 jam lalu",
     },
     {
@@ -80,6 +85,7 @@ const marketPrices = [
         change: "-0.5%",
         trend: "down",
         quality: "Grade B",
+        unit: "kg",
         lastUpdated: "3 jam lalu",
     },
 ]

@@ -28,6 +28,10 @@ export const LIST_NAVBAR = [
         title: "Berita",
         url: "/news"
     },
+    {
+        title: "Profile",
+        url: "/profile"
+    },
 ]
 
 export const LIST_NAVBAR_MALL = [
