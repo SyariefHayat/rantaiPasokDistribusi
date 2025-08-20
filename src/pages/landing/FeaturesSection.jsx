@@ -29,7 +29,7 @@ const FeaturesSection = () => {
                 <img src="/data.png" />
             ),
             title: "Analisis Data",
-            description: "Dapatkan wawasan dari data produksi, harga, dan distribusi untuk pengambilan keputusan yang lebih tepat"
+            description: "Analisis data untuk keputusan cepat dan tepat."
         }
     ];
 
