@@ -27,36 +27,41 @@ const MarketplaceSection = () => {
                     <EachUtils 
                         of={LIST_PRODUCT}
                         render={(item, index) => (
-                            <Card 
-                                key={index} 
-                                className="relative h-[300px] md:h-[350px] overflow-hidden cursor-pointer"
+                        <Card 
+                            key={index} 
+                            className="relative h-[300px] md:h-[350px] overflow-hidden cursor-pointer"
+                        >
+                            <img 
+                            src={item.image[1]} 
+                            alt={item.name}
+                            loading="lazy"
+                            className="hidden sm:block absolute inset-0 w-full h-full object-cover"
+                            />
+                            <img 
+                            src={item.image[0]} 
+                            alt={item.name}
+                            loading="lazy"
+                            className="sm:hidden absolute inset-0 w-full h-full object-cover"
+                            />
+
+                            <CardContent 
+                            className={`
+                                p-6 h-full flex flex-col justify-end text-white relative z-10
+                                ${index % 2 === 1 ? "items-start text-left" : "items-end text-right"}
+                            `}
                             >
-                                <img 
-                                    src={item.image[1]} 
-                                    alt={item.name}
-                                    loading="lazy"
-                                    className="hidden sm:block absolute inset-0 w-full h-full object-cover"
-                                />
-                                <img 
-                                    src={item.image[0]} 
-                                    alt={item.name}
-                                    loading="lazy"
-                                    className="sm:hidden absolute inset-0 w-full h-full object-cover"
-                                />
-                                {/* <div className="absolute inset-0 bg-black/40 z-10"></div> */}
-                                <CardContent className="p-6 h-full flex flex-col justify-end text-white relative z-10">
-                                    <div className="flex items-center text-xs mb-2 opacity-90">
-                                        <MapPin className="w-3 h-3 mr-1" />
-                                        {item.location}
-                                    </div>
-                                    <h3 className="text-xl md:text-2xl font-semibold mb-2 drop-shadow-lg">
-                                        {item.name}
-                                    </h3>
-                                    <p className="text-sm md:text-base leading-relaxed drop-shadow-md opacity-90 mb-3">
-                                        {item.description}
-                                    </p>
-                                </CardContent>
-                            </Card>
+                            <div className="flex items-center text-xs mb-2 opacity-90">
+                                <MapPin className="w-3 h-3 mr-1" />
+                                {item.location}
+                            </div>
+                            <h3 className="text-xl md:text-2xl font-semibold mb-2 drop-shadow-lg">
+                                {item.name}
+                            </h3>
+                            <p className="sm:w-[60%] text-sm md:text-base leading-relaxed drop-shadow-md opacity-90 mb-3">
+                                {item.description}
+                            </p>
+                            </CardContent>
+                        </Card>
                         )}
                     />
                 </div>
