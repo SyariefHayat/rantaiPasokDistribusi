@@ -26,7 +26,7 @@ const FeaturesSection = () => {
         },
         {
             icon: (
-                <img src="/logistik.png" />
+                <img src="/data.png" />
             ),
             title: "Analisis Data",
             description: "Dapatkan wawasan dari data produksi, harga, dan distribusi untuk pengambilan keputusan yang lebih tepat"
