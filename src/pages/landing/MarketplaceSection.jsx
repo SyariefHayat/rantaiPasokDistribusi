@@ -88,14 +88,14 @@ const MarketplaceSection = () => {
                                         <MapPin className="w-3 h-3 mr-1" />
                                         {item.location}
                                     </div>
-                                    <h3 className="text-xl text-shadow-2xs font-semibold mb-2 drop-shadow-lg">{item.name}</h3>
+                                    <h3 className="text-xl font-semibold mb-2 drop-shadow-lg text-shadow-sm text-shadow-black">{item.name}</h3>
                                     <p className="text-sm leading-relaxed mb-4 opacity-90 drop-shadow-md">
                                         {item.description}
                                     </p>
                                     <div className="space-y-2 mb-4">
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm">Harga:</span>
-                                            <span className="font-bold drop-shadow-lg">{item.price}</span>
+                                            <span className="font-bold drop-shadow-2xs text-shadow-sm text-shadow-black">{item.price}</span>
                                         </div>
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm">Stok:</span>
