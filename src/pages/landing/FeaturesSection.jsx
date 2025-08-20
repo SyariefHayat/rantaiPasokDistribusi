@@ -1,5 +1,5 @@
-import EachUtils from '@/utils/EachUtils';
 import React from 'react';
+import EachUtils from '@/utils/EachUtils';
 
 const FeaturesSection = () => {
     const features = [
@@ -42,7 +42,7 @@ const FeaturesSection = () => {
                             <div key={index} className="group">
                                 <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
                                     <div className="mb-6 flex justify-center">
-                                        <div className="w-20 h-20 p-2 bg-green-50 rounded-2xl flex items-center justify-center group-hover:bg-green-100 transition-colors duration-300">
+                                        <div className="w-28 h-28 p-2 bg-green-50 rounded-2xl flex items-center justify-center group-hover:bg-green-100 transition-colors duration-300">
                                             {item.icon}
                                         </div>
                                     </div>

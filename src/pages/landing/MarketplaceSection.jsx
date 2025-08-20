@@ -32,10 +32,16 @@ const MarketplaceSection = () => {
                                 className="relative h-[300px] md:h-[350px] overflow-hidden cursor-pointer"
                             >
                                 <img 
-                                    src={item.image} 
+                                    src={item.image[1]} 
                                     alt={item.name}
                                     loading="lazy"
-                                    className="absolute inset-0 w-full h-full object-cover"
+                                    className="hidden sm:block absolute inset-0 w-full h-full object-cover"
+                                />
+                                <img 
+                                    src={item.image[0]} 
+                                    alt={item.name}
+                                    loading="lazy"
+                                    className="sm:hidden absolute inset-0 w-full h-full object-cover"
                                 />
                                 {/* <div className="absolute inset-0 bg-black/40 z-10"></div> */}
                                 <CardContent className="p-6 h-full flex flex-col justify-end text-white relative z-10">
@@ -49,12 +55,6 @@ const MarketplaceSection = () => {
                                     <p className="text-sm md:text-base leading-relaxed drop-shadow-md opacity-90 mb-3">
                                         {item.description}
                                     </p>
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-lg font-bold drop-shadow-lg">{item.price}</span>
-                                        <span className="text-xs bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
-                                            {item.quality}
-                                        </span>
-                                    </div>
                                 </CardContent>
                             </Card>
                         )}
@@ -72,7 +72,7 @@ const MarketplaceSection = () => {
                                 className="relative min-w-[300px] max-w-[350px] h-[450px] flex-shrink-0 text-white overflow-hidden"
                             >
                                 <img 
-                                    src={item.image} 
+                                    src={item.image[0]} 
                                     alt={item.name}
                                     loading="lazy"
                                     className="absolute inset-0 w-full h-full object-cover bg-green-600"

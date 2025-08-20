@@ -5,7 +5,10 @@ export const LIST_PRODUCT = [
         price: 'Rp 4.200/kg',
         stock: '50 ton',
         quality: 'Grade A',
-        image: '/7.jpg',
+        image: [
+            '/jagung-pipil2.jpg',
+            '/jagung-pipil.png',
+        ],
         description: 'Jagung pipil kering berkualitas premium dengan kadar air optimal untuk penyimpanan jangka panjang'
     },
     {
@@ -32,7 +35,10 @@ export const LIST_PRODUCT = [
         price: 'Rp 6.500/kg',
         stock: '25 ton',
         quality: 'Organic',
-        image: '/ppt2.png',
+        image: [
+            '/jagung7.jpg',
+            '/jagung8.jpg',
+        ],
         description: 'Jagung organik tanpa pestisida, dibudidayakan secara alami untuk kesehatan keluarga'
     },
     {
