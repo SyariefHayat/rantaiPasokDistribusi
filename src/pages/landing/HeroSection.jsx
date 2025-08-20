@@ -9,7 +9,7 @@ const HeroSection = () => {
                     <h1 className="font-Avallon text-6xl sm:text-7xl lg:text-9xl font-bold leading-tight tracking-[0.05em] sm:tracking-[0.1em] lg:tracking-[0.2em] px-2 sm:px-4 lg:px-7">
                         Selamat Datang
                     </h1>
-                    <img src="/desc-text.png" alt="" className="w-[80%] sm:w-[60%] lg:w-[40%] ml-12 sm:ml-[16%] lg:ml-[31%] -mt-3" />
+                    <img src="/desc-text.png" alt="" className="w-[80%] sm:w-[60%] lg:w-[40%] ml-10 sm:ml-[16%] lg:ml-[31%] sm:-mt-3" />
                 </div>
 
                 <div className="flex-1 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 px-2 sm:px-4 lg:px-7 py-8 lg:py-0">

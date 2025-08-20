@@ -37,8 +37,8 @@ const MarketplaceSection = () => {
                                     loading="lazy"
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-black/40 z-10"></div>
-                                <CardContent className="p-6 h-full flex flex-col justify-end text-white relative z-10">
+                                {/* <div className="absolute inset-0 bg-black/40 z-10"></div> */}
+                                <CardContent className="p-6 h-full flex flex-col justify-end text-black relative z-10">
                                     <div className="flex items-center text-xs mb-2 opacity-90">
                                         <MapPin className="w-3 h-3 mr-1" />
                                         {item.location}
@@ -69,7 +69,7 @@ const MarketplaceSection = () => {
                         render={(item, index) => (
                             <Card 
                                 key={index} 
-                                className="relative min-w-[300px] max-w-[350px] h-[450px] flex-shrink-0 text-white overflow-hidden"
+                                className="relative min-w-[300px] max-w-[350px] h-[450px] flex-shrink-0 text-black overflow-hidden"
                             >
                                 <img 
                                     src={item.image} 
@@ -77,7 +77,7 @@ const MarketplaceSection = () => {
                                     loading="lazy"
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-black/40 z-0"></div>
+                                {/* <div className="absolute inset-0 bg-black/40 z-0"></div> */}
                                 <CardContent className="relative p-5 h-full flex flex-col justify-end z-10">
                                     <div className="flex items-center text-xs mb-2 opacity-90">
                                         <MapPin className="w-3 h-3 mr-1" />
@@ -89,15 +89,18 @@ const MarketplaceSection = () => {
                                     </p>
                                     <div className="space-y-2 mb-4">
                                         <div className="flex justify-between items-center">
-                                            <span className="text-sm text-gray-300">Harga:</span>
+                                            <span className="text-sm">Harga:</span>
+                                            {/* <span className="text-sm text-gray-300">Harga:</span> */}
                                             <span className="font-bold text-green-400 drop-shadow-lg">{item.price}</span>
                                         </div>
                                         <div className="flex justify-between items-center">
-                                            <span className="text-sm text-gray-300">Stok:</span>
+                                            <span className="text-sm">Stok:</span>
+                                            {/* <span className="text-sm text-gray-300">Stok:</span> */}
                                             <span className="text-sm font-medium">{item.stock}</span>
                                         </div>
                                         <div className="flex justify-between items-center">
-                                            <span className="text-sm text-gray-300">Kualitas:</span>
+                                            <span className="text-sm">Kualitas:</span>
+                                            {/* <span className="text-sm text-gray-300">Kualitas:</span> */}
                                             <span className="text-xs bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
                                                 {item.quality}
                                             </span>
