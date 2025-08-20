@@ -32,7 +32,7 @@ export const LIST_PRODUCT = [
         price: 'Rp 6.500/kg',
         stock: '25 ton',
         quality: 'Organic',
-        image: '/7.jpg',
+        image: '/jagung-organik.jpg',
         description: 'Jagung organik tanpa pestisida, dibudidayakan secara alami untuk kesehatan keluarga'
     },
     {
