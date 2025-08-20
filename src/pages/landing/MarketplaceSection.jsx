@@ -32,34 +32,35 @@ const MarketplaceSection = () => {
                             className="relative h-[300px] md:h-[350px] overflow-hidden cursor-pointer"
                         >
                             <img 
-                            src={item.image[1]} 
-                            alt={item.name}
-                            loading="lazy"
-                            className="hidden sm:block absolute inset-0 w-full h-full object-cover"
+                                src={item.image[1]} 
+                                alt={item.name}
+                                loading="lazy"
+                                className="hidden sm:block absolute inset-0 w-full h-full object-cover"
                             />
+
                             <img 
-                            src={item.image[0]} 
-                            alt={item.name}
-                            loading="lazy"
-                            className="sm:hidden absolute inset-0 w-full h-full object-cover"
+                                src={item.image[0]} 
+                                alt={item.name}
+                                loading="lazy"
+                                className="sm:hidden absolute inset-0 w-full h-full object-cover"
                             />
 
                             <CardContent 
-                            className={`
-                                p-6 h-full flex flex-col justify-end text-white relative z-10
-                                ${index % 2 === 1 ? "items-start text-left" : "items-end text-right"}
-                            `}
+                                className={`
+                                    p-6 h-full flex flex-col justify-end text-white relative z-10
+                                    ${index % 2 === 1 ? "items-start text-left" : "items-end text-right"}
+                                `}
                             >
-                            <div className="flex items-center text-xs mb-2 opacity-90">
-                                <MapPin className="w-3 h-3 mr-1" />
-                                {item.location}
-                            </div>
-                            <h3 className="text-xl md:text-2xl font-semibold mb-2 drop-shadow-lg">
-                                {item.name}
-                            </h3>
-                            <p className="sm:w-[60%] text-sm md:text-base leading-relaxed drop-shadow-md opacity-90 mb-3">
-                                {item.description}
-                            </p>
+                                <div className="flex items-center text-xs mb-2 opacity-90">
+                                    <MapPin className="w-3 h-3 mr-1" />
+                                    {item.location}
+                                </div>
+                                <h3 className="text-xl md:text-2xl font-semibold mb-2 drop-shadow-lg">
+                                    {item.name}
+                                </h3>
+                                <p className="sm:w-[60%] text-sm md:text-base leading-relaxed drop-shadow-md opacity-90 mb-3">
+                                    {item.description}
+                                </p>
                             </CardContent>
                         </Card>
                         )}
@@ -94,17 +95,14 @@ const MarketplaceSection = () => {
                                     <div className="space-y-2 mb-4">
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm">Harga:</span>
-                                            {/* <span className="text-sm text-gray-300">Harga:</span> */}
                                             <span className="font-bold drop-shadow-lg">{item.price}</span>
                                         </div>
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm">Stok:</span>
-                                            {/* <span className="text-sm text-gray-300">Stok:</span> */}
                                             <span className="text-sm font-medium">{item.stock}</span>
                                         </div>
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm">Kualitas:</span>
-                                            {/* <span className="text-sm text-gray-300">Kualitas:</span> */}
                                             <span className="text-xs bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
                                                 {item.quality}
                                             </span>

@@ -49,7 +49,7 @@ const FeaturesSection = () => {
                             <div key={index} className="group">
                                 <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
                                     <div className="mb-6 flex justify-center">
-                                        <div className="w-32 h-32 p-2 rounded-2xl flex items-center justify-center duration-300">
+                                        <div className="w-36 h-36 p-2 rounded-2xl flex items-center justify-center duration-300">
                                             {item.icon}
                                         </div>
                                     </div>
