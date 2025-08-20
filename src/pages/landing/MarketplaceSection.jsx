@@ -38,7 +38,7 @@ const MarketplaceSection = () => {
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
                                 {/* <div className="absolute inset-0 bg-black/40 z-10"></div> */}
-                                <CardContent className="p-6 h-full flex flex-col justify-end text-black relative z-10">
+                                <CardContent className="p-6 h-full flex flex-col justify-end text-white relative z-10">
                                     <div className="flex items-center text-xs mb-2 opacity-90">
                                         <MapPin className="w-3 h-3 mr-1" />
                                         {item.location}
@@ -50,7 +50,7 @@ const MarketplaceSection = () => {
                                         {item.description}
                                     </p>
                                     <div className="flex justify-between items-center">
-                                        <span className="text-lg font-bold text-green-400 drop-shadow-lg">{item.price}</span>
+                                        <span className="text-lg font-bold drop-shadow-lg">{item.price}</span>
                                         <span className="text-xs bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
                                             {item.quality}
                                         </span>
@@ -69,21 +69,20 @@ const MarketplaceSection = () => {
                         render={(item, index) => (
                             <Card 
                                 key={index} 
-                                className="relative min-w-[300px] max-w-[350px] h-[450px] flex-shrink-0 text-black overflow-hidden"
+                                className="relative min-w-[300px] max-w-[350px] h-[450px] flex-shrink-0 text-white overflow-hidden"
                             >
                                 <img 
                                     src={item.image} 
                                     alt={item.name}
                                     loading="lazy"
-                                    className="absolute inset-0 w-full h-full object-cover"
+                                    className="absolute inset-0 w-full h-full object-cover bg-green-600"
                                 />
-                                {/* <div className="absolute inset-0 bg-black/40 z-0"></div> */}
                                 <CardContent className="relative p-5 h-full flex flex-col justify-end z-10">
                                     <div className="flex items-center text-xs mb-2 opacity-90">
                                         <MapPin className="w-3 h-3 mr-1" />
                                         {item.location}
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2 drop-shadow-lg">{item.name}</h3>
+                                    <h3 className="text-xl text-shadow-2xs font-semibold mb-2 drop-shadow-lg">{item.name}</h3>
                                     <p className="text-sm leading-relaxed mb-4 opacity-90 drop-shadow-md">
                                         {item.description}
                                     </p>
@@ -91,7 +90,7 @@ const MarketplaceSection = () => {
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm">Harga:</span>
                                             {/* <span className="text-sm text-gray-300">Harga:</span> */}
-                                            <span className="font-bold text-green-400 drop-shadow-lg">{item.price}</span>
+                                            <span className="font-bold drop-shadow-lg">{item.price}</span>
                                         </div>
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm">Stok:</span>
