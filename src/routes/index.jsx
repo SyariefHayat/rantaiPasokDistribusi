@@ -30,6 +30,7 @@ import Farmer from "@/pages/dashboard/Farmer"
 import Distributor from "@/pages/dashboard/Distributor"
 import Investor from "@/pages/dashboard/Investor"
 import AboutUs from "@/pages/aboutUs"
+import AdminLogin from "@/pages/auth/AdminLogin"
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -40,6 +41,7 @@ const routes = [
     { path: "/marketplace", element: <Mart /> },
     { path: "/news", element: <News /> },
     { path: "/login", element: <Login /> },
+    { path: "/juki-admin", element: <AdminLogin /> },
     { path: "/signup", element: <SignUp /> },
     { path: "/signup/farmer", element: <FarmerSignup /> },
     { path: "/signup/distributor", element: <DistributorSignup /> },
