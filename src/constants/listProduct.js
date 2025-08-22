@@ -45,8 +45,9 @@ export const LIST_PRODUCT = [
         stock: '100 ton',
         quality: 'Feed Grade',
         image: [
-            '/jagung-pakan.jpg',
-            '/jagung-pakan-tablet.jpg',
+            '/jagung-pakan.png',
+            '/jagung-pakan-tablet.png',
+            '/jagung-pakan-tablet-bsr.png',
         ],
         description: 'Jagung khusus pakan ternak dengan nutrisi tinggi dan harga ekonomis untuk kebutuhan peternakan'
     },
@@ -57,8 +58,9 @@ export const LIST_PRODUCT = [
         stock: '75 ton',
         quality: 'Hybrid Premium',
         image: [
-            '/jagung-hibrida.jpg',
-            '/jagung-hibrida-tablet.jpg',
+            '/jagung-hibrida.png',
+            '/jagung-hibrida-tablet.png',
+            '/jagung-hibrida-tablet-bsr.png',
         ],
         description: 'Jagung hibrida dengan produktivitas tinggi dan tahan terhadap hama penyakit'
     }
