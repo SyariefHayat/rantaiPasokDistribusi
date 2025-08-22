@@ -30,21 +30,9 @@ const AdminLoginForm = () => {
         try {
             await new Promise(resolve => setTimeout(resolve, 1500))
             console.log('Login data:', formData)
-            navigate("/mart")
+            navigate("/dashboard/admin")
         } catch (error) {
             console.error("Error logging in:", error)
-        } finally {
-            setIsLoading(false)
-        }
-    }
-
-    const handleGoogleLogin = async () => {
-        setIsLoading(true)
-        try {
-            await new Promise(resolve => setTimeout(resolve, 1000))
-            navigate("/mart")
-        } catch (error) {
-            console.error("Error with Google login:", error)
         } finally {
             setIsLoading(false)
         }
@@ -70,7 +58,6 @@ const AdminLoginForm = () => {
                 </p>
             </div>
 
-            {/* Demo Credentials */}
             <div className="mb-6 p-4 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700">
                 <p className="font-semibold text-gray-800 mb-1">Demo Credentials:</p>
                 <p>Email: <span className="font-mono text-green-600">admin@mart.com</span></p>

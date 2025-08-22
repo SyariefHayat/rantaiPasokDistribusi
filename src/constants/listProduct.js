@@ -6,7 +6,7 @@ export const LIST_PRODUCT = [
         stock: '50 ton',
         quality: 'Grade A',
         image: [
-            '/jagung-pipil.jpg',
+            '/jagung-pipil-2.jpg',
             '/jagung-pipil-tablet.jpg',
         ],
         description: 'Jagung pipil kering berkualitas premium dengan kadar air optimal untuk penyimpanan jangka panjang'

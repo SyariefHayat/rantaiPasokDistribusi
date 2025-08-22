@@ -51,6 +51,7 @@ const routes = [
     { path: "/signup/verify-otp", element: <VerifyOtp /> },
     { path: "/signup/profile-setup", element: <ProfileSetup /> },
     { path: "/signup/success", element: <Success /> },
+    { path: "/dashboard/admin", element: <Farmer /> },
     { path: "/dashboard/farmer", element: <Farmer /> },
     { path: "/dashboard/distributor", element: <Distributor /> },
     { path: "/dashboard/investor", element: <Investor /> },
