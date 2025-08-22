@@ -39,12 +39,12 @@ const MarketplaceSection = () => {
                             />
 
                             <img 
-                                src={item.image[0]} 
+                                src={item.image[2]} 
                                 alt={item.name}
                                 loading="lazy"
                                 className="sm:hidden absolute inset-0 w-full h-full object-cover"
                             />
-
+                            
                             <CardContent 
                                 className={`
                                     p-6 h-full flex flex-col justify-end text-white relative z-10

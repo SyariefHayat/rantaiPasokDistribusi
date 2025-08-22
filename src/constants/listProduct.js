@@ -8,6 +8,7 @@ export const LIST_PRODUCT = [
         image: [
             '/jagung-pipil-2.jpg',
             '/jagung-pipil-tablet-2.jpg',
+            '/jagung-pipil-3.jpg',
         ],
         description: 'Jagung pipil kering berkualitas premium dengan kadar air optimal untuk penyimpanan jangka panjang'
     },
