@@ -7,7 +7,7 @@ export const LIST_PRODUCT = [
         quality: 'Grade A',
         image: [
             '/jagung-pipil-2.jpg',
-            '/jagung-pipil-tablet.jpg',
+            '/jagung-pipil-tablet-2.jpg',
         ],
         description: 'Jagung pipil kering berkualitas premium dengan kadar air optimal untuk penyimpanan jangka panjang'
     },
