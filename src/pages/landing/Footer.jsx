@@ -14,8 +14,8 @@ const Footer = () => {
             <div className="container mx-auto px-6 py-16 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-12">
                     <div className="lg:col-span-2">
-                        <div className="flex items-center space-x-3 mb-6">
-                            <img src="/logo3.png" alt="SIJUKI Logo" className="h-40 w-auto" />
+                        <div className="flex items-center space-x-3 mb-6 lg:-ml-2 ">
+                            <img src="/logo6.png" alt="SIJUKI Logo" className="h-40 w-auto" />
                         </div>
                     </div>
 
