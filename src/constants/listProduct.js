@@ -6,9 +6,9 @@ export const LIST_PRODUCT = [
         stock: '50 ton',
         quality: 'Grade A',
         image: [
-            '/jagung-pipil-2.jpg',
-            '/jagung-pipil-tablet-2.jpg',
-            '/jagung-pipil-3.jpg',
+            '/jagung-pipil.png',
+            '/jagung-pipil-tablet.png',
+            '/jagung-pipil-tablet-bsr.png',
         ],
         description: 'Jagung pipil kering berkualitas premium dengan kadar air optimal untuk penyimpanan jangka panjang'
     },
@@ -19,8 +19,9 @@ export const LIST_PRODUCT = [
         stock: '25 ton',
         quality: 'Organic',
         image: [
-            '/jagung-organik.jpg',
-            '/jagung-organik-tablet.jpg',
+            '/jagung-organik.png',
+            '/jagung-organik-tablet.png',
+            '/jagung-organik-tablet-bsr.png',
         ],
         description: 'Jagung organik tanpa pestisida, dibudidayakan secara alami untuk kesehatan keluarga'
     },
@@ -31,9 +32,9 @@ export const LIST_PRODUCT = [
         stock: '10 ton',
         quality: 'Super Sweet',
         image: [
-            '/jagung-manis-2.png',
-            '/jagung-manis-tablet-2.png',
-            '/jagung-manis-3.png',
+            '/jagung-manis.png',
+            '/jagung-manis-tablet.png',
+            '/jagung-manis-tablet-bsr.png',
         ],
         description: 'Jagung manis segar langsung dari kebun dengan rasa manis alami dan tekstur renyah'
     },
