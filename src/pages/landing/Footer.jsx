@@ -12,10 +12,10 @@ const Footer = () => {
             </div>
 
             <div className="container mx-auto px-6 py-16 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-12">
+                <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12 items-center mb-12">
                     <div className="lg:col-span-2">
                         <div className="flex items-center space-x-3 mb-6 lg:-ml-2 ">
-                            <img src="/logo6.png" alt="SIJUKI Logo" className="h-40 w-auto" />
+                            <img src="/logo6.png" alt="SIJUKI Logo" className="h-[80px] sm:h-[100px] md:h-40 w-auto" />
                         </div>
                     </div>
 
@@ -55,13 +55,9 @@ const Footer = () => {
                 <div className="border-t border-green-600/50 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="text-green-200 text-sm flex items-center">
-                            <span className="flex items-center">
-                                © 2025 SIJUKI. Semua hak dilindungi. Made with 
-                                <svg className="w-4 h-4 text-red-400 mx-1" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                                </svg>
-                                in Indonesia
-                            </span>
+                            <p className="flex items-center">
+                                © 2025 SIJUKI. Semua hak dilindungi. Made with in Indonesia
+                            </p>
                         </div>
                         <div className="flex space-x-6 text-sm">
                             <a href="#" className="text-green-200 hover:text-yellow-400 transition-colors duration-300 relative group">
