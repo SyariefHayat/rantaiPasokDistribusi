@@ -32,8 +32,8 @@ export const LIST_PRODUCT = [
         quality: 'Super Sweet',
         image: [
             '/jagung-manis.jpg',
-            '/jagung-manis-tablet.jpg',
             '/jagung-manis-tablet-2.png',
+            '/jagung-manis-2.png',
         ],
         description: 'Jagung manis segar langsung dari kebun dengan rasa manis alami dan tekstur renyah'
     },
