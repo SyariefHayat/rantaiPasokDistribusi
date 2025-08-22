@@ -27,7 +27,7 @@ const HeroSection = () => {
                             </div>
                         </div>
                         <div className="pt-4">
-                            <Button onClick={() => navigate("/login")} className="bg-green-500 hover:bg-green-600 transition-colors duration-200 px-6 py-6 text-base sm:text-lg font-medium cursor-pointer">
+                            <Button onClick={() => navigate("/signup")} className="bg-green-500 hover:bg-green-600 transition-colors duration-200 px-6 py-6 text-base sm:text-lg font-medium cursor-pointer">
                                 Gabung Sekarang
                             </Button>
                         </div>
