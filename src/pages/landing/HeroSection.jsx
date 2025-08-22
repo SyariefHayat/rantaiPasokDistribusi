@@ -1,7 +1,10 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+    const navigate = useNavigate();
+
     return (
         <section className="min-h-screen bg-gray-50">
             <div className="min-h-screen w-full p-4 sm:p-6 lg:p-8 flex flex-col justify-center bg-[url(/background.png)] bg-cover bg-center bg-no-repeat text-white relative overflow-hidden">
@@ -24,7 +27,7 @@ const HeroSection = () => {
                             </div>
                         </div>
                         <div className="pt-4">
-                            <Button className="bg-green-500 hover:bg-green-600 transition-colors duration-200 px-6 py-6 text-base sm:text-lg font-medium cursor-pointer">
+                            <Button onClick={() => navigate("/login")} className="bg-green-500 hover:bg-green-600 transition-colors duration-200 px-6 py-6 text-base sm:text-lg font-medium cursor-pointer">
                                 Gabung Sekarang
                             </Button>
                         </div>

@@ -1,4 +1,5 @@
 import { MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import EachUtils from '@/utils/EachUtils';
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const MarketplaceSection = () => {
+    const navigate = useNavigate();
+
     return (
         <section id="marketplace" className="w-full min-h-screen flex flex-col gap-10 px-4 sm:px-6 lg:px-8 bg-gray-50 my-10">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-8">
@@ -92,6 +95,7 @@ const MarketplaceSection = () => {
                                     <p className="text-sm leading-relaxed mb-4 opacity-90 drop-shadow-md">
                                         {item.description}
                                     </p>
+
                                     <div className="space-y-2 mb-4">
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm">Harga:</span>
@@ -108,7 +112,9 @@ const MarketplaceSection = () => {
                                             </span>
                                         </div>
                                     </div>
-                                    <Button 
+
+                                    <Button
+                                        onClick={() => navigate("/mart")}
                                         className="w-full bg-green-600 hover:bg-green-700 text-white font-medium transition-all duration-200 hover:shadow-lg cursor-pointer"
                                         size="sm"
                                     >
