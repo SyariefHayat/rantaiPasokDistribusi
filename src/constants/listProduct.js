@@ -33,6 +33,7 @@ export const LIST_PRODUCT = [
         image: [
             '/jagung-manis.jpg',
             '/jagung-manis-tablet.jpg',
+            '/jagung-manis-2.png',
         ],
         description: 'Jagung manis segar langsung dari kebun dengan rasa manis alami dan tekstur renyah'
     },
