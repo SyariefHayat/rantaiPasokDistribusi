@@ -58,7 +58,7 @@ const MarketplaceSection = () => {
                                 <h3 className="text-xl md:text-2xl font-semibold mb-2 drop-shadow-lg">
                                     {item.name}
                                 </h3>
-                                <p className="sm:w-[60%] text-sm md:text-base leading-relaxed drop-shadow-md opacity-90 mb-3">
+                                <p className="sm:w-[60%] w-[80%] text-sm md:text-base leading-relaxed drop-shadow-md opacity-90 mb-3">
                                     {item.description}
                                 </p>
                             </CardContent>
