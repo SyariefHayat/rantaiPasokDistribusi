@@ -1,6 +1,7 @@
 export const LIST_PRODUCT = [
     {
         name: 'Jagung Pipil Kering Premium',
+        url: "jagung-pipil-kering",
         location: 'Lampung',
         price: 'Rp 4.200/kg',
         stock: '50 ton',
@@ -14,6 +15,7 @@ export const LIST_PRODUCT = [
     },
     {
         name: 'Jagung Organik',
+        url: "jagung-organik",
         location: 'Yogyakarta',
         price: 'Rp 6.500/kg',
         stock: '25 ton',
@@ -27,6 +29,7 @@ export const LIST_PRODUCT = [
     },
     {
         name: 'Jagung Manis Segar',
+        url: "jagung-manis-segar",
         location: 'Jawa Tengah',
         price: 'Rp 8.500/kg',
         stock: '10 ton',
@@ -40,6 +43,7 @@ export const LIST_PRODUCT = [
     },
     {
         name: 'Jagung Pakan Ternak',
+        url: "jagung-pakan-ternak",
         location: 'Jawa Timur',
         price: 'Rp 3.800/kg',
         stock: '100 ton',
@@ -53,6 +57,7 @@ export const LIST_PRODUCT = [
     },
     {
         name: 'Jagung Hibrida Unggul',
+        url: "jagung-hibrida-unggul",
         location: 'Jawa Barat',
         price: 'Rp 5.200/kg',
         stock: '75 ton',

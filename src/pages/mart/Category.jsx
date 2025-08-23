@@ -34,6 +34,33 @@ const Category = () => {
     const lastSegment = pathParts[pathParts.length - 1];
     const formatText = lastSegment.split("-").join(" ");
 
+    const getBackgroundImage = (segment) => {
+        if (segment === "jagung-pipil-kering") {
+            return "/jagung-pipil-tablet.png";
+        } else if (segment === "jagung-organik") {
+            return "/jagung-organik-tablet.png";
+        } else if (segment === "jagung-manis-segar") {
+            return "/jagung-manis-tablet.png";
+        } else if (segment === "jagung-manis-segar") {
+            return "/jagung-manis-tablet.png";
+        } else if (segment === "jagung-pakan-ternak") {
+            return "/jagung-pakan-tablet.png";
+        } else if (segment === "jagung-hibrida-unggul") {
+            return "/jagung-hibrida-tablet.png";
+        }
+    };
+
+    const getBackgroundStyle = (segment) => {
+        const primaryImage = getBackgroundImage(segment);
+
+        return {
+            backgroundImage: `url('${primaryImage}')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+        };
+    };
+
     const [visibleCount, setVisibleCount] = useState(12);
     const [showMobileFilter, setShowMobileFilter] = useState(false);
     const [expandedSections, setExpandedSections] = useState({
@@ -142,7 +169,10 @@ const Category = () => {
     return (
         <MartLayout>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-                <div className="w-full h-[200px] sm:h-[280px] md:h-[350px] lg:h-[400px] mb-5 rounded-md bg-[url(/category.jpeg)] bg-cover bg-center flex items-center justify-center relative overflow-hidden">
+                <div 
+                    className={"w-full h-[200px] sm:h-[280px] md:h-[350px] lg:h-[400px] mb-5 rounded-md flex items-center justify-center relative overflow-hidden"}
+                    style={getBackgroundStyle(lastSegment)}
+                >
                     <div className="absolute inset-0 bg-black/30"></div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold capitalize relative z-10 text-white text-center px-4">
                         {formatText === "category" ? "Semua Kategori" : formatText}

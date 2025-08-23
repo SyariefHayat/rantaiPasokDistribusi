@@ -30,42 +30,43 @@ const MarketplaceSection = () => {
                     <EachUtils 
                         of={LIST_PRODUCT}
                         render={(item, index) => (
-                        <Card 
-                            key={index} 
-                            className="relative h-[300px] md:h-[350px] overflow-hidden cursor-pointer"
-                        >
-                            <img 
-                                src={item.image[1]} 
-                                alt={item.name}
-                                loading="lazy"
-                                className="hidden sm:block absolute inset-0 w-full h-full object-cover"
-                            />
-
-                            <img 
-                                src={item.image[2]} 
-                                alt={item.name}
-                                loading="lazy"
-                                className="sm:hidden absolute inset-0 w-full h-full object-cover"
-                            />
-                            
-                            <CardContent 
-                                className={`
-                                    p-6 h-full flex flex-col justify-end text-white relative z-10
-                                    ${index % 2 === 1 ? "items-start text-left" : "items-end text-right"}
-                                `}
+                            <Card 
+                                key={index}
+                                onClick={() => navigate(`/mart/category/${item.url}`)}
+                                className="relative h-[300px] md:h-[350px] overflow-hidden cursor-pointer"
                             >
-                                <div className="flex items-center text-xs mb-2 opacity-90">
-                                    <MapPin className="w-3 h-3 mr-1" />
-                                    {item.location}
-                                </div>
-                                <h3 className="text-xl md:text-2xl font-semibold mb-2 drop-shadow-lg">
-                                    {item.name}
-                                </h3>
-                                <p className="sm:w-[60%] w-[80%] text-sm md:text-base leading-relaxed drop-shadow-md opacity-90 mb-3">
-                                    {item.description}
-                                </p>
-                            </CardContent>
-                        </Card>
+                                <img 
+                                    src={item.image[1]} 
+                                    alt={item.name}
+                                    loading="lazy"
+                                    className="hidden sm:block absolute inset-0 w-full h-full object-cover"
+                                />
+
+                                <img 
+                                    src={item.image[2]} 
+                                    alt={item.name}
+                                    loading="lazy"
+                                    className="sm:hidden absolute inset-0 w-full h-full object-cover"
+                                />
+                                
+                                <CardContent 
+                                    className={`
+                                        p-6 h-full flex flex-col justify-end text-white relative z-10
+                                        ${index % 2 === 1 ? "items-start text-left" : "items-end text-right"}
+                                    `}
+                                >
+                                    <div className="flex items-center text-xs mb-2 opacity-90">
+                                        <MapPin className="w-3 h-3 mr-1" />
+                                        {item.location}
+                                    </div>
+                                    <h3 className="text-xl md:text-2xl font-semibold mb-2 drop-shadow-lg">
+                                        {item.name}
+                                    </h3>
+                                    <p className="sm:w-[60%] w-[80%] text-sm md:text-base leading-relaxed drop-shadow-md opacity-90 mb-3">
+                                        {item.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
                         )}
                     />
                 </div>
@@ -114,7 +115,7 @@ const MarketplaceSection = () => {
                                     </div>
 
                                     <Button
-                                        onClick={() => navigate("/mart")}
+                                        onClick={() => navigate(`/mart/category/${item.url}`)}
                                         className="w-full bg-green-600 hover:bg-green-700 text-white font-medium transition-all duration-200 hover:shadow-lg cursor-pointer"
                                         size="sm"
                                     >
@@ -131,7 +132,7 @@ const MarketplaceSection = () => {
             <div className="text-center">
                 <Button 
                     variant="outline" 
-                    size="lg" 
+                    size="lg"
                     className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white transition-all duration-300 px-8 py-3 font-medium cursor-pointer"
                 >
                     Lihat Semua Produk Jagung

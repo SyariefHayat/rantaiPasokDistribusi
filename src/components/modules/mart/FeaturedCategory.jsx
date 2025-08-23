@@ -28,7 +28,7 @@ const FeaturedCategory = () => {
                 </Link>
             </div>
 
-            <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+            <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
                 <EachUtils
                     of={LIST_FEATURED_CATEGORY}
                     render={(item, index) => (
