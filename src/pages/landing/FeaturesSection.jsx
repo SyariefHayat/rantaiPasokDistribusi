@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import EachUtils from '@/utils/EachUtils';
 
@@ -8,6 +9,7 @@ const FeaturesSection = () => {
 
     const features = [
         {
+            id: 1,
             icon: (
                 <img src="/production.png" /> 
             ),
@@ -15,6 +17,7 @@ const FeaturesSection = () => {
             description: "Pantau fasilitas dan stok jagung dengan sistem terintegrasi"
         },
         {
+            id: 2,
             icon: (
                 <img src="/price.png" /> 
             ),
@@ -22,6 +25,7 @@ const FeaturesSection = () => {
             description: "Lihat harga jagung sektor swasta terkini dan akurat"
         },
         {
+            id: 3,
             icon: (
                 <img src="/logistik.png" />
             ),
@@ -29,6 +33,7 @@ const FeaturesSection = () => {
             description: "Alur pengiriman jagung dengan solusi terintegrasi"
         },
         {
+            id: 4,
             icon: (
                 <img src="/data.png" />
             ),
@@ -50,28 +55,28 @@ const FeaturesSection = () => {
                     <EachUtils 
                         of={features}
                         render={(item, index) => (
-                            <div key={index} className="group cursor-pointer" onClick={() => navigate("about-us")}>
-                                <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
-                                    <div className="mb-6 flex justify-center">
-                                        <div className="w-36 h-36 p-2 rounded-2xl flex items-center justify-center duration-300">
-                                            {item.icon}
-                                        </div>
-                                    </div>
+                            <HashLink smooth to={`/about-us#${item.id}`}>
+  <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center cursor-pointer">
+    <div className="mb-6 flex justify-center">
+      <div className="w-36 h-36 p-2 rounded-2xl flex items-center justify-center duration-300">
+        {item.icon}
+      </div>
+    </div>
 
-                                    <div className="space-y-4">
-                                        <h3 className="text-xl font-bold text-gray-900">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            {item.description}
-                                        </p>
-                                    </div>
+    <div className="space-y-4">
+      <h3 className="text-xl font-bold text-gray-900">
+        {item.title}
+      </h3>
+      <p className="text-gray-600 leading-relaxed">
+        {item.description}
+      </p>
+    </div>
 
-                                    <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <div className="w-12 h-1 bg-green-600 rounded-full mx-auto"></div>
-                                    </div>
-                                </div>
-                            </div>
+    <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="w-12 h-1 bg-green-600 rounded-full mx-auto"></div>
+    </div>
+  </div>
+</HashLink>
                         )}
                     />
                 </div>
